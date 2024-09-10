@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Managers/ScreenManager.cs" id="1_o4uwr"]
 
-
 [node name="ScreenManager" type="Node2D"]
 script = ExtResource("1_o4uwr")
 

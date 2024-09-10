@@ -1,4 +1,5 @@
 ﻿using Godot;
+using Premonition.Nodes.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Premonition.Managers
 		/// </summary>
 		/// <param name="scenePath">Absolute path to a PackedScene.</param>
 		/// <returns>An instantiated Node object with all the scene's objects as children of it.</returns>
-		public static Node InstantiatePathAsScene(this string scenePath)
+		public static Node? InstantiatePathAsScene(this string scenePath)
 		{
 			try
 			{
@@ -30,8 +31,8 @@ namespace Premonition.Managers
 			catch (Exception e)
 			{
 				$"Exception caught at: {e.TargetSite}\n \t{e.Message}\n \t{e.StackTrace}\n".ToConsoleAsException();
+				return null;
 			}
-			return null;
 		}
 
 		/// <summary>
@@ -204,9 +205,5 @@ namespace Premonition.Managers
 
 
 	}
-
-    internal partial class Scenario : Node3D
-    {
-    }
 
 }

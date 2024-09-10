@@ -1,6 +1,7 @@
 ﻿using Godot;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,21 +15,22 @@ namespace Premonition.Managers
 	{
 		// Note: Deferred calles are done through a pair of public and private methods. 
 		// Deferred methods have the same name as the public methods, with the "Deferred" suffix.
-
+		[Required]
 		private GameDirector Director { get => this.GetGameDirector(); }
 		/// <summary>
 		/// Current main game Scene loaded on Screen3D.
 		/// </summary>
-		public Node CurrentScene { get; set; }
+		public Node? CurrentScene { get; set; }
 
 		/// <summary>
 		/// Current Player holding the Camera.
 		/// </summary>
-		public CharacterBody3D CurrentCharacter { get; set; }
+		public CharacterBody3D? CurrentCharacter { get; set; }
 
 		/// <summary>
 		/// Reference to the ScreenManager. Any calls to Screens are made through this.
 		/// </summary>
+		[Required]
 		public ScreenManager ScreenManager;
 
 		public override void _Ready()

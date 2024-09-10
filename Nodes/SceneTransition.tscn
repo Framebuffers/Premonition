@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://67jtyvqjuimy"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_yks2d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7l7fc"]
+albedo_color = Color(0.0627451, 1, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ru3gy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mk68w"]
+
+[node name="Transition" type="Area3D"]
+collision_layer = 2
+collision_mask = 6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_yks2d")
+surface_material_override/0 = SubResource("StandardMaterial3D_7l7fc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ru3gy")
+
+[node name="BodyDetector" type="Area3D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BodyDetector"]
+shape = SubResource("BoxShape3D_mk68w")
+
+[connection signal="body_entered" from="BodyDetector" to="." method="OnBodyEntered"]

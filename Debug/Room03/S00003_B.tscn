@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxd0s6d8rcmup"]
+
+[ext_resource type="ArrayMesh" uid="uid://b71pjxju3vlas" path="res://Debug/Room03/Resources_Env_RoomTest_03.obj" id="1_sabgg"]
+
+[node name="ResourcesEnvRoomTest03" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 0.1, -1.65)
+visible = false
+mesh = ExtResource("1_sabgg")

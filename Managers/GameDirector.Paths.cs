@@ -12,7 +12,8 @@ namespace Premonition.Managers
 		// [Paths]
 		// ----------------------------------------------------------------
 		// Bootstrap Scene
-		public const string BootstrapScene = "res://Scenarios/Debug/TestRooms/Room03/S00003.tscn";
+
+		public const string BootstrapScene = "res://Debug/Room03/S00003.tscn";
 
 		// ----------------------------------------------------------------
 		// Managers

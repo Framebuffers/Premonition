@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://wmf2eu0uuhrg"]
+
+[ext_resource type="Script" path="res://addons/third-person-camera/third_person_camera/ThirdPersonCamera.gd" id="1_telmq"]
+[ext_resource type="Environment" uid="uid://2m2ctdx1u4xg" path="res://Environments/GenericEnvironment.tres" id="2_iiuxm"]
+[ext_resource type="Script" path="res://addons/third-person-camera/third_person_camera/CameraShake.gd" id="2_y3uk4"]
+[ext_resource type="Shader" path="res://addons/PSX/psx_camera/psx_camera_shader.gdshader" id="3_ripvy"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_84uqy"]
+margin = 1.135
+slide_on_slope = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bjii"]
+albedo_color = Color(0.8, 0.686275, 0.215686, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ag7lb"]
+material = SubResource("StandardMaterial3D_2bjii")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ybkhn"]
+top_radius = 0.0
+height = 0.938
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ou2ga"]
+render_priority = -1
+shader = ExtResource("3_ripvy")
+shader_parameter/enable_fog = true
+shader_parameter/fog_color = null
+shader_parameter/noise_color = null
+shader_parameter/fog_distance = 100.0
+shader_parameter/fog_fade_range = 50.0
+shader_parameter/enable_noise = true
+shader_parameter/noise_time_fac = 4.0
+shader_parameter/enable_color_limitation = true
+shader_parameter/color_levels = 32
+shader_parameter/enable_dithering = true
+shader_parameter/dither_strength = 0.3
+
+[sub_resource type="QuadMesh" id="QuadMesh_lp8jg"]
+material = SubResource("ShaderMaterial_ou2ga")
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="ThirdPersonCamera" type="Node3D"]
+script = ExtResource("1_telmq")
+distance_from_pivot = 5.0
+camera_horizontal_rotation_deg = 0.0
+tilt_sensitiveness = 1.0
+horizontal_rotation_sensitiveness = 1.0
+camera_speed = 1.0
+current = true
+spring_arm_collision_mask = 0
+keep_aspect = 0
+environment = ExtResource("2_iiuxm")
+FOV = 90.0
+
+[node name="RotationPivot" type="Node3D" parent="."]
+transform = Transform3D(0.999609, 0.0196849, -0.0197122, 0, 0.707516, 0.706511, 0.0278616, -0.706249, 0.707229, 0, 0, 0)
+top_level = true
+
+[node name="OffsetPivot" type="Node3D" parent="RotationPivot"]
+transform = Transform3D(1.00104, -2.38046e-06, -4.7639e-05, 2.60845e-05, 1.00256, 0.00273201, 5.97592e-05, 0.00119877, 1.00284, 0, 0, 0)
+
+[node name="CameraSpringArm" type="SpringArm3D" parent="RotationPivot/OffsetPivot"]
+process_priority = 11
+collision_mask = 0
+shape = SubResource("SeparationRayShape3D_84uqy")
+spring_length = 5.0
+
+[node name="CameraMarker" type="Marker3D" parent="RotationPivot/OffsetPivot/CameraSpringArm"]
+transform = Transform3D(0.997909, 2.20221e-05, 0.00016639, 0.000181286, 0.999856, 5.94258e-05, 0.000401407, -0.00021109, 1.00016, 0.0986407, -0.0126197, 4.98557)
+
+[node name="PivotDebug" type="MeshInstance3D" parent="RotationPivot/OffsetPivot"]
+mesh = SubResource("SphereMesh_ag7lb")
+
+[node name="CameraShaker" type="Node3D" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("2_y3uk4")
+camera = NodePath("../Camera")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, -1.49012e-09, 1.49012e-09, 0, 0.707107, 0.707107, -2.10734e-09, -0.707107, 0.707107, 7.45058e-09, 3.53553, 3.53553)
+top_level = true
+keep_aspect = 0
+environment = ExtResource("2_iiuxm")
+current = true
+fov = 90.0
+
+[node name="CameraDebug" type="MeshInstance3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ybkhn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera"]
+transform = Transform3D(1, -2.32934e-21, 0, 0, 1, 0, 0, 0, 1, 0.055, 0.011, -1)
+material_override = SubResource("ShaderMaterial_ou2ga")
+transparency = 0.15
+cast_shadow = 0
+gi_mode = 2
+mesh = SubResource("QuadMesh_lp8jg")
