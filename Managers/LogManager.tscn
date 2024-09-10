@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://5btr8tsad2"]
+
+[ext_resource type="Script" path="res://Managers/LogManager.cs" id="1_ybumf"]
+
+[node name="LogManager" type="Node"]
+script = ExtResource("1_ybumf")
