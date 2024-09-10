@@ -1,4 +1,5 @@
 ﻿using Godot;
+using Premonition.Camera.Debug;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,8 @@ namespace Premonition.Managers
 		public SubViewport Screen3D => GetNode<SubViewport>(GameDirector.Screen3DPath);
 		public Node3D PlayersOnScreen => GetNode<Node3D>(GameDirector.PlayersPath);
 		public SubViewportContainer SubViewportContainer => GetNode<SubViewportContainer>(GameDirector.ScreenContainerPath);
+		public Control UserInterface => GetNode<Control>(GameDirector.UserInterfacePath);
+		public DebugPanel DebugPanel => GetNode<DebugPanel>(GameDirector.DebugPanelPath);
 		public Window MainWindow => GetWindow();
 
 		public override void _Ready()
@@ -35,8 +38,22 @@ namespace Premonition.Managers
 			GetTree().Root.ContentScaleStretch = Window.ContentScaleStretchEnum.Integer;
 			GetTree().Root.GetViewport().Scaling3DScale = 1.0f;
 			SubViewportContainer.Size = new Vector2(GetTree().Root.GetWindow().Size.X, GetTree().Root.GetWindow().Size.Y);
-			SubViewportContainer.Stretch = true;
+			SubViewportContainer.Stretch = false;
+			SetViewportSizes();
 			Director.SceneManager.LoadScene(path: GameDirector.BootstrapScene);
+		}
+
+		private void SetViewportSizes()
+		{
+			if (Screen2D != null && Screen3D != null)
+			{
+				Vector2I size = new((int)SubViewportContainer.GetViewportRect().Size.X, 
+									(int)SubViewportContainer.GetViewportRect().Size.Y);
+				Screen2D.Size = size;
+				Screen3D.Size = size;
+			}
+			$"Screen2D = {Screen2D.Size.X} x {Screen2D.Size.Y}".ToConsole();
+			$"Screen3D = {Screen3D.Size.X} x {Screen3D.Size.Y}".ToConsole();
 		}
 
 #pragma warning disable CA1822 // Mark members as static

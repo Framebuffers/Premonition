@@ -1,51 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://qtnc7wk545k1"]
+[gd_scene load_steps=2 format=3 uid="uid://qtnc7wk545k1"]
 
 [ext_resource type="Script" path="res://Debug/Warrior/Warrior.cs" id="1_rwk4c"]
-[ext_resource type="Texture2D" uid="uid://6n1a7h35642i" path="res://Debug/Warrior/warrior_64x128_left_2x.png" id="2_5lgwn"]
-[ext_resource type="PackedScene" uid="uid://wmf2eu0uuhrg" path="res://addons/third-person-camera/third_person_camera/ThirdPersonCamera.tscn" id="3_sbpdp"]
-[ext_resource type="Texture2D" uid="uid://btmveq2hhcvv2" path="res://Debug/Warrior/warrior_64x128_right.png" id="3_yebb8"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bgmbp"]
-radius = 0.102
-height = 0.5
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_tbfh1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_5lgwn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_yebb8")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="Warrior" type="CharacterBody3D"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
 collision_mask = 14
 script = ExtResource("1_rwk4c")
-Speed = 2
-FallAcceleration = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.707101, 0, -0.707101, 0, 1, 0, 0.707101, 0, 0.707101, -0.0719551, 0.216523, 0.0103057)
-shape = SubResource("CapsuleShape3D_bgmbp")
-
-[node name="Pivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.945324, 0)
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Pivot"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.00227722, 0, 0.0232588)
-layers = 2
-cast_shadow = 2
-shaded = true
-alpha_cut = 1
-texture_filter = 0
-render_priority = 1
-sprite_frames = SubResource("SpriteFrames_tbfh1")
-frame_progress = 0.615983
-
-[node name="ThirdPersonCamera" parent="." instance=ExtResource("3_sbpdp")]

@@ -31,13 +31,11 @@ namespace Premonition.Managers
 		/// Reference to the ScreenManager. Any calls to Screens are made through this.
 		/// </summary>
 		[Required]
-		public ScreenManager ScreenManager;
+		public ScreenManager ScreenManager => Director.ScreenManager;
 
 		public override void _Ready()
 		{
 			$"Loaded at: {GetPath()}".ToConsole();
-			ScreenManager = Director.ScreenManager;
-			CurrentScene = ScreenManager.Screen3D; // Loads an empty screen just to not let the property empty
 		}
 
 		// ****************************************************************
@@ -55,13 +53,13 @@ namespace Premonition.Managers
 
 		private void LoadPlayerDeferred(string characterPath)
 		{
-			ScreenManager.AddPlayerToScreen3D(characterPath, out CharacterBody3D c);
+			ScreenManager.AddPlayer(characterPath, out CharacterBody3D c);
 			CurrentCharacter = c;
 		}
 
 		private void LoadPlayerNodeDeferred(Node characterNode)
 		{
-			ScreenManager.AddPlayerToScreen3D(characterNode, out CharacterBody3D c);
+			ScreenManager.AddPlayer(characterNode, out CharacterBody3D c);
 			CurrentCharacter = c;
 		}
 
@@ -96,22 +94,22 @@ namespace Premonition.Managers
 		private void LoadSceneDeferred(string path)
 		{
 			$"Instantiating new scene from string path: {path}.".ToConsole();
-			if (Director.ScreenManager.ScenarioOnScreen3D()) ScreenManager.RemoveCurrentSceneFromScreen3D(this);
-			ScreenManager.AddSceneToScreen3D(this, path.InstantiatePathAsScene());
+			if (Director.ScreenManager.IsAnyScenarioLoaded() && Director.ScreenManager.Screen3D != null) ScreenManager.RemoveCurrentScene(this);
+			ScreenManager.AddAsCurrentScene(this, path.InstantiatePathAsScene(), out _);
 		}
 
 		private void LoadSubSceneDeferred(Node scene)
 		{
 			$"Instantiating new scene from Node object: {scene.GetPath()}.".ToConsole();
-			if (Director.ScreenManager.ScenarioOnScreen3D()) ScreenManager.RemoveCurrentSceneFromScreen3D(this);
-			ScreenManager.AddSceneToScreen3D(this, scene);
+			if (Director.ScreenManager.IsAnyScenarioLoaded()) ScreenManager.RemoveCurrentScene(this);
+			ScreenManager.AddAsCurrentScene(this, scene, out _);
 		}
 
 
 		private void UnloadSubSceneDeferred(Node node)
 		{
 			$"Unloading child scene {node.Name}...".ToConsole();
-			ScreenManager.RemoveSceneFromScreen3D(node);
+			ScreenManager.RemoveFromScreen3D(node);
 		}
 	}
 }

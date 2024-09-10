@@ -28,4 +28,35 @@ namespace Premonition.Managers
 	{
 		public static GameDirector GetGameDirector(this Node n) => n.GetNode<GameDirector>("/root/GameDirector");
 	}
+
+	public sealed partial class GameDirector : Node
+	{
+		// [Paths]
+		// ----------------------------------------------------------------
+		// Bootstrap Scene
+
+		public const string BootstrapScene = "res://Scenarios/LivingRoom/LivingRoomFloor.tscn";
+
+		// ----------------------------------------------------------------
+		// Managers
+		public const string GameDirectorPath = "/root/GameDirector";
+		public const string SceneManagerPath = "/root/GameDirector/SceneManager";
+		public const string ScreenManagerPath = "/root/GameDirector/ScreenManager";
+		public const string LogManagerPath = "/root/GameDirector/LogManager";
+
+		// ----------------------------------------------------------------
+		// Viewports
+		public const string ScreenContainerPath = "/root/GameDirector/ScreenManager/ScreenContainer";
+		public const string Screen2DPath = "/root/GameDirector/ScreenManager/ScreenContainer/Screen2D";
+		public const string Screen3DPath = "/root/GameDirector/ScreenManager/ScreenContainer/Screen3D";
+
+		// ----------------------------------------------------------------
+		// Players
+		public const string PlayersPath = "/root/GameDirector/ScreenManager/ScreenContainer/Screen3D/Players";
+		
+		// ----------------------------------------------------------------
+		// UI
+		public const string UserInterfacePath = "/root/GameDirector/ScreenManager/UserInterface";
+		public const string DebugPanelPath = "/root/GameDirector/ScreenManager/UserInterface/DebugPanel";
+	}
 }

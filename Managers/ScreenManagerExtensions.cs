@@ -35,63 +35,62 @@ namespace Premonition.Managers
 			}
 		}
 
-		/// <summary>
-		/// Instantiates a scene to Screen3D by it's path string.
-		/// </summary>
-		public static void AddSceneToScreen3D(this ScreenManager screenManager, string pathToScene) => screenManager.Screen3D.AddChild(pathToScene.InstantiatePathAsScene());
+		public static void InstantiatePathAsScene<T>(this string scenePath, out T instance) where T : Node
+		{
+			try
+			{
+				Node? n = GD.Load<PackedScene>(scenePath).Instantiate();
+				instance = n as T ?? throw new ArgumentException(null, nameof(scenePath));
+			}
+			catch (Exception e)
+			{
+				$"Exception caught at: {e.TargetSite}\n \t{e.Message}\n \t{e.StackTrace}\n".ToConsoleAsException();
+				instance = default!;
+			}
+		}
 
-		public static void AddSceneToScreen3D(this ScreenManager screenManager, SceneManager scnMan, Node n)
+        /// <summary>
+        /// Instantiates a scene to Screen3D by it's path string.
+        /// </summary>
+        public static void AddToScreen3D(this ScreenManager screenManager, string pathToScene)
+        {
+            screenManager.Screen3D.AddChild(pathToScene.InstantiatePathAsScene());
+        }
+
+		public static void AddToScreen3D(this ScreenManager screenManager, string pathToScene, out Node n)
+        {
+			var node = pathToScene.InstantiatePathAsScene();
+            screenManager.Screen3D.AddChild(node);
+			n = node;
+        }
+
+        public static void AddAsCurrentScene(this ScreenManager screenManager, SceneManager scnMan, Node n, out Node currentScene)
 		{
 			screenManager.Screen3D.AddChild(n);
 			scnMan.CurrentScene = n;
-		}
-
-		public static void AddSceneToScreen3D<T>(this ScreenManager screenManager, T n) where T : Node
-		{
-			screenManager.AddToScreen3D(n);
+			currentScene = n;
 		}
 
 		/// <summary>
 		/// Instantiates a scene to the top of Screen3D by it's path string.
 		/// </summary>
-		public static void AddSceneToTopOfScreen3D(this ScreenManager screenManager, string pathToScene)
-		{
-			var scene = pathToScene.InstantiatePathAsScene();
-			screenManager.AddNodeToScreen3D(scene);
-			screenManager.Screen3D.MoveChild(scene, 0);
-		}
-
-		/// <summary>
-		/// Instantiates a scene to the top of Screen3D by it's path string. Returns the object created as out parameter.
-		/// </summary>
 		public static void AddSceneToTopOfScreen3D(this ScreenManager screenManager, string pathToScene, out Node topNode)
 		{
 			var scene = pathToScene.InstantiatePathAsScene();
 			screenManager.AddToScreen3D(scene);
+			screenManager.Screen3D.MoveChild(scene, 0);
 			topNode = scene;
 		}
 
-		/// <summary>
-		/// Adds a node to the top of Screen3D.
-		/// </summary>
-		public static void AddNodeToScreen3D(this ScreenManager screenManager, Node n)
-		{
-			screenManager.AddToScreen3D(n);
-			screenManager.Screen3D.MoveChild(n, 0);
-		}
 
-		/// <summary>
-		/// Adds a Node to Screen3D. Any object deriving from Godot.Node can be added.
-		/// </summary>
-		public static void AddToScreen3D<T>(this ScreenManager screenManager, T n) where T : Node => screenManager.Screen3D.AddChild(n);
+        /// <summary>
+        /// Adds a Node to Screen3D. Any object deriving from Godot.Node can be added.
+        /// </summary>
+        public static void AddToScreen3D<T>(this ScreenManager screenManager, T n) where T : Node
+        {
+            screenManager.Screen3D.AddChild(n);
+        }
 
-		public static void AddSceneToScreen3D(this ScreenManager screenManager, string nodePath, out Node sceneAdded)
-		{
-			$"Loading scene...".ToConsole();
-			var scene = nodePath.InstantiatePathAsScene();
-			screenManager.AddToScreen3D(scene);
-			sceneAdded = scene;
-		}
 
 		public static void LoadScene(this ScreenManager screenManager, SceneManager scnMan, string scenePath)
 		{
@@ -118,13 +117,13 @@ namespace Premonition.Managers
 		/// <param name="screenManager">ScreenManager containing the Screen3D SubViewport.</param>
 		/// <param name="playerScenePath">Path to a PackedScene with a CharacterBody3D as root node.</param>
 		/// <param name="addedPlayer">Instance of the Player added to the screen.</param>
-		public static void AddPlayerToScreen3D(this ScreenManager screenManager, string playerScenePath, out CharacterBody3D addedPlayer)
+		public static void AddPlayer(this ScreenManager screenManager, string playerScenePath, out CharacterBody3D addedPlayer)
 		{
 			Node players = screenManager.PlayersOnScreen;
 			CharacterBody3D? character = playerScenePath.InstantiatePathAsScene() as CharacterBody3D;
 
 			// Is there anything on the Player node?
-			switch (screenManager.PlayersOnScreen3D())
+			switch (screenManager.AreAnyPlayersLoaded())
 			{
 				// Skip loading and poss the instance to to addedPlayer.
 				case true:
@@ -140,13 +139,13 @@ namespace Premonition.Managers
 			}
 		}
 
-		public static void AddPlayerToScreen3D(this ScreenManager screenManager, Node playerScene, out CharacterBody3D addedPlayer)
+		public static void AddPlayer(this ScreenManager screenManager, Node playerScene, out CharacterBody3D addedPlayer)
 		{
 			Node players = screenManager.PlayersOnScreen;
 			CharacterBody3D character = playerScene as CharacterBody3D;
 
 			// Is there anything on the Player node?
-			switch (screenManager.PlayersOnScreen3D())
+			switch (screenManager.AreAnyPlayersLoaded())
 			{
 				// Skip loading and poss the instance to to addedPlayer.
 				case true:
@@ -162,7 +161,7 @@ namespace Premonition.Managers
 			}
 		}
 
-		public static void RemoveCurrentSceneFromScreen3D(this ScreenManager screenManager, SceneManager scnMan)
+		public static void RemoveCurrentScene(this ScreenManager screenManager, SceneManager scnMan)
 		{
 			$"\nRemoving scene from screen...".ToConsole();
 			if (scnMan.CurrentScene is not null)
@@ -173,19 +172,18 @@ namespace Premonition.Managers
 			}
 		}
 
-		public static void RemoveSceneFromScreen3D(this ScreenManager screenManager, Node sceneToRemove)
+		public static void RemoveFromScreen3D(this ScreenManager screenManager, Node nodeToRemove)
 		{
 			$"\nRemoving scene from screen...".ToConsole();
-			screenManager.Screen3D.RemoveChild(sceneToRemove);
+			screenManager.Screen3D.RemoveChild(nodeToRemove);
 		}
-
 
 		/// <summary>
 		/// Checks if there's any player currently on the screen.
 		/// </summary>
 		/// <param name="screenManager"></param>
 		/// <returns>True if any CharacterBody3D is loaded. False if no CharacterBody3D is loaded, regardless if any other object is loaded.</returns>
-		public static bool PlayersOnScreen3D(this ScreenManager screenManager) => screenManager.PlayersOnScreen.GetChildren().OfType<CharacterBody3D>().Any();
+		public static bool AreAnyPlayersLoaded(this ScreenManager screenManager) => screenManager.PlayersOnScreen.GetChildren().OfType<CharacterBody3D>().Any();
 
 		/// <summary>
 		/// Checks if there's a particular character on the screen.
@@ -193,17 +191,14 @@ namespace Premonition.Managers
 		/// <param name="screenManager"></param>
 		/// <param name="player">Player to check for.</param>
 		/// <returns>True if it's already loaded, false if not.</returns>
-		public static bool PlayerOnScreen3D(this ScreenManager screenManager, CharacterBody3D player) => screenManager.PlayersOnScreen.GetChildren().Contains(player);
+		public static bool IsPlayerLoaded(this ScreenManager screenManager, CharacterBody3D player) => screenManager.PlayersOnScreen.GetChildren().Contains(player);
 
 		/// <summary>
 		/// Checks if there's any Scenario loaded on the screen. Checks for any object deriving from TwoTribes.Scenes.Abstractions.Scenario, a Node3D with provisions for containing game scenarios.
 		/// </summary>
 		/// <param name="screenManager"></param>
 		/// <returns>True if any Scenario is loaded on the screen, false if not.</returns>
-		public static bool ScenarioOnScreen3D(this ScreenManager screenManager) => screenManager.Screen3D.GetChildren().OfType<Scenario>().Any();
-
-
-
+		public static bool IsAnyScenarioLoaded(this ScreenManager screenManager) => screenManager.Screen3D.GetChildren().OfType<Scenario>().Any();
 	}
 
 }

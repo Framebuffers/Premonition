@@ -42,33 +42,31 @@ flip_faces = true
 size = Vector2(2, 2)
 
 [node name="ThirdPersonCamera" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_telmq")
-distance_from_pivot = 5.0
+distance_from_pivot = 0.0
+initial_dive_angle_deg = 4.615
 camera_horizontal_rotation_deg = 0.0
-tilt_sensitiveness = 1.0
-horizontal_rotation_sensitiveness = 1.0
-camera_speed = 1.0
 current = true
-spring_arm_collision_mask = 0
+mouse_follow = true
 keep_aspect = 0
 environment = ExtResource("2_iiuxm")
-FOV = 90.0
+FOV = 70.0
 
 [node name="RotationPivot" type="Node3D" parent="."]
-transform = Transform3D(0.999609, 0.0196849, -0.0197122, 0, 0.707516, 0.706511, 0.0278616, -0.706249, 0.707229, 0, 0, 0)
+transform = Transform3D(0.199362, -0.0787362, -0.976587, 0, 0.996602, -0.0803485, 0.979921, 0.0160187, 0.198684, 0, 0, 0)
 top_level = true
 
 [node name="OffsetPivot" type="Node3D" parent="RotationPivot"]
-transform = Transform3D(1.00104, -2.38046e-06, -4.7639e-05, 2.60845e-05, 1.00256, 0.00273201, 5.97592e-05, 0.00119877, 1.00284, 0, 0, 0)
+transform = Transform3D(1.00141, 1.13659e-05, 0.000151128, 2.74908e-05, 1.00398, 0.00307301, 9.22382e-06, 0.00176821, 1.00442, 0, 0, 0)
 
 [node name="CameraSpringArm" type="SpringArm3D" parent="RotationPivot/OffsetPivot"]
 process_priority = 11
-collision_mask = 0
 shape = SubResource("SeparationRayShape3D_84uqy")
-spring_length = 5.0
+spring_length = 0.0
 
 [node name="CameraMarker" type="Marker3D" parent="RotationPivot/OffsetPivot/CameraSpringArm"]
-transform = Transform3D(0.997909, 2.20221e-05, 0.00016639, 0.000181286, 0.999856, 5.94258e-05, 0.000401407, -0.00021109, 1.00016, 0.0986407, -0.0126197, 4.98557)
+transform = Transform3D(0.997766, 1.87512e-05, 0.000145465, 0.000192069, 0.999939, -1.73834e-05, 0.000418037, -0.000266923, 1.00031, 0, 0, 0)
 
 [node name="PivotDebug" type="MeshInstance3D" parent="RotationPivot/OffsetPivot"]
 mesh = SubResource("SphereMesh_ag7lb")
@@ -78,12 +76,12 @@ script = ExtResource("2_y3uk4")
 camera = NodePath("../Camera")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, -1.49012e-09, 1.49012e-09, 0, 0.707107, 0.707107, -2.10734e-09, -0.707107, 0.707107, 7.45058e-09, 3.53553, 3.53553)
+transform = Transform3D(0.707107, 0.0568937, 0.704814, 0, 0.996758, -0.0804599, -0.707107, 0.0568937, 0.704814, 5.60519e-45, 5.60519e-45, 5.60519e-45)
 top_level = true
 keep_aspect = 0
 environment = ExtResource("2_iiuxm")
 current = true
-fov = 90.0
+fov = 70.0
 
 [node name="CameraDebug" type="MeshInstance3D" parent="Camera"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)

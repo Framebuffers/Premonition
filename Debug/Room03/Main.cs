@@ -11,7 +11,7 @@ namespace Premonition.Debug.Room03
 		private IThreshold BathroomThreshold;
 		protected override void LoadResources()
 		{
-			Players.Add(PlayerPaths.Placeholder.InstantiatePathAsScene());
+			Players.Add("res://addons/fpc/character.tscn".InstantiatePathAsScene());
 			BathroomThreshold = new Threshold(GetNode<MeshInstance3D>("S00003_A"));
 		}
 
