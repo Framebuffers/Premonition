@@ -47,21 +47,5 @@ render_target_update_mode = 4
 
 [node name="Players" type="Node3D" parent="ScreenContainer/Screen3D"]
 
-[node name="Lighting" type="Node3D" parent="ScreenContainer"]
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="ScreenContainer/Lighting"]
-transform = Transform3D(-0.963327, -0.189739, 0.189739, -1.5408e-08, 0.707107, 0.707107, -0.268331, 0.681175, -0.681175, 23.8722, 226.044, -718.883)
-light_color = Color(0.952979, 0.633115, 0.535763, 1)
-light_energy = 1.26
-light_indirect_energy = 2.882
-light_angular_distance = 73.85
-light_bake_mode = 1
-shadow_enabled = true
-shadow_bias = 0.0
-shadow_normal_bias = 5.492
-shadow_reverse_cull_face = true
-shadow_blur = 6.641
-sky_mode = 1
-
 [connection signal="child_entered_tree" from="." to="." method="OnSceneLoaded"]
 [connection signal="child_entered_tree" from="ScreenContainer/Screen3D/Players" to="." method="OnNewPlayerLoaded"]

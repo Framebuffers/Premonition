@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3686m5fq5rm"]
+[gd_scene load_steps=8 format=3 uid="uid://d3686m5fq5rm"]
 
 [ext_resource type="ArrayMesh" uid="uid://px24tcn7com7" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/010_Kitchen_L1.obj" id="1_74pxh"]
 [ext_resource type="ArrayMesh" uid="uid://jmtkfo0jxoqh" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/010_Kitchen_L2.obj" id="2_vlj8b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kduoe"]
+size = Vector3(5.09674, 3.49316, 0.284668)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rqooy"]
+size = Vector3(4.26514, 3.45984, 0.273438)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4f8yk"]
+size = Vector3(0.859863, 0.374878, 0.329651)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ikmi"]
+size = Vector3(5.10211, 0.320068, 5.54834)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hgyn4"]
+size = Vector3(5.09326, 1.03552, 4.17609)
 
 [node name="Kitchen" type="Node3D"]
 
@@ -11,3 +26,32 @@ mesh = ExtResource("1_74pxh")
 [node name="010KitchenL2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
 mesh = ExtResource("2_vlj8b")
+
+[node name="Walls" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49472, 1.24658, -0.0754395)
+shape = SubResource("BoxShape3D_kduoe")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08618, 1.22992, -3.91069)
+shape = SubResource("BoxShape3D_rqooy")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6017, 2.83362, -3.90094)
+shape = SubResource("BoxShape3D_4f8yk")
+
+[node name="Roof" type="StaticBody3D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Roof"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49301, 3.07167, -2.27417)
+shape = SubResource("BoxShape3D_2ikmi")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46997, 0.0177612, -2.02512)
+shape = SubResource("BoxShape3D_hgyn4")

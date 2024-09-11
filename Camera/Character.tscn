@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://cc1m2a1obsyn4"]
+[gd_scene load_steps=24 format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" path="res://Camera/Character.cs" id="1_rpajt"]
-[ext_resource type="Environment" uid="uid://2m2ctdx1u4xg" path="res://Environments/GenericEnvironment.tres" id="2_ihui8"]
 [ext_resource type="Shader" path="res://addons/PSX/psx_camera/psx_camera_shader.gdshader" id="2_n6d4a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
@@ -148,20 +147,43 @@ _data = {
 "crouch": SubResource("Animation_5ec5e")
 }
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_camti"]
+sky_top_color = Color(0.94902, 0.682353, 0.447059, 1)
+sky_horizon_color = Color(0.418835, 0.249267, 0.0777767, 1)
+sky_energy_multiplier = 21.26
+sky_cover_modulate = Color(0.685835, 0.685835, 0.685835, 1)
+ground_curve = 0.40786
+ground_energy_multiplier = 18.07
+energy_multiplier = 52.4
+
+[sub_resource type="Sky" id="Sky_2y7o3"]
+sky_material = SubResource("ProceduralSkyMaterial_camti")
+
+[sub_resource type="Environment" id="Environment_fr3nm"]
+background_mode = 2
+sky = SubResource("Sky_2y7o3")
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.2331
+volumetric_fog_emission_energy = 520.21
+volumetric_fog_anisotropy = 0.0
+volumetric_fog_length = 381.29
+volumetric_fog_detail_spread = 3.0
+volumetric_fog_sky_affect = 0.197
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y4qu6"]
 render_priority = -1
 shader = ExtResource("2_n6d4a")
 shader_parameter/enable_fog = true
 shader_parameter/fog_color = Color(0.941176, 0.831373, 0.635294, 1)
 shader_parameter/noise_color = Color(0.288627, 0.271554, 0.261308, 1)
-shader_parameter/fog_distance = 220.0
-shader_parameter/fog_fade_range = 250.0
+shader_parameter/fog_distance = 250.0
+shader_parameter/fog_fade_range = 270.0
 shader_parameter/enable_noise = true
 shader_parameter/noise_time_fac = 6.748
 shader_parameter/enable_color_limitation = true
 shader_parameter/color_levels = 64
 shader_parameter/enable_dithering = true
-shader_parameter/dither_strength = 0.198
+shader_parameter/dither_strength = 0.286
 
 [sub_resource type="QuadMesh" id="QuadMesh_tbiar"]
 material = SubResource("ShaderMaterial_y4qu6")
@@ -427,7 +449,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Camera" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 0.999391, -0.0348995, 0, 0.0348995, 0.999391, 0, 0, 0)
-environment = ExtResource("2_ihui8")
+environment = SubResource("Environment_fr3nm")
 current = true
 fov = 37.8493
 

@@ -1,13 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://d00akloya0gq"]
+[gd_scene load_steps=4 format=3 uid="uid://d00akloya0gq"]
 
 [ext_resource type="ArrayMesh" uid="uid://b2ie6ygknx8as" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/004_Playroom_L2.obj" id="1_uq6ue"]
 [ext_resource type="ArrayMesh" uid="uid://dd1rwg4kl2mqw" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/004_Playroom_L3.obj" id="2_aw3hj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jpije"]
+size = Vector3(3.30225, 3.06274, 5.30493)
 
 [node name="PlayroomL3" type="Node3D"]
 
 [node name="004PlayroomL2" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_uq6ue")
 
-[node name="004PlayroomL3" type="MeshInstance3D" parent="004PlayroomL2"]
+[node name="004PlayroomL3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, 0)
 mesh = ExtResource("2_aw3hj")
+skeleton = NodePath("../004PlayroomL2")
+
+[node name="Walls" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59009, 1.48279, -2.1156)
+shape = SubResource("BoxShape3D_jpije")
