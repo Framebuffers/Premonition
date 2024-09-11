@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnwgeuw8hogf7"]
+
+[ext_resource type="ArrayMesh" uid="uid://crgwc6nhl4j3k" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/012_Toilet002_L2.obj" id="1_6hmnc"]
+[ext_resource type="ArrayMesh" uid="uid://d0t527is776gg" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/012_Toilet002_L1.obj" id="2_7pb3e"]
+
+[node name="Toilet002l1l2" type="Node3D"]
+
+[node name="012Toilet002L2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
+mesh = ExtResource("1_6hmnc")
+
+[node name="012Toilet002L1" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_7pb3e")
+skeleton = NodePath("../012Toilet002L2")

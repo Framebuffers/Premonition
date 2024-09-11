@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkepwpwgw34h7"]
+
+[ext_resource type="ArrayMesh" uid="uid://di7twtrxmhyjw" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/006_Staircase_L1-L2.obj" id="1_m57kf"]
+
+[node name="Staircase" type="Node3D"]
+
+[node name="006StaircaseL1-l2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_m57kf")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgki506yxca53"]
+
+[ext_resource type="ArrayMesh" uid="uid://ci00yiiwxj2f3" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/007_Office_L1.obj" id="1_11iv8"]
+
+[node name="OfficeL1" type="Node3D"]
+
+[node name="007OfficeL1" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_11iv8")

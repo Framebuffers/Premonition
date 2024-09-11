@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bg153873ixv72"]
+
+[ext_resource type="Script" path="res://Scenarios/LivingRoom/Main.cs" id="1_ae1cc"]
+[ext_resource type="PackedScene" uid="uid://cg75tms1dkm3r" path="res://Objects/Piano.tscn" id="3_o4ms2"]
+[ext_resource type="PackedScene" uid="uid://b5pt4htpmipk6" path="res://Scenarios/001/LivingRoomL1.tscn" id="4_yu1b1"]
+[ext_resource type="PackedScene" uid="uid://co0a8fmrv8d50" path="res://Scenarios/002/LivingRoomL2.tscn" id="5_jc4cf"]
+[ext_resource type="ArrayMesh" uid="uid://bsovhlcwsrm5l" path="res://Meshes/Originals/Assets/Plant_pot1.obj" id="6_u73ad"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_18jyv"]
+size = Vector3(1.00888, 1.1463, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2vbo"]
+size = Vector3(5.45117, 0.0834351, 10.3623)
+
+[node name="LivingRoomFloor" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -1, 2)
+script = ExtResource("1_ae1cc")
+
+[node name="Piano" parent="." instance=ExtResource("3_o4ms2")]
+transform = Transform3D(0.573576, 0, 0.819152, 0, 1, 0, -0.819152, 0, 0.573576, 2.28325, 1, -2.38458)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.598066, -3.4)
+collision_layer = 16
+
+[node name="PlantPot1" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42301, 1.09144, -0.34549)
+mesh = ExtResource("6_u73ad")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74265, 1.67571, -0.432414)
+shape = SubResource("BoxShape3D_18jyv")
+
+[node name="LivingRoomL1" parent="." instance=ExtResource("4_yu1b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 4.8)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LivingRoomL1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LivingRoomL1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.226, 3, -5.007)
+shape = SubResource("BoxShape3D_t2vbo")
+
+[node name="LivingRoomL2" parent="." instance=ExtResource("5_jc4cf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 2.8, 4.8)

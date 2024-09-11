@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmhlbh1024egc"]
+
+[ext_resource type="ArrayMesh" uid="uid://dwildf66cs8ip" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/011_Storage_L1.obj" id="1_p8w4e"]
+[ext_resource type="ArrayMesh" uid="uid://uaoh02217ufx" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/011_Storage_L2.obj" id="2_r7mvn"]
+
+[node name="StorageL1l2" type="Node3D"]
+
+[node name="011StorageL1" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_p8w4e")
+
+[node name="011StorageL2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
+mesh = ExtResource("2_r7mvn")

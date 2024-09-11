@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cef13si4682hg"]
+
+[ext_resource type="ArrayMesh" uid="uid://baa05k5c76iw" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/003_Playroom_L1.obj" id="1_c5mys"]
+
+[node name="PlayroomL1" type="Node3D"]
+
+[node name="003PlayroomL1" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_c5mys")

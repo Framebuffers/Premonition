@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3686m5fq5rm"]
+
+[ext_resource type="ArrayMesh" uid="uid://px24tcn7com7" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/010_Kitchen_L1.obj" id="1_74pxh"]
+[ext_resource type="ArrayMesh" uid="uid://jmtkfo0jxoqh" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/010_Kitchen_L2.obj" id="2_vlj8b"]
+
+[node name="Kitchen" type="Node3D"]
+
+[node name="010KitchenL1" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_74pxh")
+
+[node name="010KitchenL2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
+mesh = ExtResource("2_vlj8b")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://f0awbiil86ug"]
+
+[ext_resource type="ArrayMesh" uid="uid://igsmut6ioabg" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/014_BalconyHallway_L2.obj" id="1_0gy2r"]
+[ext_resource type="ArrayMesh" uid="uid://gasjuffrw1e2" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/014_BalconyHallway_L3.obj" id="2_ntdl0"]
+
+[node name="BalconyHallwayL2l3" type="Node3D"]
+
+[node name="014BalconyHallwayL2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = ExtResource("1_0gy2r")
+
+[node name="014BalconyHallwayL3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = ExtResource("2_ntdl0")
+skeleton = NodePath("../014BalconyHallwayL2")

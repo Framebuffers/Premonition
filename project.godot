@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/initial_position_type=3
 window/size/always_on_top=true
 window/stretch/mode="viewport"
@@ -90,11 +90,18 @@ pause={
 
 [layer_names]
 
+3d_render/layer_1="Player"
+3d_render/layer_2="Background"
+3d_render/layer_3="Objects"
+3d_render/layer_4="Lighting"
 3d_physics/layer_1="player"
 3d_physics/layer_2="walls"
 3d_physics/layer_3="floor"
 3d_physics/layer_4="transitions"
+3d_physics/layer_5="Objects"
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 scaling_3d/mode=3

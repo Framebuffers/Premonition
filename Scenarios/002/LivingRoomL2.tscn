@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://co0a8fmrv8d50"]
+
+[ext_resource type="ArrayMesh" uid="uid://bmuq3ps1478hx" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/002_LivingRoom_L2.obj" id="1_fkr8m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j787e"]
+size = Vector3(6.1192, 2.98346, 11.2112)
+
+[node name="LivingRoomL2" type="Node3D"]
+
+[node name="002LivingRoomL2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_fkr8m")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.44931, 1.44589, -5.02112)
+shape = SubResource("BoxShape3D_j787e")
