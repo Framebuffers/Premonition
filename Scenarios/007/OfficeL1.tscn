@@ -18,6 +18,7 @@ size = Vector3(2.80615, 3.4751, 0.264099)
 size = Vector3(3.0459, 1.01123, 3.58679)
 
 [node name="OfficeL1" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
 
 [node name="007OfficeL1" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_11iv8")

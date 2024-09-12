@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw5fh3xov0t70"]
+
+[ext_resource type="PackedScene" uid="uid://d3686m5fq5rm" path="res://Scenarios/010/KitchenL1L2.tscn" id="2_g5ayv"]
+[ext_resource type="PackedScene" uid="uid://deoojw464v7ql" path="res://Scenarios/013/DiningRoomL1L2.tscn" id="3_hdxmd"]
+[ext_resource type="PackedScene" uid="uid://dnwgeuw8hogf7" path="res://Scenarios/012/Toilet002L1L2.tscn" id="4_xefw1"]
+[ext_resource type="PackedScene" uid="uid://bmhlbh1024egc" path="res://Scenarios/011/StorageL1L2.tscn" id="5_jm613"]
+
+[node name="Level1WingB" type="Node3D"]
+
+[node name="Kitchen" parent="." instance=ExtResource("2_g5ayv")]
+transform = Transform3D(-1, 0, 0, 0, 1, -8.74228e-08, 0, 8.74228e-08, 1, -5.4, 0, 2.285)
+
+[node name="DiningRoomL1l2" parent="." instance=ExtResource("3_hdxmd")]
+transform = Transform3D(1, -8.74228e-08, -1.50996e-07, 8.74228e-08, 1, 8.74228e-08, 1.50996e-07, -8.74228e-08, 1, -12.3264, 0, -1.71488)
+
+[node name="Toilet002l1l2" parent="." instance=ExtResource("4_xefw1")]
+transform = Transform3D(-1, 8.74228e-08, -1.50996e-07, 8.74228e-08, 1, 0, -1.50996e-07, 1.32005e-14, 1, -10.3764, 0, 0.28512)
+
+[node name="StorageL1l2" parent="." instance=ExtResource("5_jm613")]
+transform = Transform3D(-1, -8.74228e-08, -1.50996e-07, -8.74228e-08, 1, 0, -1.50996e-07, -1.32005e-14, 1, -10.3694, 0, 2.28512)

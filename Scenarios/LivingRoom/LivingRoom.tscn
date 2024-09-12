@@ -13,7 +13,7 @@ size = Vector3(1.00888, 1.1463, 1)
 size = Vector3(5.45117, 0.0834351, 10.3623)
 
 [node name="LivingRoomFloor" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -1, 2)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 2)
 script = ExtResource("1_ae1cc")
 
 [node name="Piano" parent="." instance=ExtResource("3_o4ms2")]
@@ -42,26 +42,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.226, 3, -5.007)
 shape = SubResource("BoxShape3D_t2vbo")
 
 [node name="LivingRoomL2" parent="." instance=ExtResource("5_jc4cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 2.8, 4.8)
-
-[node name="Node3D" type="Node3D" parent="."]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D"]
-transform = Transform3D(0.0288951, -0.998022, 0.0558254, 0.309862, 0.0620409, 0.948755, -0.950342, -0.0101162, 0.311042, 2.73856, 14.2752, 11.0941)
-light_color = Color(0.98422, 0.865074, 0.766932, 1)
-light_energy = 9.315
-light_indirect_energy = 7.767
-light_volumetric_fog_energy = 0.3
-shadow_enabled = true
-shadow_bias = 0.0
-shadow_normal_bias = 10.0
-shadow_transmittance_bias = 3.742
-shadow_blur = 6.811
-directional_shadow_mode = 0
-directional_shadow_split_1 = 1.0
-directional_shadow_split_2 = 0.365
-directional_shadow_split_3 = 0.635
-directional_shadow_blend_splits = true
-directional_shadow_fade_start = 0.057
-directional_shadow_max_distance = 16.1
-directional_shadow_pancake_size = 623.5
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0.4, 2.95, -5.2)

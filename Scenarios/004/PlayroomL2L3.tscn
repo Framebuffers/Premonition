@@ -12,7 +12,7 @@ size = Vector3(3.30225, 3.06274, 5.30493)
 mesh = ExtResource("1_uq6ue")
 
 [node name="004PlayroomL3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 2.7, 0.5)
 mesh = ExtResource("2_aw3hj")
 skeleton = NodePath("../004PlayroomL2")
 

@@ -23,10 +23,6 @@ size = Vector3(5.09326, 1.03552, 4.17609)
 [node name="010KitchenL1" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_74pxh")
 
-[node name="010KitchenL2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
-mesh = ExtResource("2_vlj8b")
-
 [node name="Walls" type="StaticBody3D" parent="."]
 collision_layer = 2
 
@@ -43,7 +39,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6017, 2.83362, -3.90094)
 shape = SubResource("BoxShape3D_4f8yk")
 
 [node name="Roof" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, -4)
 collision_layer = 4
+
+[node name="010KitchenL2" type="MeshInstance3D" parent="Roof"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
+mesh = ExtResource("2_vlj8b")
+skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Roof"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49301, 3.07167, -2.27417)

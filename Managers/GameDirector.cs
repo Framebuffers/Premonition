@@ -35,7 +35,7 @@ namespace Premonition.Managers
 		// ----------------------------------------------------------------
 		// Bootstrap Scene
 
-		public const string BootstrapScene = "res://Scenarios/LivingRoom/LivingRoom.tscn";
+		public const string BootstrapScene = "res://Scenarios/Environment.tscn";
 
 		// ----------------------------------------------------------------
 		// Managers

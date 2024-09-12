@@ -24,11 +24,6 @@ size = Vector3(6.13974, 0.355957, 4.07739)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7, 0, 0)
 mesh = ExtResource("1_1yvgp")
 
-[node name="013DiningRoomL2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2.95, 0)
-mesh = ExtResource("2_61flt")
-skeleton = NodePath("../013DiningRoomL1")
-
 [node name="Walls" type="StaticBody3D" parent="."]
 collision_layer = 2
 
@@ -52,6 +47,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95493, 0.0136719, -1.77374)
 shape = SubResource("BoxShape3D_5v0fp")
 
 [node name="Roof" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 0, -3.5)
+
+[node name="013DiningRoomL2" type="MeshInstance3D" parent="Roof"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 2.95, 0)
+mesh = ExtResource("2_61flt")
+skeleton = NodePath("../../013DiningRoomL1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Roof"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99803, 3.0771, -1.5387)
