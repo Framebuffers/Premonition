@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b44x44fny3d2x"]
+
+[ext_resource type="ArrayMesh" uid="uid://1bsoim1fo5fh" path="res://Meshes/Assets_R3/OBJ/Bathroom_Sink.obj" id="1_4r042"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_81fbw"]
+size = Vector3(0.763672, 1.66394, 1)
+
+[node name="BathroomSink" type="StaticBody3D"]
+collision_layer = 16
+
+[node name="BathroomSink" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.259896, 0.0396729, -6.41098)
+mesh = ExtResource("1_4r042")
+skeleton = NodePath("../../Shower")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118164, 0.33197, -6.8902)
+shape = SubResource("BoxShape3D_81fbw")

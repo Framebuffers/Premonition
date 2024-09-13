@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://exui6h8h5ajd"]
+
+[ext_resource type="PackedScene" uid="uid://cf0kohw16mx1c" path="res://Objects/Toilet2.tscn" id="1_rh7xx"]
+[ext_resource type="PackedScene" uid="uid://cyta804qvtxfn" path="res://Objects/BathroomSink2.tscn" id="2_jfai6"]
+
+[node name="Toilet_2" type="Node3D"]
+
+[node name="Toilet2" parent="." instance=ExtResource("1_rh7xx")]
+
+[node name="BathroomSink2" parent="." instance=ExtResource("2_jfai6")]

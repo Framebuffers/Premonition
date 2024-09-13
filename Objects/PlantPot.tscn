@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://nrewi5rtgiu8"]
+
+[ext_resource type="ArrayMesh" uid="uid://bsovhlcwsrm5l" path="res://Meshes/Originals/Assets/Plant_pot1.obj" id="1_3f46x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_18jyv"]
+size = Vector3(1.00888, 1.1463, 1)
+
+[node name="PlantPot" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.598066, -3.4)
+collision_layer = 16
+
+[node name="PlantPot1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42301, 1.09144, -0.34549)
+mesh = ExtResource("1_3f46x")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74265, 1.67571, -0.432414)
+shape = SubResource("BoxShape3D_18jyv")

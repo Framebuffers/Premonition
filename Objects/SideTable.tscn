@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8a3xooh2unnp"]
+
+[ext_resource type="ArrayMesh" uid="uid://b5gut270bdmfh" path="res://Meshes/Assets_R3/OBJ/NightTable_2.obj" id="1_orium"]
+[ext_resource type="PackedScene" uid="uid://nrewi5rtgiu8" path="res://Objects/PlantPot.tscn" id="2_y0otd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gu0c0"]
+size = Vector3(0.706177, 0.734833, 0.645508)
+
+[node name="SideTable" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.553406, 0, -0.832912, 0, 1, 0, 0.832912, 0, 0.553406, -11.1306, 0.307907, -9.17775)
+shape = SubResource("BoxShape3D_gu0c0")
+
+[node name="NightTable2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.553406, 0, -0.832912, 0, 1, 0, 0.832912, 0, 0.553406, -11.5316, 0.0396729, -9.28164)
+mesh = ExtResource("1_orium")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="PlantPot" parent="." instance=ExtResource("2_y0otd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7681, -0.542036, -8.56711)

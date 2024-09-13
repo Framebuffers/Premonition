@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy7qxafj12ve0"]
+
+[ext_resource type="ArrayMesh" uid="uid://dec6al1ocrgn1" path="res://Meshes/Assets_R3/OBJ/Table.obj" id="1_2g5s5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wnhel"]
+size = Vector3(1.92029, 0.833954, 1.0874)
+
+[node name="Table_2" type="StaticBody3D"]
+collision_layer = 16
+
+[node name="Table" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -3.59715, 0.0396729, -3.67513)
+mesh = ExtResource("1_2g5s5")
+skeleton = NodePath("../../Toilet")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54409, 0.556747, -4.11079)
+shape = SubResource("BoxShape3D_wnhel")

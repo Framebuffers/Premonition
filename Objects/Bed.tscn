@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhngcg3uu5011"]
+
+[ext_resource type="ArrayMesh" uid="uid://cc73umqn5tnhp" path="res://Meshes/Assets_R3/OBJ/Bed.obj" id="1_70pbm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gg0im"]
+size = Vector3(1.67566, 1.11469, 1.16998)
+
+[node name="Bed" type="StaticBody3D"]
+
+[node name="Bed" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3663, 0.0396729, -5.68949)
+mesh = ExtResource("1_70pbm")
+skeleton = NodePath("../../Md")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1108, 0.594574, -6.24634)
+shape = SubResource("BoxShape3D_gg0im")

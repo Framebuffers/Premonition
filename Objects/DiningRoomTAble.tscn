@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://drgpw5rrk6ops"]
+
+[ext_resource type="ArrayMesh" uid="uid://dec6al1ocrgn1" path="res://Meshes/Assets_R3/OBJ/Table.obj" id="1_mph2d"]
+[ext_resource type="ArrayMesh" uid="uid://dtg8n5f2iipmc" path="res://Meshes/Assets_R3/OBJ/Kitchen_Chair.obj" id="2_6781u"]
+
+[node name="Table" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.873544, 0.039673, -1.38217)
+mesh = ExtResource("1_mph2d")
+skeleton = NodePath("../../KitchenTv")
+
+[node name="KitchenChair" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.754727, 0.5, -1.05106)
+mesh = ExtResource("2_6781u")
+
+[node name="KitchenChair2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12194, 0.5, -1.05106)
+mesh = ExtResource("2_6781u")
+
+[node name="KitchenChair3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.754727, 0.5, 0.580758)
+mesh = ExtResource("2_6781u")
+
+[node name="KitchenChair4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12194, 0.5, 0.580758)
+mesh = ExtResource("2_6781u")

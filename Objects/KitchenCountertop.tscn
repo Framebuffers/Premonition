@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://2h5ux0k5gmw4"]
+
+[ext_resource type="ArrayMesh" uid="uid://mqg88db1kw61" path="res://Meshes/Assets_R3/OBJ/Kitchen_Countertop.obj" id="1_8mbj8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uw0sr"]
+size = Vector3(4.03522, 1.25061, 1)
+
+[node name="KitchenCountertop" type="StaticBody3D"]
+collision_layer = 16
+
+[node name="KitchenCountertop" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.99308, 0.039673, -6.48556)
+mesh = ExtResource("1_8mbj8")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00055, 0.125305, -7.08102)
+shape = SubResource("BoxShape3D_uw0sr")

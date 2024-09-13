@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr0qx731go2me"]
+
+[ext_resource type="ArrayMesh" uid="uid://iv81rlfyu677" path="res://Meshes/Assets_R3/OBJ/Sofa_80x180.obj" id="1_ye8ed"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ylyc"]
+size = Vector3(0.829102, 1.34229, 1.89038)
+
+[node name="Sofa" type="StaticBody3D"]
+collision_layer = 16
+
+[node name="Sofa80x180" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7639, 0.039673, -6.79057)
+mesh = ExtResource("1_ye8ed")
+skeleton = NodePath("../../PlantPot")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2821, 0.171143, -7.69579)
+shape = SubResource("BoxShape3D_3ylyc")

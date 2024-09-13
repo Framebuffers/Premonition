@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" path="res://Camera/Character.cs" id="1_rpajt"]
-[ext_resource type="Environment" uid="uid://2m2ctdx1u4xg" path="res://Environments/GenericEnvironment.tres" id="2_ihui8"]
+[ext_resource type="Environment" uid="uid://ba6ow6vhe2box" path="res://Environments/TT_Env.tres" id="2_kl5vs"]
 [ext_resource type="Shader" path="res://addons/PSX/psx_camera/psx_camera_shader.gdshader" id="2_n6d4a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
@@ -436,7 +436,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Camera" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 0.999391, -0.0348995, 0, 0.0348995, 0.999391, 0, 0, 0)
-environment = ExtResource("2_ihui8")
+environment = ExtResource("2_kl5vs")
 current = true
 fov = 37.8493
 

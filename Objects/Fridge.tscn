@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce6sv52ql3l3a"]
+
+[ext_resource type="ArrayMesh" uid="uid://qmqvxreu3qju" path="res://Meshes/Assets_R3/OBJ/Fridge.obj" id="1_47fow"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m85ps"]
+size = Vector3(1.01895, 2.38531, 0.716064)
+
+[node name="Fridge" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0195169)
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46823, 0.692657, -6.96686)
+shape = SubResource("BoxShape3D_m85ps")
+
+[node name="Fridge" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97158, 0.0396729, -6.61579)
+mesh = ExtResource("1_47fow")
+skeleton = NodePath("../CollisionShape3D")

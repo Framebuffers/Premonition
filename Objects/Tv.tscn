@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddyomi11i6rfg"]
+
+[ext_resource type="ArrayMesh" uid="uid://dm48wrar4bbho" path="res://Meshes/Assets_R3/OBJ/TV.obj" id="1_fafo6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tc1ru"]
+size = Vector3(0.501953, 2.21106, 1.82764)
+
+[node name="TV" type="StaticBody3D"]
+
+[node name="Tv" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0186, 0.0396729, -5.533)
+mesh = ExtResource("1_fafo6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7849, 0.60553, -6.42619)
+shape = SubResource("BoxShape3D_tc1ru")
