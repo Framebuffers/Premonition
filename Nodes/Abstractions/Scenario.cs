@@ -6,7 +6,8 @@ namespace Premonition.Nodes.Abstractions
 {
     public abstract partial class Scenario : Node3D
     {
-        private GameDirector Director { get => this.GetGameDirector(); }
+        protected GameDirector Director { get => this.GetGameDirector(); }
+  
         // Players must be unique so no duplicate cameras are instantiated.
         public HashSet<Node> Players { get; set; } = new HashSet<Node>();
         public override void _Ready()

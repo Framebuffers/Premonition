@@ -24,7 +24,6 @@ script = ExtResource("1_5fxa6")
 
 [node name="L2+l3" type="MeshInstance3D" parent="Meshes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -0.5, 0)
-visible = false
 layers = 2
 extra_cull_margin = 16.85
 ignore_occlusion_culling = true

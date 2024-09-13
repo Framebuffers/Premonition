@@ -162,10 +162,10 @@ namespace Premonition.Camera
 		{
 			currentSpeed = Vector3.Zero.DistanceTo(GetRealVelocity());
 
-			_director.ScreenManager.DebugPanel.AddProperty("Speed", $"{currentSpeed:0.000}", 1);
-			_director.ScreenManager.DebugPanel.AddProperty("Target Speed", $"{speed}", 2);
+			// _director.ScreenManager.DebugPanel.AddProperty("Speed", $"{currentSpeed:0.000}", 1);
+			// _director.ScreenManager.DebugPanel.AddProperty("Target Speed", $"{speed}", 2);
 			Vector3 cv = GetRealVelocity();
-			_director.ScreenManager.DebugPanel.AddProperty("Velocity", $"X: {cv.X:0.000} Y: {cv.Y:0.000} X: {cv.X:0.000}", 3);
+			// _director.ScreenManager.DebugPanel.AddProperty("Velocity", $"X: {cv.X:0.000} Y: {cv.Y:0.000} X: {cv.X:0.000}", 3);
 
 			// Gravity
 			//  If the gravity changes during your game, uncomment this code
@@ -379,8 +379,8 @@ namespace Premonition.Camera
 
 		public override void _Process(double delta)
 		{
-			_director.ScreenManager.DebugPanel.AddProperty("FPS", $"{Performance.GetMonitor(Performance.Monitor.TimeFps)}", 0);
-			_director.ScreenManager.DebugPanel.AddProperty("state", $"{state}" + (!IsOnFloor() ? " in the air" : ""), 4);
+			// _director.ScreenManager.DebugPanel.AddProperty("FPS", $"{Performance.GetMonitor(Performance.Monitor.TimeFps)}", 0);
+			// _director.ScreenManager.DebugPanel.AddProperty("state", $"{state}" + (!IsOnFloor() ? " in the air" : ""), 4);
 			if (Input.IsActionJustPressed(PAUSE))
 			{
 				Input.MouseMode = (Input.MouseMode == Input.MouseModeEnum.Captured) ? Input.MouseModeEnum.Visible : Input.MouseModeEnum.Captured;

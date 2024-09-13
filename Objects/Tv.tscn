@@ -6,6 +6,7 @@
 size = Vector3(0.501953, 2.21106, 1.82764)
 
 [node name="TV" type="StaticBody3D"]
+collision_layer = 16
 
 [node name="Tv" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0186, 0.0396729, -5.533)

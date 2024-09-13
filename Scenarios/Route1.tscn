@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://bacuj12bks5gh"]
+[gd_scene load_steps=22 format=3 uid="uid://bacuj12bks5gh"]
 
+[ext_resource type="Script" path="res://Scenarios/RouteA/RouteA.cs" id="1_02f5h"]
 [ext_resource type="PackedScene" uid="uid://cqv5rul7eaad7" path="res://Scenarios/Environment.tscn" id="1_gxnv4"]
 [ext_resource type="ArrayMesh" uid="uid://d11rs1seuc8oq" path="res://Meshes/Assets_R3/OBJ/PictureFrame_2.obj" id="1_mspwo"]
 [ext_resource type="PackedScene" uid="uid://5i8ibmsrn81s" path="res://Objects/Dining_room_table.tscn" id="2_gkdxx"]
@@ -22,9 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://xbdjn2vkjcrg" path="res://Objects/Box.tscn" id="20_cd2wf"]
 
 [node name="Route1" type="Node3D"]
+script = ExtResource("1_02f5h")
 
 [node name="PictureFrame2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0929962, 0, 0.995666, 0, 1, 0, -0.995666, 0, -0.0929962, -7.18983, 1.2352, -3.91347)
+transform = Transform3D(0.640594, -0.21254, -0.73788, -0.000229448, 0.960878, -0.276972, 0.76788, 0.177596, 0.615484, -10.7644, 0.885437, -2.19354)
 mesh = ExtResource("1_mspwo")
 skeleton = NodePath("../TV")
 
@@ -96,6 +98,5 @@ mesh = ExtResource("18_ubr5h")
 
 [node name="Box" parent="." instance=ExtResource("20_cd2wf")]
 
-[editable path="Environment"]
 [editable path="Sofa"]
 [editable path="Sofa2"]

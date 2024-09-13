@@ -13,6 +13,8 @@ namespace Premonition.Managers
 	/// </summary>
 	public sealed partial class SceneManager : Node
 	{
+		public uint CurrentStoryline { get; set; }
+
 		// Note: Deferred calles are done through a pair of public and private methods. 
 		// Deferred methods have the same name as the public methods, with the "Deferred" suffix.
 		[Required]
@@ -36,6 +38,39 @@ namespace Premonition.Managers
 		public override void _Ready()
 		{
 			$"Loaded at: {GetPath()}".ToConsole();
+			CurrentStoryline = GD.Randi() % 5;
+			$"Path number: {CurrentStoryline}".ToConsole();
+		}
+
+		public void LoadRandomizedScenePath()
+		{
+			switch (CurrentStoryline)
+			{
+				case 0:
+					LoadSceneDeferred("res://Scenarios/Route0.tscn");
+					$"Case 0, loading route 0".ToConsole();
+					break;
+				case 1:
+					LoadSceneDeferred("res://Scenarios/Route1.tscn");
+					$"Case 1, loading route 1".ToConsole();
+					break;
+				case 2:
+					LoadSceneDeferred("res://Scenarios/Route2.tscn");
+					$"Case 2, loading route 2".ToConsole();
+					break;
+				case 3:
+					LoadSceneDeferred("res://Scenarios/Route3.tscn");
+					$"Case 3, loading route 3".ToConsole();
+					break;
+				case 4:
+					LoadSceneDeferred("res://Scenarios/Route4.tscn");
+					$"Case 4, loading route 4".ToConsole();
+					break;
+				default:
+					LoadSceneDeferred("res://Scenarios/Route0.tscn");
+					$"Case default".ToConsole();
+					break;
+			}
 		}
 
 		// ****************************************************************

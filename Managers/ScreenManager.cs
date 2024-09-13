@@ -40,7 +40,7 @@ namespace Premonition.Managers
 			SubViewportContainer.Size = new Vector2(GetTree().Root.GetWindow().Size.X, GetTree().Root.GetWindow().Size.Y);
 			SubViewportContainer.Stretch = false;
 			SetViewportSizes();
-			Director.SceneManager.LoadScene(path: GameDirector.BootstrapScene);
+			Director.SceneManager.LoadRandomizedScenePath();
 		}
 
 		private void SetViewportSizes()

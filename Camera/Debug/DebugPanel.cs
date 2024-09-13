@@ -5,11 +5,10 @@ namespace Premonition.Camera.Debug
 {
 	public partial class DebugPanel : PanelContainer
 	{
-		VBoxContainer boxContainer;
+		public VBoxContainer BoxContainer { get => GetNode<VBoxContainer>("MarginContainer/VBoxContainer"); }
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
-			boxContainer = GetNode<VBoxContainer>("MarginContainer/VBoxContainer");
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,13 +18,13 @@ namespace Premonition.Camera.Debug
 
 		public void AddProperty(String title, String value, int order)
 		{
-			if (boxContainer.GetType() == typeof(VBoxContainer))
+			if (BoxContainer.GetType() == typeof(VBoxContainer))
 			{
-				Node target = boxContainer.FindChild(title, true, false);
+				Node target = BoxContainer.FindChild(title, true, false);
 				if (target == null)
 				{
 					Label label = new Label();
-					boxContainer.AddChild(label);
+					BoxContainer.AddChild(label);
 					label.Name = title;
 					label.Text = $"{title}: {value}";
 				}
@@ -33,7 +32,18 @@ namespace Premonition.Camera.Debug
 				{
 					Label label = (Label)target;
 					label.Text = $"{title}: {value}";
-					boxContainer.MoveChild(target, order);
+					BoxContainer.MoveChild(target, order);
+				}
+			}
+		}
+
+		public void RemoveProperties()
+		{
+			if (BoxContainer.GetType() == typeof(VBoxContainer))
+			{
+				foreach (var children in BoxContainer.GetChildren())
+				{
+					children.Free();
 				}
 			}
 		}
