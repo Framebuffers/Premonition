@@ -9,7 +9,7 @@ namespace Premonition.Managers
         // add as path
         public static void AddToScreen2D(this ScreenManager screenManager, string pathToScene, out Node reference)
         {
-            Node? node = pathToScene.InstantiatePathAsScene();
+            Node node = pathToScene.InstantiatePathAsScene();
             screenManager.Screen2D.AddChild(node);
             reference = node;
         }
@@ -51,7 +51,7 @@ namespace Premonition.Managers
             screenManager.Screen2D.RemoveChild(n);
         }
         public static List<Node> GetUIElementsOnScreen(this ScreenManager screenManager) => screenManager.UserInterface.GetChildren().ToList();
-        public static Node? GetUIElement(this ScreenManager screenManager, Node n)
+        public static Node GetUIElement(this ScreenManager screenManager, Node n)
         {
             return screenManager.GetUIElementsOnScreen().Where(child => child == n).FirstOrDefault() ?? null;
         }

@@ -10,13 +10,13 @@ namespace Premonition.Camera
         private readonly float reticleSpeed = 0.5f;
         private readonly float reticleSpread = 4.0f;
 
-        private readonly int dotSize = 1;
+        //private readonly int dotSize = 1;
         private Color dotColor = Colors.White;
 
         private Color lineColor = Colors.White;
         private readonly int lineWidth = 2;
-        private readonly int lineLength = 10;
-        private readonly int lineDistance = 5;
+        //private readonly int lineLength = 10;
+        //private readonly int lineDistance = 5;
         private readonly int capMode = 0;
 
         public override void _Process(double delta)

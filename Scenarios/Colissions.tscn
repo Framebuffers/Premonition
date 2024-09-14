@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cve1c3qak208p"]
+[gd_scene load_steps=41 format=3 uid="uid://cve1c3qak208p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_miffu"]
 size = Vector3(4.67676, 0.302299, 3.85376)
@@ -74,6 +74,9 @@ size = Vector3(0.274414, 2.99609, 1.73074)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l8ogv"]
 size = Vector3(0.419922, 3.01514, 3.52954)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_geakp"]
+size = Vector3(0.336967, 2.90533, 3.979)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ra6fe"]
 size = Vector3(0.260956, 5.68274, 4.01001)
@@ -230,6 +233,10 @@ shape = SubResource("BoxShape3D_txhuu")
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="LivingRoomWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.15837, 1.00757, -8.20804)
 shape = SubResource("BoxShape3D_l8ogv")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="LivingRoomWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4149, 0.952667, -1.59014)
+shape = SubResource("BoxShape3D_geakp")
 
 [node name="L2Walls" type="StaticBody3D" parent="."]
 collision_layer = 2

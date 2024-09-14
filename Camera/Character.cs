@@ -12,7 +12,7 @@ namespace Premonition.Camera
         private readonly float baseSpeed = 3.0f;
         private readonly float sprintSpeed = 6.0f;
         private readonly float crouchSpeed = 1.0f;
-        private readonly float acceleration = 10.0f;
+        private readonly float acceleration = 3.0f;
         private readonly float jumpVelocity = 4.5f;
         private readonly float mouseSensitivity = 0.005f;
         private readonly bool immobile = false;
@@ -24,7 +24,7 @@ namespace Premonition.Camera
 
         private Node3D HEAD => GetNode<Node3D>("Head");
 
-        private Camera3D CAMERA => GetNode<Camera3D>("Head");
+        private Camera3D CAMERA => GetNode<Camera3D>("Head/Camera");
 
         private AnimationPlayer HEADBOB_ANIMATION => GetNode<AnimationPlayer>("Head/HeadbobAnimation");
 

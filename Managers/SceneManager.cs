@@ -17,12 +17,12 @@ namespace Premonition.Managers
         /// <summary>
         /// Current main game Scene loaded on Screen3D.
         /// </summary>
-        public Node? CurrentScene { get; set; }
+        public Node CurrentScene { get; set; }
 
         /// <summary>
         /// Current Player holding the Camera.
         /// </summary>
-        public CharacterBody3D? CurrentCharacter { get; set; }
+        public CharacterBody3D CurrentCharacter { get; set; }
 
         /// <summary>
         /// Reference to the ScreenManager. Any calls to Screens are made through this.

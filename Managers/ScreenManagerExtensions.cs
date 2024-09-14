@@ -19,7 +19,7 @@ namespace Premonition.Managers
         /// </summary>
         /// <param name="scenePath">Absolute path to a PackedScene.</param>
         /// <returns>An instantiated Node object with all the scene's objects as children of it.</returns>
-        public static Node? InstantiatePathAsScene(this string scenePath)
+        public static Node InstantiatePathAsScene(this string scenePath)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace Premonition.Managers
         {
             try
             {
-                Node? n = GD.Load<PackedScene>(scenePath).Instantiate();
+                Node n = GD.Load<PackedScene>(scenePath).Instantiate();
                 instance = n as T ?? throw new ArgumentException(null, nameof(scenePath));
             }
             catch (Exception e)
@@ -117,7 +117,7 @@ namespace Premonition.Managers
         public static void AddPlayer(this ScreenManager screenManager, string playerScenePath, out CharacterBody3D addedPlayer)
         {
             Node players = screenManager.PlayersOnScreen;
-            CharacterBody3D? character = playerScenePath.InstantiatePathAsScene() as CharacterBody3D;
+            CharacterBody3D character = playerScenePath.InstantiatePathAsScene() as CharacterBody3D;
 
             // Is there anything on the Player node?
             switch (screenManager.AreAnyPlayersLoaded())

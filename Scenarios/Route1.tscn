@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenarios/Routes/Route1.cs" id="1_2scyk"]
 [ext_resource type="PackedScene" uid="uid://cqv5rul7eaad7" path="res://Scenarios/Environment.tscn" id="1_gxnv4"]
-[ext_resource type="PackedScene" uid="uid://5i8ibmsrn81s" path="res://Objects/Dining_room_table.tscn" id="3_oy0cc"]
+[ext_resource type="PackedScene" uid="uid://5i8ibmsrn81s" path="res://Objects/DiningRoomTable.tscn" id="3_oy0cc"]
 
 [node name="Route1" type="Node3D"]
 script = ExtResource("1_2scyk")
@@ -16,7 +16,7 @@ visible = false
 [node name="DiningRoom" parent="." instance=ExtResource("3_oy0cc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.158369, -0.055, 0.0833717)
 
-[node name="InitialPosition" type="Marker3D" parent="."]
+[node name="PlayerPosition" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1022, 3.13237, -2.76549)
 
 [editable path="Environment"]

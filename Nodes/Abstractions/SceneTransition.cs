@@ -12,7 +12,7 @@ namespace Premonition.Nodes.Abstractions
 
         public string TargetScene { get; set; }
 
-        public Node3D? BodyEntering { get; set; }
+        public Node3D BodyEntering { get; set; }
 
         public void OnSceneTransition(Node3D body)
         {

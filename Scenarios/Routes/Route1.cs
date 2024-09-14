@@ -10,20 +10,6 @@ namespace Premonition.Scenarios.Routes
     /// </summary>
     public sealed partial class Route1 : Scenario
     {
-        protected void OnStaircaseEnter(Node node)
-        {
-            Node3D body = node as Node3D;
-            var position = body.Position;
-            position.Y += 2.5f;
-        }
-
-        protected void OnStaircaseExit(Node node)
-        {
-            Node3D body = node as Node3D;
-            var position = body.Position;
-            position.Y -= 2.5f;
-        }
-
         protected override void LoadResources()
         {
             Director.SceneManager.CurrentStoryline = 1;
