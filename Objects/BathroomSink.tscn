@@ -1,32 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://b44x44fny3d2x"]
+[gd_scene load_steps=5 format=3 uid="uid://cyta804qvtxfn"]
 
-[ext_resource type="ArrayMesh" uid="uid://1bsoim1fo5fh" path="res://Meshes/Assets_R3/OBJ/Bathroom_Sink.obj" id="1_4r042"]
-[ext_resource type="Script" path="res://Objects/BathroomSink.cs" id="1_ieu1c"]
+[ext_resource type="ArrayMesh" uid="uid://1bsoim1fo5fh" path="res://Meshes/Assets_R3/OBJ/Bathroom_Sink.obj" id="1_2g5u2"]
+[ext_resource type="Script" path="res://Objects/BathroomSink.cs" id="1_xsppk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_81fbw"]
-size = Vector3(0.763672, 1.66394, 1)
+size = Vector3(0.650574, 1.66394, 1)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_vowq6"]
-radius = 0.497743
+[sub_resource type="SphereShape3D" id="SphereShape3D_r7718"]
+radius = 0.592854
 
 [node name="BathroomSink" type="StaticBody3D"]
+transform = Transform3D(-3.27835e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, -3.27835e-08, 0, 0, 0)
 collision_layer = 16
-script = ExtResource("1_ieu1c")
+script = ExtResource("1_xsppk")
 
 [node name="BathroomSink" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_4r042")
-skeleton = NodePath("../../Shower")
+mesh = ExtResource("1_2g5u2")
+skeleton = NodePath("../../../Toilet/Shower")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.172727, 0, -0.416115)
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0.267258, 0, -0.432916)
 shape = SubResource("BoxShape3D_81fbw")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.423966)
-shape = SubResource("SphereShape3D_vowq6")
+transform = Transform3D(1, 0, -1.77636e-14, 0, 1, 0, 1.77636e-14, 0, 1, 0.0175982, 0, -0.408279)
+shape = SubResource("SphereShape3D_r7718")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]
 [connection signal="body_exited" from="Area3D" to="." method="OnDialogueClose"]

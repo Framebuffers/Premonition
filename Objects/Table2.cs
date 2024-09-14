@@ -5,7 +5,6 @@ namespace Premonition.Objects
 
     public partial class Table2 : Item
     {
-
         public override string Storyline0 => "[Not in table]";
 
         public override string Storyline1 => "[Not in table]";

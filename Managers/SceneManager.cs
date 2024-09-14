@@ -33,16 +33,22 @@ namespace Premonition.Managers
         public override void _Ready()
         {
             $"Loaded at: {GetPath()}".ToConsole();
+            CurrentStoryline = 0;
+            //Randomize();
+            $"Path number: {CurrentStoryline}".ToConsole();
+            ScreenManager.DebugPanel.Visible = false;
+            GetNode<Control>("/root/GameDirector/ScreenManager/Escape").Visible = false;
+            LoadScene("res://Scenarios/Intro.tscn");
+        }
+
+        private void Randomize()
+        {
             uint randomize = GD.Randi() % 5;
             // Roll again if the result is the same. Should reduce the chances of same endings.
             if (randomize != CurrentStoryline) CurrentStoryline = randomize;
             else CurrentStoryline = GD.Randi() % 5;
             // uint random = GD.Randi() % 4;
             // if (random == CurrentStoryline) random = GD.Randi() % 4;
-            $"Path number: {CurrentStoryline}".ToConsole();
-            ScreenManager.DebugPanel.Visible = false;
-            GetNode<Control>("/root/GameDirector/ScreenManager/Escape").Visible = false;
-            LoadScene("res://Scenarios/Intro.tscn");
         }
 
         public void LoadRandomizedScenePath()

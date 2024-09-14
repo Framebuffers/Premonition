@@ -7,7 +7,7 @@
 radius = 0.480344
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_701rw"]
-radius = 0.501661
+radius = 0.387967
 
 [node name="Microwave" type="StaticBody3D"]
 script = ExtResource("1_v2i6x")
@@ -24,7 +24,7 @@ shape = SubResource("SphereShape3D_dxybn")
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.419189, 0.250906, 0.0712748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.619189, 0.250906, 0.271275)
 shape = SubResource("SphereShape3D_701rw")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]

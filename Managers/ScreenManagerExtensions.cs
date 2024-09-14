@@ -1,7 +1,10 @@
 ﻿using Godot;
 using Premonition.Nodes.Abstractions;
+using Premonition.Scenarios.Routes;
 using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using static Godot.WebSocketPeer;
 
 namespace Premonition.Managers
 {
@@ -202,6 +205,55 @@ namespace Premonition.Managers
         public static bool IsAnyScenarioLoaded(this ScreenManager screenManager) => screenManager.Screen3D.GetChildren()
                                                                                                     .OfType<Scenario>()
                                                                                                     .Any();
+
+        /// <summary>
+        /// Changes colour of DirectionalLight3D5
+        /// </summary>
+        /// <param name="screenManager"></param>
+        /// <param name="target"></param>
+        /// <param name="cycleDuration"></param>
+        /// <param name="originalColor"></param>
+        public static void ChangeLightingColorB(this ScreenManager screenManager, Color target, float cycleDuration, out Color originalColor)
+        {
+            Tween hue = screenManager.CreateTween();
+            DirectionalLight3D light = screenManager.GetChildren().OfType<DirectionalLight3D>().Where(x => x.Name == "DirectionalLight3D5").FirstOrDefault();
+            hue.BindNode(light);
+            originalColor = light.LightColor;
+            hue.TweenProperty(light, "light_color", target, cycleDuration);
+        }
+
+        /// <summary>
+        /// Chamges colour of DirectionalLightA
+        /// </summary>
+        /// <param name="screenManager"></param>
+        /// <param name="target"></param>
+        /// <param name="cycleDuration"></param>
+        /// <param name="originalColor"></param>
+        public static void ChangeLightingColorA(this ScreenManager screenManager, Color target, float cycleDuration, out Color originalColor)
+        {
+            Tween hue = screenManager.CreateTween();
+            DirectionalLight3D light = screenManager.GetChildren().OfType<DirectionalLight3D>().Where(x => x.Name == "DirectionalLight3D").FirstOrDefault();
+            hue.BindNode(light);
+            originalColor = light.LightColor;
+            hue.TweenProperty(light, "light_color", target, cycleDuration);
+        }
+
+        public static void ChangeLightingColorAll(this ScreenManager screenManager, Color targetA, Color targetB, float cycleDuration, out Color originalColorA, out Color originalColorB)
+        {
+            Tween hue1 = screenManager.CreateTween();
+            DirectionalLight3D light1 = screenManager.GetChildren().OfType<DirectionalLight3D>().Where(x => x.Name == "DirectionalLight3D").FirstOrDefault();
+            hue1.BindNode(light1);
+            originalColorA = light1.LightColor;
+
+            Tween hue2 = screenManager.CreateTween();
+            DirectionalLight3D light2 = screenManager.GetChildren().OfType<DirectionalLight3D>().Where(x => x.Name == "DirectionalLight3D5").FirstOrDefault();
+            hue2.BindNode(light2);
+            originalColorB = light2.LightColor;
+
+            hue1.TweenProperty(light1, "light_color", targetA, cycleDuration);
+            hue1.SetParallel(true);
+            hue1.TweenProperty(light1, "light_color", targetB, cycleDuration);
+        }
     }
 
 }

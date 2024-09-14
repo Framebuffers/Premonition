@@ -1,10 +1,11 @@
+using Godot;
 using Premonition.Nodes.Abstractions;
+using System;
 
 namespace Premonition.Objects
 {
-    public partial class BathroomSink2 : Item
+    public partial class Luggage : Item
     {
-
         public override string Storyline0 => "[Not in table]";
 
         public override string Storyline1 => "[Not in table]";

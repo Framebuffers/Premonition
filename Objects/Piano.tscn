@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cg75tms1dkm3r"]
 
-[ext_resource type="ArrayMesh" uid="uid://byqnrn5fs3p75" path="res://Meshes/Originals/Assets/Piano.obj" id="1_86ted"]
 [ext_resource type="Script" path="res://Objects/Piano.cs" id="1_xdhuu"]
+[ext_resource type="ArrayMesh" uid="uid://p4vlw3w1c810" path="res://Meshes/Assets_R3/OBJ/Piano.obj" id="2_x4jyf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7pjc8"]
 size = Vector3(2.39642, 0.97644, 1.99182)
@@ -15,7 +15,7 @@ collision_layer = 16
 script = ExtResource("1_xdhuu")
 
 [node name="Piano" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_86ted")
+mesh = ExtResource("2_x4jyf")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

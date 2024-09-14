@@ -13,7 +13,7 @@ namespace Premonition.Nodes.Abstractions
         public override void _Ready()
         {
             LoadResources();
-            LoadPlayers();
+            //LoadPlayers();
         }
 
         protected void LoadPlayers()

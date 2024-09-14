@@ -10,6 +10,9 @@ namespace Premonition.Scenarios.Routes
     /// </summary>
     public sealed partial class Route0 : Scenario
     {
+        // remove a random element by index from the tree
+        private readonly int RandomObjectRemoval = GD.RandRange(0, 25);
+
 
         protected override void LoadResources()
         {

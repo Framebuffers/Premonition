@@ -1,5 +1,9 @@
 ﻿using Godot;
+using Godot.Collections;
 using Premonition.Camera.Debug;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Premonition.Managers
 {
@@ -25,6 +29,7 @@ namespace Premonition.Managers
         public SubViewportContainer SubViewportContainer => GetNode<SubViewportContainer>(GameDirector.ScreenContainerPath);
         public Control UserInterface => GetNode<Control>(GameDirector.UserInterfacePath);
         public DebugPanel DebugPanel => GetNode<DebugPanel>(GameDirector.DebugPanelPath);
+        public Array<Node> Lighting => GetNode<Node3D>(GameDirector.LightingPath).GetChildren();
         public Window MainWindow => GetWindow();
 
         public override void _Ready()

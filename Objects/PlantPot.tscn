@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://nrewi5rtgiu8"]
 
-[ext_resource type="ArrayMesh" uid="uid://bsovhlcwsrm5l" path="res://Meshes/Originals/Assets/Plant_pot1.obj" id="1_3f46x"]
 [ext_resource type="Script" path="res://Objects/PlantPot.cs" id="1_82i02"]
+[ext_resource type="ArrayMesh" uid="uid://d3dwcqk7bst4f" path="res://Meshes/Assets_R3/OBJ/Plant_pot1.obj" id="2_3c0o4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_18jyv"]
 size = Vector3(0.569054, 1.22304, 0.659912)
@@ -14,7 +14,7 @@ collision_layer = 16
 script = ExtResource("1_82i02")
 
 [node name="PlantPot1" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_3f46x")
+mesh = ExtResource("2_3c0o4")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

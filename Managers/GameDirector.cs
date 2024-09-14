@@ -77,6 +77,7 @@ namespace Premonition.Managers
         public const string ScreenContainerPath = "/root/GameDirector/ScreenManager/ScreenContainer";
         public const string Screen2DPath = "/root/GameDirector/ScreenManager/ScreenContainer/Screen2D";
         public const string Screen3DPath = "/root/GameDirector/ScreenManager/ScreenContainer/Screen3D";
+        public const string LightingPath = "/root/GameDirector/ScreenManager/ScreenContainer/Screen3D/Environment/Lighting";
 
         // ----------------------------------------------------------------
         // Players
