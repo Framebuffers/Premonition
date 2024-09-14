@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://Objects/Fridge.cs" id="1_y2hi6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m85ps"]
-size = Vector3(1.01895, 2.38531, 0.716064)
+size = Vector3(1.01895, 1.83084, 0.716064)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rvxtv"]
-radius = 1.0182
+radius = 0.45346
 
 [node name="Fridge" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0195169)
@@ -15,11 +15,10 @@ collision_layer = 16
 script = ExtResource("1_y2hi6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46823, 0.692657, -6.96686)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50062, 0.881586, -0.34494)
 shape = SubResource("BoxShape3D_m85ps")
 
 [node name="Fridge" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97158, 0.0396729, -6.61579)
 mesh = ExtResource("1_47fow")
 skeleton = NodePath("../CollisionShape3D")
 
@@ -27,7 +26,7 @@ skeleton = NodePath("../CollisionShape3D")
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59522, 0.77434, -7.0401)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.482305, 0.463529, -0.0549461)
 shape = SubResource("SphereShape3D_rvxtv")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]

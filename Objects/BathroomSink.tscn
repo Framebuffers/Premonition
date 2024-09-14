@@ -7,26 +7,25 @@
 size = Vector3(0.763672, 1.66394, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vowq6"]
-radius = 0.809134
+radius = 0.497743
 
 [node name="BathroomSink" type="StaticBody3D"]
 collision_layer = 16
 script = ExtResource("1_ieu1c")
 
 [node name="BathroomSink" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.259896, 0.0396729, -6.41098)
 mesh = ExtResource("1_4r042")
 skeleton = NodePath("../../Shower")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118164, 0.33197, -6.8902)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.172727, 0, -0.416115)
 shape = SubResource("BoxShape3D_81fbw")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18032, 0, -7.21522)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.423966)
 shape = SubResource("SphereShape3D_vowq6")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]

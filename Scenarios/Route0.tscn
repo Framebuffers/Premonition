@@ -1,21 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://clqdrsafujado"]
+[gd_scene load_steps=4 format=3 uid="uid://clqdrsafujado"]
 
 [ext_resource type="Script" path="res://Scenarios/Routes/Route0.cs" id="1_da5or"]
+[ext_resource type="PackedScene" uid="uid://5i8ibmsrn81s" path="res://Objects/Dining_room_table.tscn" id="3_j85d2"]
 [ext_resource type="PackedScene" uid="uid://cqv5rul7eaad7" path="res://Scenarios/Environment.tscn" id="3_ouqoe"]
-[ext_resource type="PackedScene" uid="uid://5i8ibmsrn81s" path="res://Objects/Dining_room_table.tscn" id="4_grcpt"]
-[ext_resource type="PackedScene" uid="uid://oida2u682n31" path="res://Objects/Toilet_Room.tscn" id="5_be2jb"]
-[ext_resource type="PackedScene" uid="uid://cos8vt35k1q2g" path="res://Objects/Desk.tscn" id="6_s25gx"]
-[ext_resource type="PackedScene" uid="uid://exui6h8h5ajd" path="res://Objects/Toilet2_Room.tscn" id="7_q5u0o"]
-[ext_resource type="PackedScene" uid="uid://clsl7g12tach4" path="res://Objects/DoubleBed.tscn" id="13_t8vpu"]
-[ext_resource type="PackedScene" uid="uid://cg75tms1dkm3r" path="res://Objects/Piano.tscn" id="14_1to8a"]
-[ext_resource type="PackedScene" uid="uid://nrewi5rtgiu8" path="res://Objects/PlantPot.tscn" id="15_lm7ps"]
-[ext_resource type="PackedScene" uid="uid://cr0qx731go2me" path="res://Objects/Sofa.tscn" id="16_s113s"]
-[ext_resource type="PackedScene" uid="uid://b8a3xooh2unnp" path="res://Objects/SideTable.tscn" id="17_t83b3"]
-[ext_resource type="PackedScene" uid="uid://ddyomi11i6rfg" path="res://Objects/Tv.tscn" id="18_sgiyd"]
-[ext_resource type="PackedScene" uid="uid://cffhapjyd5igl" path="res://Objects/Md.tscn" id="18_ybjvh"]
-[ext_resource type="PackedScene" uid="uid://dhngcg3uu5011" path="res://Objects/Bed.tscn" id="20_kyeoe"]
-[ext_resource type="PackedScene" uid="uid://yccuw43edyc0" path="res://Objects/PictureFrame2.tscn" id="21_fgn1f"]
-[ext_resource type="PackedScene" uid="uid://xbdjn2vkjcrg" path="res://Objects/Box.tscn" id="21_ulso8"]
 
 [node name="Route0" type="Node3D"]
 script = ExtResource("1_da5or")
@@ -23,39 +10,13 @@ script = ExtResource("1_da5or")
 [node name="Environment" parent="." instance=ExtResource("3_ouqoe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="DiningRoom" parent="." instance=ExtResource("4_grcpt")]
+[node name="L2+l3" parent="Environment/Meshes" index="0"]
+visible = false
 
-[node name="Toilet" parent="." instance=ExtResource("5_be2jb")]
+[node name="DiningRoom" parent="." instance=ExtResource("3_j85d2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.158369, -0.055, 0.0833717)
 
-[node name="Desk" parent="." instance=ExtResource("6_s25gx")]
+[node name="InitialPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.43798, 0.525404, -4.61528)
 
-[node name="Toilet_2" parent="." instance=ExtResource("7_q5u0o")]
-script = null
-
-[node name="Toilet_3" parent="." instance=ExtResource("7_q5u0o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.66, 0)
-script = null
-
-[node name="DoubleBed" parent="." instance=ExtResource("13_t8vpu")]
-
-[node name="Piano" parent="." instance=ExtResource("14_1to8a")]
-transform = Transform3D(-0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, -9.64175, 0.539673, -1.92113)
-
-[node name="PlantPot" parent="." instance=ExtResource("15_lm7ps")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5381, -1.06289, -0.187536)
-
-[node name="Sofa" parent="." instance=ExtResource("16_s113s")]
-
-[node name="Sofa2" parent="." instance=ExtResource("16_s113s")]
-
-[node name="SideTable" parent="." instance=ExtResource("17_t83b3")]
-
-[node name="TV" parent="." instance=ExtResource("18_sgiyd")]
-
-[node name="Md" parent="." instance=ExtResource("18_ybjvh")]
-
-[node name="Bed" parent="." instance=ExtResource("20_kyeoe")]
-
-[node name="Box" parent="." instance=ExtResource("21_ulso8")]
-
-[node name="PictureFrame2" parent="." instance=ExtResource("21_fgn1f")]
+[editable path="Environment"]

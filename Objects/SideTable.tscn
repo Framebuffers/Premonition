@@ -2,34 +2,35 @@
 
 [ext_resource type="Script" path="res://Objects/SideTable.cs" id="1_8pxpr"]
 [ext_resource type="ArrayMesh" uid="uid://b5gut270bdmfh" path="res://Meshes/Assets_R3/OBJ/NightTable_2.obj" id="1_orium"]
-[ext_resource type="PackedScene" uid="uid://nrewi5rtgiu8" path="res://Objects/PlantPot.tscn" id="2_y0otd"]
+[ext_resource type="ArrayMesh" uid="uid://d3dwcqk7bst4f" path="res://Meshes/Assets_R3/OBJ/Plant_pot1.obj" id="3_euxru"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gu0c0"]
-size = Vector3(0.706177, 0.734833, 0.645508)
+size = Vector3(0.611176, 1.46804, 0.645508)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_s0i67"]
+radius = 0.754092
 
 [node name="SideTable" type="StaticBody3D"]
 collision_layer = 16
 script = ExtResource("1_8pxpr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.553406, 0, -0.832912, 0, 1, 0, 0.832912, 0, 0.553406, -11.1306, 0.307907, -9.17775)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.294144, 0.741876, 0)
 shape = SubResource("BoxShape3D_gu0c0")
 
 [node name="NightTable2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.553406, 0, -0.832912, 0, 1, 0, 0.832912, 0, 0.553406, -11.5316, 0.0396729, -9.28164)
 mesh = ExtResource("1_orium")
 skeleton = NodePath("../CollisionShape3D")
 
-[node name="PlantPot" parent="." instance=ExtResource("2_y0otd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7681, -0.542036, -8.56711)
+[node name="PlantPot1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0578253, 0.607091, -0.0339632)
+mesh = ExtResource("3_euxru")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6774, 0, -9.10509)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.399882, 1.34246, 0)
 shape = SubResource("SphereShape3D_s0i67")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]

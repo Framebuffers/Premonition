@@ -152,7 +152,7 @@ _data = {
 "crouch": SubResource("Animation_5ec5e")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4qu6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xkv3f"]
 render_priority = 1
 shader = ExtResource("2_n6d4a")
 shader_parameter/enable_fog = true
@@ -168,7 +168,7 @@ shader_parameter/enable_dithering = true
 shader_parameter/dither_strength = 0.154
 
 [sub_resource type="QuadMesh" id="QuadMesh_tbiar"]
-material = SubResource("ShaderMaterial_y4qu6")
+material = SubResource("ShaderMaterial_xkv3f")
 size = Vector2(2, 2)
 
 [sub_resource type="Animation" id="Animation_gh776"]
@@ -450,7 +450,7 @@ mesh = SubResource("QuadMesh_tbiar")
 libraries = {
 "": SubResource("AnimationLibrary_o0unb")
 }
-blend_times = [&"RESET", &"RESET", 0.5, &"RESET", &"walk", 0.5, &"walk", &"RESET", 0.5]
+blend_times = [&"walk", &"RESET", 0.5, &"RESET", &"walk", 0.5, &"RESET", &"RESET", 0.5]
 
 [node name="JumpAnimation" type="AnimationPlayer" parent="Head"]
 libraries = {

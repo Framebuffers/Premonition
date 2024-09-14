@@ -4,30 +4,28 @@
 [ext_resource type="Script" path="res://Objects/PlantPot.cs" id="1_82i02"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_18jyv"]
-size = Vector3(1.00888, 1.1463, 1)
+size = Vector3(0.569054, 1.22304, 0.659912)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xn7g0"]
-radius = 0.708801
+radius = 0.862455
 
 [node name="PlantPot" type="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.598066, -3.4)
 collision_layer = 16
 script = ExtResource("1_82i02")
 
 [node name="PlantPot1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42301, 1.09144, -0.34549)
 mesh = ExtResource("1_3f46x")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74265, 1.67571, -0.432414)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.277851, 0.62664, -0.255668)
 shape = SubResource("BoxShape3D_18jyv")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.72236, 1.63445, -0.535009)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.297178, 0.75568, -0.3)
 shape = SubResource("SphereShape3D_xn7g0")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]

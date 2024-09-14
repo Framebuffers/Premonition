@@ -4,30 +4,29 @@
 [ext_resource type="Script" path="res://Objects/BathroomSink2.cs" id="1_xsppk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_81fbw"]
-size = Vector3(0.763672, 1.66394, 1)
+size = Vector3(0.650574, 1.66394, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_r7718"]
-radius = 0.822293
+radius = 0.592854
 
 [node name="BathroomSink2" type="StaticBody3D"]
-transform = Transform3D(-3.27835e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, -3.27835e-08, -21.2923, 0, -0.434379)
+transform = Transform3D(-3.27835e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, -3.27835e-08, 0, 0, 0)
 collision_layer = 16
 script = ExtResource("1_xsppk")
 
 [node name="BathroomSink" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.259896, 0.0396729, -6.41098)
 mesh = ExtResource("1_2g5u2")
 skeleton = NodePath("../../../Toilet/Shower")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118164, 0.33197, -6.8902)
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0.267258, 0, -0.432916)
 shape = SubResource("BoxShape3D_81fbw")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0.0609248, 0.895696, -6.91387)
+transform = Transform3D(1, 0, -1.77636e-14, 0, 1, 0, 1.77636e-14, 0, 1, 0.0175982, 0, -0.408279)
 shape = SubResource("SphereShape3D_r7718")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]

@@ -4,35 +4,35 @@
 [ext_resource type="ArrayMesh" uid="uid://da15rti4orjfu" path="res://Meshes/Assets_R3/OBJ/Desk_All.obj" id="1_aw1lq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ri24g"]
-size = Vector3(2.28271, 1.73578, 1.5249)
+size = Vector3(1.51074, 1.85342, 0.971741)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j2fhf"]
-size = Vector3(0.770996, 1.73517, 3.00684)
+size = Vector3(0.971008, 1.81722, 2.43671)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_12sd3"]
-radius = 1.17625
+radius = 0.807438
 
 [node name="Desk" type="StaticBody3D"]
 collision_layer = 16
 script = ExtResource("1_am31r")
 
 [node name="DeskAll" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -16.9883, 0.039673, -0.203825)
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 0, 0, 0)
 mesh = ExtResource("1_aw1lq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1233, 0.87027, -0.262451)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.748017, 0.882339, -0.370514)
 shape = SubResource("BoxShape3D_ri24g")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8752, 0.893097, -1.00342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90802, 0.891518, -1.10847)
 shape = SubResource("BoxShape3D_j2fhf")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6724, 0.925042, -0.821748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.946, 0.790468, -1.548)
 shape = SubResource("SphereShape3D_12sd3")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]

@@ -10,7 +10,7 @@ size = Vector3(2.39642, 0.97644, 1.99182)
 radius = 1.53021
 
 [node name="Piano" type="StaticBody3D"]
-transform = Transform3D(-0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, 2.84982, 1.64144, -1.67372)
+transform = Transform3D(-0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, 0, 0, 0)
 collision_layer = 16
 script = ExtResource("1_xdhuu")
 

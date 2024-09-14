@@ -4,21 +4,20 @@
 [ext_resource type="Script" path="res://Objects/Box.cs" id="1_q6r5n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fur4a"]
-size = Vector3(1.07629, 1.10535, 1.09363)
+size = Vector3(1.0997, 1.10535, 1.1777)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ngsgv"]
-radius = 1.34456
+radius = 0.826541
 
 [node name="Box" type="StaticBody3D"]
 collision_layer = 16
 script = ExtResource("1_q6r5n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.773, 0.594177, -6.42135)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.515702, 0, -0.526382)
 shape = SubResource("BoxShape3D_fur4a")
 
 [node name="Box" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.298, 0.039673, -5.86586)
 mesh = ExtResource("1_gwqdu")
 skeleton = NodePath("../../StaticBody3D/CollisionShape3D")
 
@@ -26,7 +25,7 @@ skeleton = NodePath("../../StaticBody3D/CollisionShape3D")
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1075, 0, -6.78551)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466257, 0, -0.490167)
 shape = SubResource("SphereShape3D_ngsgv")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]

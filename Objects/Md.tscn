@@ -4,27 +4,28 @@
 [ext_resource type="Script" path="res://Objects/Md.cs" id="1_r2cho"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_d2icp"]
-radius = 0.605676
+radius = 0.375533
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_d5knf"]
+radius = 0.671822
 
 [node name="StaticBody3D" type="StaticBody3D"]
 collision_layer = 16
 script = ExtResource("1_r2cho")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.253, 0, -6.95176)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.466037)
 shape = SubResource("SphereShape3D_d2icp")
 
 [node name="Md" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.697328, 0, 0.716752, 0, 1, 0, -0.716752, 0, 0.697328, -14.2482, 0.029673, -6.21483)
+transform = Transform3D(0.697328, 0, 0.716752, 0, 1, 0, -0.716752, 0, 0.697328, 0, 0, 0)
 mesh = ExtResource("1_extms")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2466, 0, -6.85391)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.290116)
 shape = SubResource("SphereShape3D_d5knf")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]

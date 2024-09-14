@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0wnck0sanxe1"]
+[gd_scene load_steps=7 format=3 uid="uid://c0wnck0sanxe1"]
 
 [ext_resource type="Script" path="res://Managers/ScreenManager.cs" id="1_o4uwr"]
 [ext_resource type="PackedScene" uid="uid://p6ruxr801us8" path="res://Camera/Debug/UserInterface.tscn" id="2_4ncwy"]
 [ext_resource type="Script" path="res://Managers/Screen2d.cs" id="2_wts08"]
 [ext_resource type="PackedScene" uid="uid://dawqalk0nh8y8" path="res://Camera/Debug/DebugPanel.tscn" id="3_31ac5"]
+[ext_resource type="FontFile" uid="uid://dr8ouijkdxssh" path="res://Font/ProggyCleanCENerdFontPropo-Regular.ttf" id="5_yq8sf"]
+
+[sub_resource type="Theme" id="Theme_ibedq"]
 
 [node name="ScreenContainer" type="Node2D"]
 script = ExtResource("1_o4uwr")
@@ -45,6 +48,24 @@ size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Players" type="Node3D" parent="ScreenContainer/Screen3D"]
+
+[node name="Escape" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Escape"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 141.0
+offset_bottom = 33.0
+theme = SubResource("Theme_ibedq")
+theme_override_colors/font_color = Color(0, 0, 0, 0.478431)
+theme_override_fonts/font = ExtResource("5_yq8sf")
+text = "Press Esc twice to quit."
+metadata/_edit_use_anchors_ = true
 
 [connection signal="child_entered_tree" from="." to="." method="OnSceneLoaded"]
 [connection signal="child_entered_tree" from="ScreenContainer/Screen3D/Players" to="." method="OnNewPlayerLoaded"]

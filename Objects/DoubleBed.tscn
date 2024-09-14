@@ -4,28 +4,28 @@
 [ext_resource type="Script" path="res://Objects/DoubleBed.cs" id="1_wm55q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ujpi1"]
-size = Vector3(1.39612, 0.963501, 2.30542)
+size = Vector3(1.39612, 0.963501, 2.53455)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6qmc0"]
-radius = 1.58271
+radius = 1.08602
 
 [node name="DoubleBed" type="StaticBody3D"]
 collision_layer = 16
 script = ExtResource("1_wm55q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9953, 3.19535, -1.35876)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.599449, 0, -1.17774)
 shape = SubResource("BoxShape3D_ujpi1")
 
 [node name="BedDouble" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.4127, 2.73965, -0.157183)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 mesh = ExtResource("1_4eku7")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8652, 3.15455, -1.60163)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.972693, 0, -1.94539)
 shape = SubResource("SphereShape3D_6qmc0")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]

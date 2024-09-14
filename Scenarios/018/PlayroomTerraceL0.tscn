@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dn2xjeyyc7tvv"]
-
-[ext_resource type="ArrayMesh" uid="uid://bk5n0xm5smqds" path="res://Meshes/House_Complete_R3/OBJ_FirstPass/018_PlayroomTerrace_L0.obj" id="1_a42xo"]
-
-[node name="PlayroomTerraceL0" type="Node3D"]
-
-[node name="018PlayroomTerraceL0" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_a42xo")

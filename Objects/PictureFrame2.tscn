@@ -3,22 +3,21 @@
 [ext_resource type="ArrayMesh" uid="uid://d11rs1seuc8oq" path="res://Meshes/Assets_R3/OBJ/PictureFrame_2.obj" id="1_ol72g"]
 [ext_resource type="Script" path="res://Objects/PictureFrame2.cs" id="1_us0bp"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_ujdj8"]
-radius = 0.416291
+[sub_resource type="BoxShape3D" id="BoxShape3D_s4ywi"]
+size = Vector3(0.709961, 0.749878, 0.0744629)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v306c"]
-radius = 0.601875
+radius = 0.523694
 
 [node name="PictureFrame" type="StaticBody3D"]
 collision_layer = 16
 script = ExtResource("1_us0bp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6095, 1.28381, -1.89182)
-shape = SubResource("SphereShape3D_ujdj8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.325179, 0.344535, -0.00858581)
+shape = SubResource("BoxShape3D_s4ywi")
 
 [node name="PictureFrame2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.640594, -0.21254, -0.73788, -0.000229448, 0.960878, -0.276972, 0.76788, 0.177596, 0.615484, -10.7644, 0.885437, -2.19354)
 mesh = ExtResource("1_ol72g")
 skeleton = NodePath("../TV")
 
@@ -26,7 +25,7 @@ skeleton = NodePath("../TV")
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6095, 1.28381, -1.89182)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.319221, 0.328912, 0)
 shape = SubResource("SphereShape3D_v306c")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]

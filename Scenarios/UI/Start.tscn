@@ -1,0 +1,167 @@
+[gd_scene load_steps=10 format=3 uid="uid://pajtanvcah6l"]
+
+[ext_resource type="Script" path="res://Scenarios/UI/Start.cs" id="1_lx73e"]
+[ext_resource type="FontFile" uid="uid://dr8ouijkdxssh" path="res://Font/ProggyCleanCENerdFontPropo-Regular.ttf" id="1_rby8j"]
+[ext_resource type="Script" path="res://Scenarios/UI/StartButton.cs" id="3_3t4mj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mx1hg"]
+font = ExtResource("1_rby8j")
+font_size = 64
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.411765)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cgaqp"]
+font = ExtResource("1_rby8j")
+font_size = 32
+shadow_color = Color(0, 0, 0, 0.411765)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfu2m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.212304, 0.212305, 0.212305, 1)
+border_blend = true
+shadow_color = Color(0, 0, 0, 0.556863)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykbba"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="Theme" id="Theme_hsv0r"]
+default_font = ExtResource("1_rby8j")
+default_font_size = 32
+Button/colors/font_color = Color(0.529412, 0.529412, 0.529412, 1)
+Button/colors/font_disabled_color = Color(0.334122, 0.334122, 0.334122, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.598525, 0.598525, 0.598524, 1)
+Button/colors/font_hover_pressed_color = Color(0.414704, 0.414704, 0.414704, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(0.299547, 0.299547, 0.299547, 1)
+Button/colors/icon_focus_color = Color(0.529412, 0.529412, 0.529412, 1)
+Button/colors/icon_hover_color = Color(0.529412, 0.529412, 0.529412, 1)
+Button/colors/icon_hover_pressed_color = Color(0.529412, 0.529412, 0.529412, 1)
+Button/colors/icon_normal_color = Color(0.529412, 0.529412, 0.529412, 1)
+Button/colors/icon_pressed_color = Color(0.529412, 0.529412, 0.529412, 1)
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_rby8j")
+Button/styles/disabled = SubResource("StyleBoxFlat_wfu2m")
+Button/styles/focus = SubResource("StyleBoxFlat_ykbba")
+Button/styles/hover = SubResource("StyleBoxFlat_ykbba")
+Button/styles/normal = SubResource("StyleBoxFlat_ykbba")
+Button/styles/pressed = SubResource("StyleBoxFlat_ykbba")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xqmx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+shadow_size = 5
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_lx73e")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = -16.0
+offset_right = 436.0
+offset_bottom = 36.0
+grow_vertical = 2
+text = "PREMONITION"
+label_settings = SubResource("LabelSettings_mx1hg")
+uppercase = true
+text_direction = 1
+
+[node name="Subtitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = 36.0
+offset_right = 730.0
+offset_bottom = 88.0
+grow_vertical = 2
+text = "5 calms, one storm, which one will you get?"
+label_settings = SubResource("LabelSettings_cgaqp")
+text_direction = 1
+
+[node name="Credits" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = -144.0
+offset_right = 730.0
+offset_bottom = -92.0
+grow_vertical = 0
+text = "A game by Framebuffer, 2024."
+label_settings = SubResource("LabelSettings_cgaqp")
+text_direction = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuitButton" type="Button" parent="Control"]
+layout_mode = 2
+anchor_left = 0.737
+anchor_top = 0.567
+anchor_right = 0.737
+anchor_bottom = 0.567
+offset_left = 0.639954
+offset_top = -0.240021
+offset_right = 205.64
+offset_bottom = 43.76
+grow_horizontal = 0
+grow_vertical = 2
+focus_neighbor_top = NodePath("../StartButton")
+theme = SubResource("Theme_hsv0r")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5xqmx")
+text = "QUIT"
+
+[node name="StartButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.737
+anchor_top = 0.444
+anchor_right = 0.737
+anchor_bottom = 0.444
+offset_left = 0.639954
+offset_top = 0.319977
+offset_right = 205.64
+offset_bottom = 44.32
+grow_horizontal = 0
+grow_vertical = 2
+focus_neighbor_bottom = NodePath("../QuitButton")
+theme = SubResource("Theme_hsv0r")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5xqmx")
+text = "START"
+script = ExtResource("3_3t4mj")
+
+[connection signal="pressed" from="Control/QuitButton" to="Control/StartButton" method="OnQuitButtonPressed"]
+[connection signal="pressed" from="Control/StartButton" to="Control/StartButton" method="OnStartButtonPressed"]

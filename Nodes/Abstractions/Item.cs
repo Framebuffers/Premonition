@@ -2,6 +2,7 @@ using Godot;
 using Premonition.Camera.Debug;
 using Premonition.Managers;
 using System;
+using System.Diagnostics;
 
 namespace Premonition.Nodes.Abstractions
 {
@@ -11,18 +12,24 @@ namespace Premonition.Nodes.Abstractions
         private GameDirector _director { get => this.GetGameDirector(); }
         private uint CurrentStoryline { get => _director.SceneManager.CurrentStoryline; }
         private DebugPanel DialoguePanel { get => _director.ScreenManager.DebugPanel; }
-        private void RemoveDialogue() => DialoguePanel.RemoveProperties();
+        private void RemoveDialogue()
+        {
+            _director.ScreenManager.DebugPanel.Visible = false;
+            DialoguePanel.RemoveProperties();
+        }
+
         private void AddDialogue(string body, int order) => DialoguePanel.AddProperty(Name, body, order);
         private const string DefaultAnswer = "Oh yeah! I'm pretty sure this is [Not in table].";
-        public virtual string Storyline0 { get; } = "[Not in table]";
-        public virtual string Storyline1 { get; } = "[Not in table]";
-        public virtual string Storyline2 { get; } = "[Not in table]";
-        public virtual string Storyline3 { get; } = "[Not in table]";
-        public virtual string Storyline4 { get; } = "[Not in table]";
-        public virtual string Storyline5 { get; } = "[Not in table]";
+        public virtual string Storyline0 { get; set; } = "[Not in table]";
+        public virtual string Storyline1 { get; set; } = "[Not in table]";
+        public virtual string Storyline2 { get; set; } = "[Not in table]";
+        public virtual string Storyline3 { get; set; } = "[Not in table]";
+        public virtual string Storyline4 { get; set; } = "[Not in table]";
+        public virtual string Storyline5 { get; set; } = "[Not in table]";
         protected void OnDialogueOpen(Node3D body)
         {
             _ = body; // signature has to match to be able to connect signal back to Godot, this is to throw away the unused Body parameter.
+            _director.ScreenManager.DebugPanel.Visible = true;
             switch (CurrentStoryline)
             {
                 case 0:

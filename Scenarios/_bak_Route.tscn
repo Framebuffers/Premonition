@@ -1,0 +1,61 @@
+[gd_scene load_steps=17 format=3 uid="uid://cygdh6w6ovgwa"]
+
+[ext_resource type="Script" path="res://Scenarios/Routes/Route0.cs" id="1_xaj0i"]
+[ext_resource type="PackedScene" uid="uid://cqv5rul7eaad7" path="res://Scenarios/Environment.tscn" id="2_6vua6"]
+[ext_resource type="PackedScene" uid="uid://5i8ibmsrn81s" path="res://Objects/Dining_room_table.tscn" id="3_nrgbx"]
+[ext_resource type="PackedScene" uid="uid://oida2u682n31" path="res://Objects/Toilet_Room.tscn" id="4_ob3sw"]
+[ext_resource type="PackedScene" uid="uid://cos8vt35k1q2g" path="res://Objects/Desk.tscn" id="5_comjc"]
+[ext_resource type="PackedScene" uid="uid://exui6h8h5ajd" path="res://Objects/Toilet2_Room.tscn" id="6_2k7py"]
+[ext_resource type="PackedScene" uid="uid://clsl7g12tach4" path="res://Objects/DoubleBed.tscn" id="7_xin8t"]
+[ext_resource type="PackedScene" uid="uid://cg75tms1dkm3r" path="res://Objects/Piano.tscn" id="8_oumta"]
+[ext_resource type="PackedScene" uid="uid://nrewi5rtgiu8" path="res://Objects/PlantPot.tscn" id="9_p3qs2"]
+[ext_resource type="PackedScene" uid="uid://cr0qx731go2me" path="res://Objects/Sofa.tscn" id="10_fwj8g"]
+[ext_resource type="PackedScene" uid="uid://b8a3xooh2unnp" path="res://Objects/SideTable.tscn" id="11_8isob"]
+[ext_resource type="PackedScene" uid="uid://ddyomi11i6rfg" path="res://Objects/Tv.tscn" id="12_nt081"]
+[ext_resource type="PackedScene" uid="uid://cffhapjyd5igl" path="res://Objects/Md.tscn" id="13_fhqyp"]
+[ext_resource type="PackedScene" uid="uid://dhngcg3uu5011" path="res://Objects/Bed.tscn" id="14_yb0qp"]
+[ext_resource type="PackedScene" uid="uid://xbdjn2vkjcrg" path="res://Objects/Box.tscn" id="15_wwr5o"]
+[ext_resource type="PackedScene" uid="uid://yccuw43edyc0" path="res://Objects/PictureFrame2.tscn" id="16_qsce5"]
+
+[node name="Route0" type="Node3D"]
+script = ExtResource("1_xaj0i")
+
+[node name="Environment" parent="." instance=ExtResource("2_6vua6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="DiningRoom" parent="." instance=ExtResource("3_nrgbx")]
+
+[node name="Toilet" parent="." instance=ExtResource("4_ob3sw")]
+
+[node name="Desk" parent="." instance=ExtResource("5_comjc")]
+
+[node name="Toilet_2" parent="." instance=ExtResource("6_2k7py")]
+script = null
+
+[node name="Toilet_3" parent="." instance=ExtResource("6_2k7py")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.66, 0)
+script = null
+
+[node name="DoubleBed" parent="." instance=ExtResource("7_xin8t")]
+
+[node name="Piano" parent="." instance=ExtResource("8_oumta")]
+transform = Transform3D(-0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, -9.64175, 0.539673, -1.92113)
+
+[node name="PlantPot" parent="." instance=ExtResource("9_p3qs2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5381, -1.06289, -0.187536)
+
+[node name="Sofa" parent="." instance=ExtResource("10_fwj8g")]
+
+[node name="Sofa2" parent="." instance=ExtResource("10_fwj8g")]
+
+[node name="SideTable" parent="." instance=ExtResource("11_8isob")]
+
+[node name="TV" parent="." instance=ExtResource("12_nt081")]
+
+[node name="Md" parent="." instance=ExtResource("13_fhqyp")]
+
+[node name="Bed" parent="." instance=ExtResource("14_yb0qp")]
+
+[node name="Box" parent="." instance=ExtResource("15_wwr5o")]
+
+[node name="PictureFrame2" parent="." instance=ExtResource("16_qsce5")]
