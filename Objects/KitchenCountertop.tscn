@@ -15,7 +15,6 @@ script = ExtResource("1_5omj5")
 
 [node name="KitchenCountertop" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_8mbj8")
-skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02981, 0.388411, -0.396332)

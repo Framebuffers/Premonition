@@ -32,6 +32,7 @@ namespace Premonition.Managers
 
         public override void _Ready()
         {
+            base._Ready();
             $"Loaded at: {GetPath()}".ToConsole();
             CurrentStoryline = 0;
             //Randomize();

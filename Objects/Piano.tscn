@@ -4,29 +4,28 @@
 [ext_resource type="ArrayMesh" uid="uid://p4vlw3w1c810" path="res://Meshes/Assets_R3/OBJ/Piano.obj" id="2_x4jyf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7pjc8"]
-size = Vector3(2.39642, 0.97644, 1.99182)
+size = Vector3(2.39642, 0.97644, 2)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cafq3"]
-radius = 1.53021
+radius = 1.52787
 
 [node name="Piano" type="StaticBody3D"]
-transform = Transform3D(-0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 16
 script = ExtResource("1_xdhuu")
 
 [node name="Piano" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_x4jyf")
-skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69821, -0.0117798, -1.09491)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69821, -0.0117798, -1.09082)
 shape = SubResource("BoxShape3D_7pjc8")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.886373, 0, -0.0964458)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.757417, 0.615785, -0.280614)
 shape = SubResource("SphereShape3D_cafq3")
 disabled = true
 

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://g505r7ikcir5"]
+
+[ext_resource type="Script" path="res://Objects/Baggage.cs" id="1_lm3w3"]
+[ext_resource type="ArrayMesh" uid="uid://b3yjaypc0262v" path="res://Meshes/Assets_R3/OBJ/Suitcase.obj" id="1_xluxt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0j86q"]
+size = Vector3(0.30658, 1.08411, 0.487061)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pjsr5"]
+radius = 0.462674
+height = 1.15511
+
+[node name="Baggage" type="StaticBody3D"]
+collision_layer = 16
+script = ExtResource("1_lm3w3")
+
+[node name="Suitcase" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_xluxt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145416, 0.506897, -0.275024)
+shape = SubResource("BoxShape3D_0j86q")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.141443, 0.479334, -0.258715)
+shape = SubResource("CapsuleShape3D_pjsr5")
+
+[connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]
+[connection signal="body_exited" from="Area3D" to="." method="OnDialogueClose"]

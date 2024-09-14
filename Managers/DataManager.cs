@@ -7,7 +7,7 @@ namespace Premonition.Managers
 {
     public sealed partial class DataManager : Node
     {
-        private List<IDataSnapshot> _snapshots { get; set; } = new List<IDataSnapshot>();
+        private List<IDataSnapshot> Snapshots { get; set; } = new List<IDataSnapshot>();
         private DataManager() { }
         [Required]
         private static DataManager _instance;
@@ -30,12 +30,12 @@ namespace Premonition.Managers
 
         public void SaveSnapshot(IDataSnapshot snapshot)
         {
-            _snapshots.Add(snapshot);
+            Snapshots.Add(snapshot);
         }
 
         public void CaptureState(IAssetDataRetrieval assetToCapture)
         {
-            _snapshots.Add(assetToCapture.Save());
+            Snapshots.Add(assetToCapture.Save());
         }
 
         public void RestoreState(IAssetDataRetrieval assetToRestore)

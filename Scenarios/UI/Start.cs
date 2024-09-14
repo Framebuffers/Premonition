@@ -1,17 +1,14 @@
 using Godot;
 
-public partial class Start : Control
+namespace Premonition.Scenarios.UI
 {
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
+    public partial class Start : Control
     {
-        GetNode<Button>("Control/StartButton").GrabFocus();
+        // Called when the node enters the scene tree for the first time.
+        public override void _Ready()
+        {
+            GetNode<Button>("Control/StartButton").GrabFocus();
+        }
     }
 
-
-
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
-    {
-    }
 }

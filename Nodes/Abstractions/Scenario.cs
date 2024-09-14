@@ -12,16 +12,14 @@ namespace Premonition.Nodes.Abstractions
         public HashSet<Node> Players { get; set; } = new HashSet<Node>();
         public override void _Ready()
         {
-            LoadResources();
+            base._Ready();
+            CallDeferred(MethodName.LoadResources);
             //LoadPlayers();
         }
 
         protected void LoadPlayers()
         {
-            foreach (var player in Players)
-            {
-                Director.SceneManager.LoadPlayer(player);
-            }
+
         }
 
         protected abstract void LoadResources();

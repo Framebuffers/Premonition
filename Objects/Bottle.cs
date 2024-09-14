@@ -2,10 +2,8 @@ using Premonition.Nodes.Abstractions;
 
 namespace Premonition.Objects
 {
-
-    public partial class Toilet : Item
+    public partial class Bottle : Item
     {
-
         public override string Storyline0 { get; set; } = "[Not in table]";
 
         public override string Storyline1 { get; set; } = "[Not in table]";
@@ -14,5 +12,4 @@ namespace Premonition.Objects
         public override string Storyline4 { get; set; } = "[Not in table]";
         public override string Storyline5 { get; set; } = "[Not in table]";
     }
-
 }

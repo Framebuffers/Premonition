@@ -5,12 +5,6 @@ namespace Premonition.Managers
 {
     public sealed partial class LogManager : Node
     {
-
-        // Called every frame. 'delta' is the elapsed time since the previous frame.
-        public override void _Process(double delta)
-        {
-
-        }
     }
 
     public static class LogManagerExtensions

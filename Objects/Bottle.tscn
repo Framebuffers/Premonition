@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn7xp2xmp37a5"]
+
+[ext_resource type="Script" path="res://Objects/Bottle.cs" id="1_tmxvl"]
+[ext_resource type="ArrayMesh" uid="uid://brp2efccdy1xh" path="res://Meshes/Assets_R3/OBJ/bottle.obj" id="1_v8iso"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n77cn"]
+size = Vector3(0.103271, 0.396698, 0.130676)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ulpvo"]
+radius = 0.25
+
+[node name="Bottle" type="StaticBody3D"]
+collision_layer = 16
+script = ExtResource("1_tmxvl")
+
+[node name="Bottle" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_v8iso")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.161743, 0.259232, -0.0585632)
+shape = SubResource("BoxShape3D_n77cn")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.160556, 0.238992, -0.0619288)
+shape = SubResource("SphereShape3D_ulpvo")

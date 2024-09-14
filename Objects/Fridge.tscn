@@ -20,7 +20,6 @@ shape = SubResource("BoxShape3D_m85ps")
 
 [node name="Fridge" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_47fow")
-skeleton = NodePath("../CollisionShape3D")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16

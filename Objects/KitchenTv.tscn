@@ -15,7 +15,6 @@ script = ExtResource("1_73po0")
 
 [node name="KitchenTv" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_wjf53")
-skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.743495, 0.486962, -0.524549)
@@ -27,3 +26,6 @@ collision_layer = 16
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94873, 0.406599, -0.89495)
 shape = SubResource("SphereShape3D_ge37j")
+
+[connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]
+[connection signal="body_exited" from="Area3D" to="." method="OnDialogueClose"]

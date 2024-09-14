@@ -10,6 +10,7 @@ namespace Premonition.Managers
         // Called when the node enters the scene tree for the first time.
         public override void _Ready()
         {
+            base._Ready();
             _director = this.GetGameDirector();
             _screen2D = _director.ScreenManager.Screen2D;
             _screen3D = _director.ScreenManager.Screen3D;

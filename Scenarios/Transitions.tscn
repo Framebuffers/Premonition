@@ -11,6 +11,7 @@ size = Vector3(0.52005, 0.476387, 0.99118)
 [node name="Transitions" type="Node3D"]
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
 script = ExtResource("1_ds1ce")
 
 [node name="StaircasePortal" type="CollisionShape3D" parent="Area3D"]
@@ -18,6 +19,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5952, 0.246182, -4.97318)
 shape = SubResource("BoxShape3D_q3amj")
 
 [node name="Area3D2" type="Area3D" parent="."]
+collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6163, 2.65421, -3.96017)

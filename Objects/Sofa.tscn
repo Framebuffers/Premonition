@@ -13,10 +13,6 @@ radius = 0.519152
 collision_layer = 16
 script = ExtResource("1_h5l3p")
 
-[node name="Sofa80x180" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_ye8ed")
-skeleton = NodePath("../../PlantPot")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.393686, 0.348907, -0.94577)
 shape = SubResource("BoxShape3D_3ylyc")
@@ -27,6 +23,9 @@ collision_layer = 16
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.646771, 0.695869, -0.845799)
 shape = SubResource("SphereShape3D_75q4d")
+
+[node name="Sofa80x180" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_ye8ed")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]
 [connection signal="body_exited" from="Area3D" to="." method="OnDialogueClose"]

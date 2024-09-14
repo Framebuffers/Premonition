@@ -19,7 +19,6 @@ shape = SubResource("BoxShape3D_fur4a")
 
 [node name="Box" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_gwqdu")
-skeleton = NodePath("../../StaticBody3D/CollisionShape3D")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16

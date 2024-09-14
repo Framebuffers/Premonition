@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://nrewi5rtgiu8"]
 
 [ext_resource type="Script" path="res://Objects/PlantPot.cs" id="1_82i02"]
-[ext_resource type="ArrayMesh" uid="uid://d3dwcqk7bst4f" path="res://Meshes/Assets_R3/OBJ/Plant_pot1.obj" id="2_3c0o4"]
+[ext_resource type="ArrayMesh" uid="uid://d3dwcqk7bst4f" path="res://Meshes/Assets_R3/OBJ/Plant_pot1.obj" id="2_1shbg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_18jyv"]
 size = Vector3(0.569054, 1.22304, 0.659912)
@@ -13,10 +13,6 @@ radius = 0.862455
 collision_layer = 16
 script = ExtResource("1_82i02")
 
-[node name="PlantPot1" type="MeshInstance3D" parent="."]
-mesh = ExtResource("2_3c0o4")
-skeleton = NodePath("")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.277851, 0.62664, -0.255668)
 shape = SubResource("BoxShape3D_18jyv")
@@ -27,6 +23,9 @@ collision_layer = 16
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.297178, 0.75568, -0.3)
 shape = SubResource("SphereShape3D_xn7g0")
+
+[node name="PlantPot1" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_1shbg")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]
 [connection signal="body_exited" from="Area3D" to="." method="OnDialogueClose"]

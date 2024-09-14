@@ -38,7 +38,7 @@ namespace Premonition.Scenarios.Routes
             Lights.BindNode(GetNode<Node3D>("Environment/Lighting"));
             Lights.TweenProperty(GetNode<Node3D>("Environment/Lighting"), "rotation_degrees", new Vector3(0.0f, 360.0f, 0.0f), CycleDuration);
             Lights.SetParallel(true);
-            
+
             Lights.Finished += OnLightingTweenCompleted;
         }
 
@@ -111,6 +111,9 @@ namespace Premonition.Scenarios.Routes
 
         private void TweenHue1()
         {
+            //Hue1 = Director.ScreenManager.ChangeLightingColorA(new Color(0.102f, 0.64f, 0.13f, 1.0f), CycleDuration * CycleMultiplier, out Color startA);
+            //Start1 = startA;
+
             DirectionalLight3D light1 = GetNode<DirectionalLight3D>("Environment/Lighting/DirectionalLight3D");
             Hue1 = GetTree().CreateTween();
             Hue1.BindNode(light1);
@@ -123,6 +126,8 @@ namespace Premonition.Scenarios.Routes
 
         private void TweenHue2()
         {
+            //Hue2 = Director.ScreenManager.ChangeLightingColorB(new Color(0.56f, 0.67f, 0.89f, 1.0f), CycleDuration * CycleMultiplier, out Color startB);
+            //Start2 = startB;
             DirectionalLight3D light2 = GetNode<DirectionalLight3D>("Environment/Lighting/DirectionalLight3D5");
             Hue2 = GetTree().CreateTween();
             Hue2.BindNode(light2);
@@ -134,6 +139,7 @@ namespace Premonition.Scenarios.Routes
 
         private void Hue1_Finished()
         {
+            //Hue1 = Director.ScreenManager.ChangeLightingColorA(Start1, CycleDuration * CycleMultiplier, out _);
             DirectionalLight3D light1 = GetNode<DirectionalLight3D>("Environment/Lighting/DirectionalLight3D");
             Hue1 = GetTree().CreateTween();
             Hue1.BindNode(light1);
@@ -150,6 +156,6 @@ namespace Premonition.Scenarios.Routes
             Hue2.Finished += TweenHue2;
         }
 
-       
+
     }
 }

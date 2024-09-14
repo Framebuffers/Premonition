@@ -17,16 +17,15 @@ script = ExtResource("1_us0bp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.325179, 0.344535, -0.00858581)
 shape = SubResource("BoxShape3D_s4ywi")
 
-[node name="PictureFrame2" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_ol72g")
-skeleton = NodePath("../TV")
-
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.319221, 0.328912, 0)
 shape = SubResource("SphereShape3D_v306c")
+
+[node name="PictureFrame2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_ol72g")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]
 [connection signal="body_exited" from="Area3D" to="." method="OnDialogueClose"]

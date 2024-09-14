@@ -10,9 +10,6 @@ script = ExtResource("1_uo4cd")
 [node name="Environment" parent="." instance=ExtResource("3_nqpxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="L2+l3" parent="Environment/Meshes" index="0"]
-visible = false
-
 [node name="DiningRoom" parent="." instance=ExtResource("3_aexgn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.792412, -0.055, -1.14244)
 

@@ -23,6 +23,7 @@ namespace Premonition.Managers
         // Functions
         public override void _Ready()
         {
+            base._Ready();
             var gv1 = Engine.GetVersionInfo().Values;
             GD.Print($"Obsidian Framework for Godot \n(C) Copyright 2024 Framebuffer. Version 2024.09.R2.\n\tRunning on Godot {gv1.Last()}.\n\tArchitecture: {Engine.GetArchitectureName()}\n\tGame: {this.GetType().AssemblyQualifiedName}\n\tAuthor: Framebuffer\n\tLicense: MIT Licence\n\n");
         }

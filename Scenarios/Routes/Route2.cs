@@ -16,6 +16,7 @@ namespace Premonition.Scenarios.Routes
             Director.ScreenManager.AddPlayer("res://Camera/Character.tscn".InstantiatePathAsScene(), out var player);
             player.GlobalPosition = GetNode<Marker3D>("PlayerPosition").GlobalPosition;
             if (this.Players != null) $"Player loaded: {this.Players.Count}".ToConsole(); else $"No players loaded".ToConsole();
+
         }
     }
 }

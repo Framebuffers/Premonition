@@ -6,17 +6,13 @@ namespace Premonition.Objects
     public partial class Sofa : Item
     {
 
-        public override string Storyline0 => "[Not in table]";
+        public override string Storyline0 { get; set; } = "[Not in table]";
 
-        public override string Storyline1 => "[Not in table]";
-
-        public override string Storyline2 => "[Not in table]";
-
-        public override string Storyline3 => "[Not in table]";
-
-        public override string Storyline4 => "[Not in table]";
-
-        public override string Storyline5 => "[Not in table]";
+        public override string Storyline1 { get; set; } = "[Not in table]";
+        public override string Storyline2 { get; set; } = "[Not in table]";
+        public override string Storyline3 { get; set; } = "[Not in table]";
+        public override string Storyline4 { get; set; } = "[Not in table]";
+        public override string Storyline5 { get; set; } = "[Not in table]";
     }
 
 }

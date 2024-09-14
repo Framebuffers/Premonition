@@ -10,9 +10,6 @@ script = ExtResource("1_2scyk")
 [node name="Environment" parent="." instance=ExtResource("1_gxnv4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="L2+l3" parent="Environment/Meshes" index="0"]
-visible = false
-
 [node name="DiningRoom" parent="." instance=ExtResource("3_oy0cc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.158369, -0.055, 0.0833717)
 

@@ -15,7 +15,6 @@ script = ExtResource("1_c3fb2")
 
 [node name="Bed" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_70pbm")
-skeleton = NodePath("../../Md")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04093, 0, -0.368743)

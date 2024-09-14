@@ -1,28 +1,23 @@
 using Godot;
 using Premonition.Managers;
 
-public partial class ItemDetection : ShapeCast3D
+namespace Premonition.Camera
 {
-
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
+    public partial class ItemDetection : ShapeCast3D
     {
-
-    }
-
-
-
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
-    {
-        if (this.IsColliding())
+        // Called every frame. 'delta' is the elapsed time since the previous frame.
+        public override void _Process(double delta)
         {
-            Node point = this.GetCollider(0) as Node ?? null;
-            if (point != null)
+            if (this.IsColliding())
             {
-                $"Collision detected at {point}".ToConsole();
-                $"Node collider: {this.Name}".ToConsole();
+                Node point = this.GetCollider(0) as Node ?? null;
+                if (point != null)
+                {
+                    $"Collision detected at {point}".ToConsole();
+                    $"Node collider: {this.Name}".ToConsole();
+                }
             }
         }
     }
+
 }

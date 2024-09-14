@@ -66,7 +66,7 @@ namespace Premonition.Camera
         private string state = "normal";
         private bool lowCeiling = false; // This is for when the ceiling is too low and the player needs to crouch.
         private bool wasOnFloor = true;
-        private Reticle RETICLE;
+        //private Reticle RETICLE;
 
         private Control USER_INTERFACE => _director.ScreenManager.UserInterface;
 
@@ -122,12 +122,12 @@ namespace Premonition.Camera
             CROUCH_ANIMATION.Play("RESET");
         }
 
-        private void change_reticle(string reticlePath)
-        {
-            RETICLE?.QueueFree();
-            _director.ScreenManager.AddToScreen2D(reticlePath, out RETICLE);
-            RETICLE.character = this;
-        }
+        //private void change_reticle(string reticlePath)
+        //{
+        //    RETICLE?.QueueFree();
+        //    _director.ScreenManager.AddToScreen2D(reticlePath, out RETICLE);
+        //    RETICLE.character = this;
+        //}
 
         public override void _PhysicsProcess(double delta)
         {
@@ -361,9 +361,9 @@ namespace Premonition.Camera
 
         public override void _UnhandledInput(InputEvent @event)
         {
-            if (@event is InputEventMouseMotion && Input.MouseMode == Input.MouseModeEnum.Captured)
+            if (@event is InputEventMouseMotion motion && Input.MouseMode == Input.MouseModeEnum.Captured)
             {
-                InputEventMouseMotion iemm = (InputEventMouseMotion)@event;
+                InputEventMouseMotion iemm = motion;
                 Vector3 currentRotation = HEAD.Rotation;
                 currentRotation.Y -= iemm.Relative.X * mouseSensitivity;
                 currentRotation.X -= iemm.Relative.Y * mouseSensitivity;

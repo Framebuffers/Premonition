@@ -6,22 +6,13 @@ namespace Premonition.Nodes.Abstractions
 {
     public abstract partial class Item : StaticBody3D
     {
-        //public override void _Ready()
-        //{
-        //    base._Ready();
-        //    this.CollisionLayer = 5;
-        //    this.CollisionMask = 1;
-        //    GetNode<Area3D>("Area3D").CollisionLayer = 5;
-        //    GetNode<Area3D>("Area3D").CollisionMask = 1;
-        //    GetNode<Area3D>("Area3D").BodyEntered += Item_BodyEntered;
-        //}
+        [Signal]
+        public delegate void InteractionEventHandler();
 
-        private void Item_BodyEntered(Node3D body)
-        {
-            $"Signal has been connected from the abstract class.".ToConsole();
-        }
+        [Signal]
+        public delegate void ObjectHidingEventHandler();
 
-        //public virtual string Name { get; } = "[Not in table]";
+        public virtual string ItemName { get; } = "[Not in table]";
         private GameDirector _director { get => this.GetGameDirector(); }
         private uint CurrentStoryline { get => _director.SceneManager.CurrentStoryline; }
         private DebugPanel DialoguePanel { get => _director.ScreenManager.DebugPanel; }
@@ -57,19 +48,19 @@ namespace Premonition.Nodes.Abstractions
             };
         }
 
-        private void AddDialogue(string body, int order) => DialoguePanel.AddProperty(Name, body, order);
+        private void AddDialogue(string body, int order) => DialoguePanel.AddProperty(ItemName, body, order);
 
         private const string DefaultAnswer = "Oh yeah! I'm pretty sure this is [Not in table].";
-        public virtual string Storyline0 { get; set; } = "[Not in table]";
-        public virtual string Storyline1 { get; set; } = "[Not in table]";
-        public virtual string Storyline2 { get; set; } = "[Not in table]";
-        public virtual string Storyline3 { get; set; } = "[Not in table]";
-        public virtual string Storyline4 { get; set; } = "[Not in table]";
-        public virtual string Storyline5 { get; set; } = "[Not in table]";
+        public abstract string Storyline0 { get; set; }
+        public abstract string Storyline1 { get; set; }
+        public abstract string Storyline2 { get; set; }
+        public abstract string Storyline3 { get; set; }
+        public abstract string Storyline4 { get; set; }
+        public abstract string Storyline5 { get; set; }
         protected void OnDialogueOpen(Node3D body)
         {
-            _ = body; // signature has to match to be able to connect signal back to Godot, this is to throw away the unused Body parameter.
             _director.ScreenManager.DebugPanel.Visible = true;
+            EmitSignal(SignalName.ObjectHiding);
             switch (CurrentStoryline)
             {
                 case 0:
@@ -105,8 +96,17 @@ namespace Premonition.Nodes.Abstractions
 
         protected void OnDialogueClose(Node3D body)
         {
-            _ = body; // signature has to match to be able to connect signal back to Godot, this is to throw away the unused Body parameter.	
+            //_ = body; // signature has to match to be able to connect signal back to Godot, this is to throw away the unused Body parameter.	
             RemoveDialogue();
+        }
+
+        private void HideObject() => this.Visible = false;
+
+        public override void _Ready()
+        {
+            base._Ready();
+            
+
         }
     }
 }
