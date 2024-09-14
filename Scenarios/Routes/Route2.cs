@@ -8,7 +8,7 @@ namespace Premonition.Scenarios.Routes
     /// i caused the storm to come and destroy the peace
     /// the impulsivity route
     /// </summary>
-    public sealed partial class Route2 : Route
+    public sealed partial class Route2 : Scenario
     {
         protected override void LoadResources()
         {

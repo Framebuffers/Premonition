@@ -2,30 +2,29 @@ using Godot;
 
 namespace Premonition.Camera
 {
-	public partial class Reticle0 : Reticle
-	{
-		[ExportGroup("Settings")]
-		[Export]
-		int dotSize = 1;
-		[Export]
-		Color dotColor = Colors.White;
+    public partial class Reticle0 : Reticle
+    {
 
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
-		{
-			if (Visible) { updateReticleSettings(); }
-		}
+        private int dotSize = 1;
 
-		void updateReticleSettings()
-		{
-			if (dot.GetType() == typeof(Polygon2D))
-			{
-				Vector2 dotScale = dot.Scale;
-				dotScale.X = dotSize;
-				dotScale.Y = dotSize;
-				dot.Scale = dotScale;
-				dot.Color = dotColor;
-			}
-		}
-	}
+        private Color dotColor = Colors.White;
+
+        // Called every frame. 'delta' is the elapsed time since the previous frame.
+        public override void _Process(double delta)
+        {
+            if (Visible) { updateReticleSettings(); }
+        }
+
+        private void updateReticleSettings()
+        {
+            if (dot.GetType() == typeof(Polygon2D))
+            {
+                Vector2 dotScale = dot.Scale;
+                dotScale.X = dotSize;
+                dotScale.Y = dotSize;
+                dot.Scale = dotScale;
+                dot.Color = dotColor;
+            }
+        }
+    }
 }

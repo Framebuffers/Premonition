@@ -8,8 +8,10 @@ namespace Premonition.Scenarios.Routes
     /// my peace was interrupted by a sudden event, while preparing something for someone that will never come
     /// the lost person route
     /// </summary>
-    public sealed partial class Route3 : Route
+    public sealed partial class Route3 : Scenario
     {
+
+
         protected override void LoadResources()
         {
             Director.SceneManager.CurrentStoryline = 3;

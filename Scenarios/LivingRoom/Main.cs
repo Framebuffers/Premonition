@@ -1,13 +1,32 @@
 using Godot;
 using Premonition.Managers;
 using Premonition.Nodes.Abstractions;
-using Premonition.Nodes.Interfaces;
 
 
 namespace Premonition.Scenarios.LivingRoom
 {
-    public partial class Main : Route
+    public partial class Main : Scenario
     {
-        protected override uint StorylineNumber => 0;
+        protected void OnStaircaseEnter(Node node)
+        {
+            Node3D body = node as Node3D;
+            var position = body.Position;
+            position.Y += 2.5f;
+        }
+
+        protected void OnStaircaseExit(Node node)
+        {
+            Node3D body = node as Node3D;
+            var position = body.Position;
+            position.Y -= 2.5f;
+        }
+
+        protected override void LoadResources()
+        {
+            Director.SceneManager.CurrentStoryline = 0;
+            Director.ScreenManager.AddPlayer("res://Camera/Character.tscn".InstantiatePathAsScene(), out var player);
+            player.GlobalPosition = GetNode<Marker3D>("PlayerPosition").GlobalPosition;
+            if (this.Players != null) $"Player loaded: {this.Players.Count}".ToConsole(); else $"No players loaded".ToConsole();
+        }
     }
 }

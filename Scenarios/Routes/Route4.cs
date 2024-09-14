@@ -8,8 +8,10 @@ namespace Premonition.Scenarios.Routes
     /// my peace was enjoying myself, and then the storm came when I entered my home and realised what happened.
     /// the "in the air tonight" route
     /// </summary>
-    public sealed partial class Route4 : Route
+    public sealed partial class Route4 : Scenario
     {
+
+
         protected override void LoadResources()
         {
             Director.SceneManager.CurrentStoryline = 4;

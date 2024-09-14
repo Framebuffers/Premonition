@@ -8,11 +8,9 @@ namespace Premonition.Nodes.Abstractions
         private GameDirector Director { get => this.GetGameDirector(); }
         public string PlayerName { get; }
         // How fast the player moves in meters per second.
-        [Export]
+
         public int Speed { get; set; } = 7;
 
-        // The downward acceleration when in the air, in meters per second squared.
-        [Export]
         public int FallAcceleration { get; set; } = 75;
 
         protected Vector3 _targetVelocity = Vector3.Zero;

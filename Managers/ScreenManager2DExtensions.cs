@@ -1,8 +1,6 @@
-using System.Collections;
+using Godot;
 using System.Collections.Generic;
 using System.Linq;
-using Godot;
-using Windows.ApplicationModel.Calls;
 
 namespace Premonition.Managers
 {
@@ -17,7 +15,7 @@ namespace Premonition.Managers
         }
 
         // add as node
-        public static void AddToScreen2D(this ScreenManager s, Node n, out Node reference) 
+        public static void AddToScreen2D(this ScreenManager s, Node n, out Node reference)
         {
             s.Screen2D.AddChild(n);
             reference = n;
@@ -35,7 +33,7 @@ namespace Premonition.Managers
             s.Screen2D.AddChild(node);
             reference = node;
         }
-        
+
         // clear all
         public static void ClearScreen2D(this ScreenManager screenManager)
         {

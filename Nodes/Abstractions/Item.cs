@@ -1,14 +1,12 @@
 using Godot;
 using Premonition.Camera.Debug;
 using Premonition.Managers;
-using System;
-using System.Diagnostics;
 
 namespace Premonition.Nodes.Abstractions
 {
     public abstract partial class Item : StaticBody3D
     {
-        public virtual string Name { get; } = "[Not in table]";
+        //public virtual string Name { get; } = "[Not in table]";
         private GameDirector _director { get => this.GetGameDirector(); }
         private uint CurrentStoryline { get => _director.SceneManager.CurrentStoryline; }
         private DebugPanel DialoguePanel { get => _director.ScreenManager.DebugPanel; }
@@ -34,7 +32,7 @@ namespace Premonition.Nodes.Abstractions
             {
                 case 0:
                     AddDialogue(Storyline0, 0);
-                    $"Case0: {Storyline5}".ToConsole();  
+                    $"Case0: {Storyline5}".ToConsole();
                     break;
                 case 1:
                     AddDialogue(Storyline1, 0);

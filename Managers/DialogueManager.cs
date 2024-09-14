@@ -6,7 +6,7 @@ namespace Premonition.Managers
     {
         public static void ShowDialogueOnScreen(string text)
         {
-            
+
         }
     }
 }
