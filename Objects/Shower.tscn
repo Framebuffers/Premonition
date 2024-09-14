@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://yacddkq66622"]
+[gd_scene load_steps=5 format=3 uid="uid://yacddkq66622"]
 
+[ext_resource type="Script" path="res://Objects/Shower.cs" id="1_twbew"]
 [ext_resource type="ArrayMesh" uid="uid://dc0rb3hho25b1" path="res://Meshes/Assets_R3/OBJ/Shower.obj" id="1_vbgyg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm5p"]
 size = Vector3(1.35327, 2.5151, 0.950237)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_oojxq"]
+radius = 0.917948
+
 [node name="Shower" type="StaticBody3D"]
 collision_layer = 16
+script = ExtResource("1_twbew")
 
 [node name="Shower" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.79337, 0.0182678, -6.49821)
@@ -15,3 +20,13 @@ mesh = ExtResource("1_vbgyg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65704, 1.18626, -6.95957)
 shape = SubResource("BoxShape3D_7dm5p")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39284, 0.800542, -7.22157)
+shape = SubResource("SphereShape3D_oojxq")
+
+[connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]
+[connection signal="body_exited" from="Area3D" to="." method="OnDialogueClose"]

@@ -7,7 +7,7 @@ namespace Premonition.Nodes.Abstractions
 {
     public abstract partial class Item : StaticBody3D
     {
-        public abstract string Name { get; }
+        public virtual string Name { get; } = "[Not in table]";
         private GameDirector _director { get => this.GetGameDirector(); }
         private uint CurrentStoryline { get => _director.SceneManager.CurrentStoryline; }
         private DebugPanel DialoguePanel { get => _director.ScreenManager.DebugPanel; }
@@ -20,8 +20,9 @@ namespace Premonition.Nodes.Abstractions
         public virtual string Storyline3 { get; } = "[Not in table]";
         public virtual string Storyline4 { get; } = "[Not in table]";
         public virtual string Storyline5 { get; } = "[Not in table]";
-        private void OnInteraction(Node3D body)
+        protected void OnDialogueOpen(Node3D body)
         {
+            _ = body; // signature has to match to be able to connect signal back to Godot, this is to throw away the unused Body parameter.
             switch (CurrentStoryline)
             {
                 case 0:
@@ -55,8 +56,9 @@ namespace Premonition.Nodes.Abstractions
             }
         }
 
-        private void OnDialogueClose(Node3D body)
+        protected void OnDialogueClose(Node3D body)
         {
+            _ = body; // signature has to match to be able to connect signal back to Godot, this is to throw away the unused Body parameter.	
             RemoveDialogue();
         }
     }

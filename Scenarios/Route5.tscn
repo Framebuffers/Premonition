@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://kbwwdwwfpe3y"]
+[gd_scene load_steps=22 format=3 uid="uid://bg7n5sg2akjyd"]
 
-[ext_resource type="Script" path="res://Scenarios/RouteA/RouteA.cs" id="1_m86w3"]
-[ext_resource type="ArrayMesh" uid="uid://d11rs1seuc8oq" path="res://Meshes/Assets_R3/OBJ/PictureFrame_2.obj" id="2_0he8h"]
+[ext_resource type="Script" path="res://Scenarios/Routes/Route5.cs" id="1_abq5b"]
 [ext_resource type="PackedScene" uid="uid://cqv5rul7eaad7" path="res://Scenarios/Environment.tscn" id="3_1jko3"]
 [ext_resource type="PackedScene" uid="uid://5i8ibmsrn81s" path="res://Objects/Dining_room_table.tscn" id="4_ogbsm"]
 [ext_resource type="PackedScene" uid="uid://oida2u682n31" path="res://Objects/Toilet_Room.tscn" id="5_xg88s"]
@@ -9,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://exui6h8h5ajd" path="res://Objects/Toilet2_Room.tscn" id="7_cq5mb"]
 [ext_resource type="PackedScene" uid="uid://2h5ux0k5gmw4" path="res://Objects/KitchenCountertop.tscn" id="8_t8ugu"]
 [ext_resource type="PackedScene" uid="uid://ce6sv52ql3l3a" path="res://Objects/Fridge.tscn" id="9_631fh"]
-[ext_resource type="ArrayMesh" uid="uid://6vk56fq2200" path="res://Meshes/Assets_R3/OBJ/Microwave.obj" id="10_li68n"]
-[ext_resource type="ArrayMesh" uid="uid://cu32cr5aq4xfm" path="res://Meshes/Assets_R3/OBJ/Kitchen_TV.obj" id="11_iacmk"]
+[ext_resource type="PackedScene" uid="uid://b3ohfqwonu6vi" path="res://Objects/Microwave.tscn" id="9_ntmo4"]
+[ext_resource type="PackedScene" uid="uid://cmrenmw2e3fac" path="res://Objects/KitchenTv.tscn" id="10_phvav"]
 [ext_resource type="PackedScene" uid="uid://cy7qxafj12ve0" path="res://Objects/Table_2.tscn" id="12_qx1h3"]
 [ext_resource type="PackedScene" uid="uid://clsl7g12tach4" path="res://Objects/DoubleBed.tscn" id="13_a5kyc"]
 [ext_resource type="PackedScene" uid="uid://cg75tms1dkm3r" path="res://Objects/Piano.tscn" id="14_x6niy"]
@@ -18,17 +17,13 @@
 [ext_resource type="PackedScene" uid="uid://cr0qx731go2me" path="res://Objects/Sofa.tscn" id="16_xwqbr"]
 [ext_resource type="PackedScene" uid="uid://b8a3xooh2unnp" path="res://Objects/SideTable.tscn" id="17_1acp6"]
 [ext_resource type="PackedScene" uid="uid://ddyomi11i6rfg" path="res://Objects/Tv.tscn" id="18_ebaj8"]
-[ext_resource type="ArrayMesh" uid="uid://dkd2j1vbqm8en" path="res://Meshes/Assets_R3/OBJ/MD.obj" id="19_47r8q"]
+[ext_resource type="PackedScene" uid="uid://cffhapjyd5igl" path="res://Objects/Md.tscn" id="18_ls25d"]
 [ext_resource type="PackedScene" uid="uid://dhngcg3uu5011" path="res://Objects/Bed.tscn" id="20_ub3wc"]
+[ext_resource type="PackedScene" uid="uid://yccuw43edyc0" path="res://Objects/PictureFrame2.tscn" id="21_7qja5"]
 [ext_resource type="PackedScene" uid="uid://xbdjn2vkjcrg" path="res://Objects/Box.tscn" id="21_jlh7l"]
 
-[node name="Route1" type="Node3D"]
-script = ExtResource("1_m86w3")
-
-[node name="PictureFrame2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.640594, -0.21254, -0.73788, -0.000229448, 0.960878, -0.276972, 0.76788, 0.177596, 0.615484, -10.7644, 0.885437, -2.19354)
-mesh = ExtResource("2_0he8h")
-skeleton = NodePath("../TV")
+[node name="Route5" type="Node3D"]
+script = ExtResource("1_abq5b")
 
 [node name="Environment" parent="." instance=ExtResource("3_1jko3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -36,6 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 [node name="DiningRoom" parent="." instance=ExtResource("4_ogbsm")]
 
 [node name="Toilet" parent="." instance=ExtResource("5_xg88s")]
+script = null
 
 [node name="Desk" parent="." instance=ExtResource("6_th8bx")]
 
@@ -50,15 +46,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.66, 0)
 
 [node name="Fridge" parent="Kitchen" instance=ExtResource("9_631fh")]
 
-[node name="Microwave" type="MeshInstance3D" parent="Kitchen"]
-transform = Transform3D(0.953212, 0, 0.302303, 0, 1, 0, -0.302303, 0, 0.953212, -6.85849, 0.75061, -6.58123)
-mesh = ExtResource("10_li68n")
-skeleton = NodePath("../Fridge")
+[node name="Microwave" parent="Kitchen" instance=ExtResource("9_ntmo4")]
 
-[node name="KitchenTv" type="MeshInstance3D" parent="Kitchen"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.99531, 1.55146, -3.71282)
-mesh = ExtResource("11_iacmk")
-skeleton = NodePath("../..")
+[node name="KitchenTv" parent="Kitchen" instance=ExtResource("10_phvav")]
 
 [node name="Table_2" parent="Kitchen" instance=ExtResource("12_qx1h3")]
 
@@ -72,31 +62,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5381, -1.06289, -0.187536
 
 [node name="Sofa" parent="." instance=ExtResource("16_xwqbr")]
 
-[node name="Sofa80x180" parent="Sofa" index="0"]
-transform = Transform3D(0.990389, 0, -0.138309, 0, 1, 0, 0.138309, 0, 0.990389, -11.8242, 0.039673, -6.86656)
-
-[node name="CollisionShape3D" parent="Sofa" index="1"]
-transform = Transform3D(0.990389, 0, -0.138309, 0, 1, 0, 0.138309, 0, 0.990389, -11.2218, 0.171143, -7.69644)
-
 [node name="Sofa2" parent="." instance=ExtResource("16_xwqbr")]
-
-[node name="Sofa80x180" parent="Sofa2" index="0"]
-transform = Transform3D(0.0153059, 0, -0.999883, 0, 1, 0, 0.999883, 0, 0.0153059, -10.5355, 0.039673, -9.60645)
-
-[node name="CollisionShape3D" parent="Sofa2" index="1"]
-transform = Transform3D(0.0153059, 0, -0.999883, 0, 1, 0, 0.999883, 0, 0.0153059, -9.62305, 0.171143, -9.13857)
 
 [node name="SideTable" parent="." instance=ExtResource("17_1acp6")]
 
 [node name="TV" parent="." instance=ExtResource("18_ebaj8")]
 
-[node name="Md" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.697328, 0, 0.716752, 0, 1, 0, -0.716752, 0, 0.697328, -14.2482, 0.029673, -6.21483)
-mesh = ExtResource("19_47r8q")
+[node name="Md" parent="." instance=ExtResource("18_ls25d")]
 
 [node name="Bed" parent="." instance=ExtResource("20_ub3wc")]
 
 [node name="Box" parent="." instance=ExtResource("21_jlh7l")]
 
-[editable path="Sofa"]
-[editable path="Sofa2"]
+[node name="PictureFrame2" parent="." instance=ExtResource("21_7qja5")]

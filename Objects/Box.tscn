@@ -29,4 +29,5 @@ collision_layer = 16
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1075, 0, -6.78551)
 shape = SubResource("SphereShape3D_ngsgv")
 
-[connection signal="body_entered" from="Area3D" to="." method="OnInteraction"]
+[connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]
+[connection signal="body_exited" from="Area3D" to="." method="OnDialogueClose"]

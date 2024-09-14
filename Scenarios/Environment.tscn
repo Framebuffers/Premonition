@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqv5rul7eaad7"]
+[gd_scene load_steps=7 format=3 uid="uid://cqv5rul7eaad7"]
 
-[ext_resource type="Script" path="res://Scenarios/LivingRoom/Main.cs" id="1_5fxa6"]
 [ext_resource type="ArrayMesh" uid="uid://boybfkqd76s2w" path="res://Meshes/House_Complete_R4/L1+L2.obj" id="1_pm3ir"]
 [ext_resource type="PackedScene" uid="uid://cu2if75jhekdh" path="res://Camera/Lighting/ExteriorLighting.tscn" id="2_1bsah"]
 [ext_resource type="ArrayMesh" uid="uid://bsci8ne8lcrvl" path="res://Meshes/House_Complete_R4/L2+L3.obj" id="2_sjk6k"]
@@ -10,7 +9,6 @@
 
 [node name="Environment" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.05833, 0, 2.61719)
-script = ExtResource("1_5fxa6")
 
 [node name="Lighting" parent="." instance=ExtResource("2_1bsah")]
 
@@ -38,5 +36,3 @@ visibility_range_end = 110.7
 visibility_range_end_margin = 27.8
 mesh = ExtResource("1_pm3ir")
 skeleton = NodePath("../..")
-
-[node name="InteractiveObjects" type="Node3D" parent="."]

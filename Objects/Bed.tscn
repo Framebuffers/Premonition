@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhngcg3uu5011"]
+[gd_scene load_steps=5 format=3 uid="uid://dhngcg3uu5011"]
 
 [ext_resource type="ArrayMesh" uid="uid://cc73umqn5tnhp" path="res://Meshes/Assets_R3/OBJ/Bed.obj" id="1_70pbm"]
+[ext_resource type="Script" path="res://Objects/Bed.cs" id="1_c3fb2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gg0im"]
 size = Vector3(1.67566, 1.11469, 1.16998)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_ygyi8"]
+radius = 1.4707
+
 [node name="Bed" type="StaticBody3D"]
 collision_layer = 16
+script = ExtResource("1_c3fb2")
 
 [node name="Bed" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3663, 0.0396729, -5.68949)
@@ -16,3 +21,12 @@ skeleton = NodePath("../../Md")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1108, 0.594574, -6.24634)
 shape = SubResource("BoxShape3D_gg0im")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2644, 0, -7.28842)
+shape = SubResource("SphereShape3D_ygyi8")
+
+[connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]
+[connection signal="body_exited" from="Area3D" to="." method="OnDialogueClose"]

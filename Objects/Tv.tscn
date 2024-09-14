@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddyomi11i6rfg"]
+[gd_scene load_steps=5 format=3 uid="uid://ddyomi11i6rfg"]
 
+[ext_resource type="Script" path="res://Objects/Tv.cs" id="1_2cyee"]
 [ext_resource type="ArrayMesh" uid="uid://dm48wrar4bbho" path="res://Meshes/Assets_R3/OBJ/TV.obj" id="1_fafo6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tc1ru"]
 size = Vector3(0.501953, 2.21106, 1.82764)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_5te0b"]
+radius = 1.231
+
 [node name="TV" type="StaticBody3D"]
 collision_layer = 16
+script = ExtResource("1_2cyee")
 
 [node name="Tv" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0186, 0.0396729, -5.533)
@@ -15,3 +20,13 @@ mesh = ExtResource("1_fafo6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7849, 0.60553, -6.42619)
 shape = SubResource("BoxShape3D_tc1ru")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7393, 0.475389, -6.74843)
+shape = SubResource("SphereShape3D_5te0b")
+
+[connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]
+[connection signal="body_exited" from="Area3D" to="." method="OnDialogueClose"]

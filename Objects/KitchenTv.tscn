@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmrenmw2e3fac"]
+
+[ext_resource type="Script" path="res://Objects/KitchenTv.cs" id="1_73po0"]
+[ext_resource type="ArrayMesh" uid="uid://cu32cr5aq4xfm" path="res://Meshes/Assets_R3/OBJ/Kitchen_TV.obj" id="1_wjf53"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fsloa"]
+radius = 0.798924
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ge37j"]
+radius = 0.93718
+
+[node name="KitchenTv" type="StaticBody3D"]
+collision_layer = 16
+script = ExtResource("1_73po0")
+
+[node name="KitchenTv" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.99531, 1.55146, -3.71282)
+mesh = ExtResource("1_wjf53")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5139, 2.00561, -4.14501)
+shape = SubResource("SphereShape3D_fsloa")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.80897, 1.33424, -4.59613)
+shape = SubResource("SphereShape3D_ge37j")

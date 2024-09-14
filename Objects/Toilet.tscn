@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo8ij02365vy4"]
+[gd_scene load_steps=5 format=3 uid="uid://bo8ij02365vy4"]
 
 [ext_resource type="ArrayMesh" uid="uid://66nspr1au7m1" path="res://Meshes/Assets_R3/OBJ/Toilet.obj" id="1_lhhfa"]
+[ext_resource type="Script" path="res://Objects/Toilet.cs" id="1_q5gln"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cjyi"]
 size = Vector3(0.70105, 1.71777, 0.677856)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_p1n3d"]
+radius = 0.001
+
 [node name="Toilet" type="StaticBody3D"]
 collision_layer = 16
+script = ExtResource("1_q5gln")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0864868, 0.358887, -6.03292)
@@ -15,3 +20,13 @@ shape = SubResource("BoxShape3D_6cjyi")
 [node name="Toilet" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0983632, 0.0396731, -5.72485)
 mesh = ExtResource("1_lhhfa")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.411865, 0.420703, -6)
+shape = SubResource("SphereShape3D_p1n3d")
+
+[connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]
+[connection signal="body_exited" from="Area3D" to="." method="OnDialogueClose"]

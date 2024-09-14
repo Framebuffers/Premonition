@@ -47,27 +47,31 @@ namespace Premonition.Managers
 			switch (CurrentStoryline)
 			{
 				case 0:
-					LoadSceneDeferred("res://Scenarios/Route0.tscn");
+					LoadScene("res://Scenarios/Route0.tscn");
 					$"Case 0, loading route 0".ToConsole();
 					break;
 				case 1:
-					LoadSceneDeferred("res://Scenarios/Route1.tscn");
+					LoadScene("res://Scenarios/Route1.tscn");
 					$"Case 1, loading route 1".ToConsole();
 					break;
 				case 2:
-					LoadSceneDeferred("res://Scenarios/Route2.tscn");
+					LoadScene("res://Scenarios/Route2.tscn");
 					$"Case 2, loading route 2".ToConsole();
 					break;
 				case 3:
-					LoadSceneDeferred("res://Scenarios/Route3.tscn");
+					LoadScene("res://Scenarios/Route3.tscn");
 					$"Case 3, loading route 3".ToConsole();
 					break;
 				case 4:
-					LoadSceneDeferred("res://Scenarios/Route4.tscn");
+					LoadScene("res://Scenarios/Route4.tscn");
 					$"Case 4, loading route 4".ToConsole();
 					break;
+				case 5:
+					LoadScene("res://Scenarios/Route5.tscn");
+					$"Case 5, loading route 5".ToConsole();
+					break;
 				default:
-					LoadSceneDeferred("res://Scenarios/Route0.tscn");
+					LoadScene("res://Scenarios/Route0.tscn");
 					$"Case default".ToConsole();
 					break;
 			}

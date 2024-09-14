@@ -183,7 +183,10 @@ namespace Premonition.Managers
 		/// </summary>
 		/// <param name="screenManager"></param>
 		/// <returns>True if any CharacterBody3D is loaded. False if no CharacterBody3D is loaded, regardless if any other object is loaded.</returns>
-		public static bool AreAnyPlayersLoaded(this ScreenManager screenManager) => screenManager.PlayersOnScreen.GetChildren().OfType<CharacterBody3D>().Any();
+		public static bool AreAnyPlayersLoaded(this ScreenManager screenManager) => screenManager
+																					.PlayersOnScreen.GetChildren()
+                                                                                    .OfType<CharacterBody3D>()
+                                                                                    .Any();
 
 		/// <summary>
 		/// Checks if there's a particular character on the screen.
@@ -191,14 +194,17 @@ namespace Premonition.Managers
 		/// <param name="screenManager"></param>
 		/// <param name="player">Player to check for.</param>
 		/// <returns>True if it's already loaded, false if not.</returns>
-		public static bool IsPlayerLoaded(this ScreenManager screenManager, CharacterBody3D player) => screenManager.PlayersOnScreen.GetChildren().Contains(player);
+		public static bool IsPlayerLoaded(this ScreenManager screenManager, CharacterBody3D player) => screenManager.PlayersOnScreen.GetChildren()
+                                                                                                                              .Contains(player);
 
 		/// <summary>
 		/// Checks if there's any Scenario loaded on the screen. Checks for any object deriving from TwoTribes.Scenes.Abstractions.Scenario, a Node3D with provisions for containing game scenarios.
 		/// </summary>
 		/// <param name="screenManager"></param>
 		/// <returns>True if any Scenario is loaded on the screen, false if not.</returns>
-		public static bool IsAnyScenarioLoaded(this ScreenManager screenManager) => screenManager.Screen3D.GetChildren().OfType<Scenario>().Any();
+		public static bool IsAnyScenarioLoaded(this ScreenManager screenManager) => screenManager.Screen3D.GetChildren()
+                                                                                                    .OfType<Scenario>()
+                                                                                                    .Any();
 	}
 
 }

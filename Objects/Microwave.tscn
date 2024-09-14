@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3ohfqwonu6vi"]
+
+[ext_resource type="ArrayMesh" uid="uid://6vk56fq2200" path="res://Meshes/Assets_R3/OBJ/Microwave.obj" id="1_rhyrm"]
+[ext_resource type="Script" path="res://Objects/Microwave.cs" id="1_v2i6x"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dxybn"]
+radius = 0.60984
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_701rw"]
+radius = 0.566877
+
+[node name="Microwave" type="StaticBody3D"]
+script = ExtResource("1_v2i6x")
+
+[node name="Microwave" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.953212, 0, 0.302303, 0, 1, 0, -0.302303, 0, 0.953212, -6.85849, 0.75061, -6.58123)
+mesh = ExtResource("1_rhyrm")
+skeleton = NodePath("../Fridge")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.54767, 0.931087, -6.97447)
+shape = SubResource("SphereShape3D_dxybn")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.52969, 0.987818, -6.9687)
+shape = SubResource("SphereShape3D_701rw")
+
+[connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]
+[connection signal="body_exited" from="Area3D" to="." method="OnDialogueClose"]
