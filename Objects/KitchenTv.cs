@@ -27,3 +27,4 @@ namespace Premonition.Objects
             };
         }
     }
+}

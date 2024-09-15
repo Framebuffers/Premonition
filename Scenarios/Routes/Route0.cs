@@ -14,7 +14,7 @@ namespace Premonition.Scenarios.Routes
     {
         [Signal]
         public delegate void StoryProgressTriggeredEventHandler();
-        public int RouteStoryCounter = 0;
+        public static int RouteStoryCounter { get; set; } = 0;
         public int DifficultyLevel { get; set; }
         public List<Node> RemovedItems { get; set; } = [];
         public override void _Ready()
@@ -38,18 +38,19 @@ namespace Premonition.Scenarios.Routes
             if (skillCheck) // skill check
             {
                 $"Skill check failed with number {d20}".ToConsole();
-
+                ChangeSkyLighting(Route0.SkyLightingMode.Darker);
                 RemoveChild(children.ElementAtOrDefault(GD.RandRange(1, children.Count)));
                 EmitSignal(SignalName.StoryProgressTriggered);
                 RouteStoryCounter++;
             }
             else
             {
+                ChangeSkyLighting(Route0.SkyLightingMode.Lighter);
                 $"Skill check passed with number {d20}. Continuing...".ToConsole();
             }
         }
 
-        private readonly List<Color> StormColors =
+        public static List<Color> StormColors =
         [
             new Color(0.44f, 0.63f, 0.89f), // #2C3F59
             new Color(0.20f, 0.28f, 0.38f), // #141C26
@@ -58,7 +59,7 @@ namespace Premonition.Scenarios.Routes
             new Color(0.38f, 0.106f, 0.166f) // #266AA6
         ];
 
-        private readonly List<Color> CalmColors =
+        public static List<Color> CalmColors =
         [
             new Color(0.158f, 0.153f, 0.159f), // #9E999F
             new Color(0.223f, 0.216f, 0.224f), // #DFD8E0

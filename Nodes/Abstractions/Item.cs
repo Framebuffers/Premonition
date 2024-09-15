@@ -93,34 +93,41 @@ namespace Premonition.Nodes.Abstractions
                 _director.ScreenManager.DebugPanel.Visible = true;
                 EmitSignal(SignalName.QueueForRandomRemoval);
                 EmitSignal(SignalName.BroadcastInteraction);
-                switch (CurrentStoryline)
+                switch (Route0.RouteStoryCounter)
                 {
                     case 0:
-                        AddDialogue(Storyline0, 0);
+                        GetAlternativeDialogue(Route0.RouteStoryCounter);
+                        Route.ChangeSkyLighting(Route0.SkyLightingMode.Darker);
                         $"Case0: {Storyline0}".ToConsole();
                         return;
                     case 1:
-                        AddDialogue(Storyline1, 0);
+                        GetAlternativeDialogue(Route0.RouteStoryCounter);
+                        Route.ChangeSkyLighting(Route0.SkyLightingMode.Darker);
                         $"Case1: {Storyline1}".ToConsole();
                         break;
                     case 2:
-                        AddDialogue(Storyline2, 0);
+                        GetAlternativeDialogue(Route0.RouteStoryCounter);
+                        Route.ChangeSkyLighting(Route0.SkyLightingMode.Darker);
                         $"Case2: {Storyline2}".ToConsole();
                         break;
                     case 3:
-                        AddDialogue(Storyline3, 0);
+                        GetAlternativeDialogue(Route0.RouteStoryCounter);
+                        Route.ChangeSkyLighting(Route0.SkyLightingMode.Darker);
                         $"Case3: {Storyline3}".ToConsole();
                         break;
                     case 4:
-                        AddDialogue(Storyline4, 0);
+                        GetAlternativeDialogue(Route0.RouteStoryCounter);
+                        Route.ChangeSkyLighting(Route0.SkyLightingMode.Darker);
                         $"Case4: {Storyline4}".ToConsole();
                         break;
                     case 5:
-                        AddDialogue(Storyline5, 0);
+                        GetAlternativeDialogue(Route0.RouteStoryCounter);
+                        Route.ChangeSkyLighting(Route0.SkyLightingMode.Darker);
                         $"Case5: {Storyline5}".ToConsole();
                         break;
                     default:
-                        AddDialogue(DefaultAnswer, 0);
+                        GetAlternativeDialogue(Route0.RouteStoryCounter);
+                        Route.ChangeSkyLighting(Route0.SkyLightingMode.Lighter);
                         "Case0".ToConsole();
                         break;
                 }

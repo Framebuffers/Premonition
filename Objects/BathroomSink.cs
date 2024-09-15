@@ -25,6 +25,6 @@ namespace Premonition.Objects
                 5 => $"[Do you like what it is starting to show in front of you?]",
                 _ => $"[Not in table.]",
             };
-
+        }
         }
     }
