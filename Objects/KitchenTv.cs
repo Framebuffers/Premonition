@@ -26,4 +26,4 @@ namespace Premonition.Objects
                 _ => $"[]",
             };
         }
-}
+    }

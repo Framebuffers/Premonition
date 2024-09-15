@@ -26,5 +26,5 @@ namespace Premonition.Objects
                 _ => $"[Not in table.]",
             };
         }
-}
+    }
 

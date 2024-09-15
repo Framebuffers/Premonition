@@ -3,8 +3,6 @@ using Premonition.Managers;
 using Premonition.Nodes.Abstractions;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.InteropServices;
 
 namespace Premonition.Scenarios.Routes
 {
@@ -17,7 +15,7 @@ namespace Premonition.Scenarios.Routes
         [Signal]
         public delegate void StoryProgressTriggeredEventHandler();
         public int RouteStoryCounter = 0;
-        public int DifficultyLevel { get; set; } 
+        public int DifficultyLevel { get; set; }
         public List<Node> RemovedItems { get; set; } = [];
         public override void _Ready()
         {
@@ -40,7 +38,7 @@ namespace Premonition.Scenarios.Routes
             if (skillCheck) // skill check
             {
                 $"Skill check failed with number {d20}".ToConsole();
-                
+
                 RemoveChild(children.ElementAtOrDefault(GD.RandRange(1, children.Count)));
                 EmitSignal(SignalName.StoryProgressTriggered);
                 RouteStoryCounter++;

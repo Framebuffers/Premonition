@@ -32,7 +32,7 @@ namespace Premonition.Camera.Debug
         public override void _Ready()
         {
             base._Ready();
-            
+
 
             MarginContainer container = GetNode<MarginContainer>("MarginContainer");
             Vector2 screenSize = GetViewport().GetWindow().Size;
@@ -40,7 +40,7 @@ namespace Premonition.Camera.Debug
             container.CustomMinimumSize = targetSize;
             container.AnchorRight = 1.0f;
             container.AnchorBottom = 1.0f;
-            container.OffsetRight= -targetSize.X;
+            container.OffsetRight = -targetSize.X;
             container.OffsetBottom = -targetSize.Y;
         }
 
