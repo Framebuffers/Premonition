@@ -9,7 +9,7 @@ namespace Premonition.Camera
     {
         private GameDirector _director => this.GetGameDirector();
 
-        private readonly float baseSpeed = 3.0f;
+        private readonly float baseSpeed = 2.0f;
         private readonly float sprintSpeed = 6.0f;
         private readonly float crouchSpeed = 1.0f;
         private readonly float acceleration = 3.0f;

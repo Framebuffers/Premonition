@@ -10,7 +10,6 @@ size = Vector3(2.39642, 0.97644, 2)
 radius = 1.52787
 
 [node name="Piano" type="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 16
 script = ExtResource("1_xdhuu")
 
@@ -25,9 +24,8 @@ shape = SubResource("BoxShape3D_7pjc8")
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.757417, 0.615785, -0.280614)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.757417, 0.429901, -0.504226)
 shape = SubResource("SphereShape3D_cafq3")
-disabled = true
 
 [connection signal="body_entered" from="Area3D" to="." method="OnDialogueOpen"]
 [connection signal="body_exited" from="Area3D" to="." method="OnDialogueClose"]

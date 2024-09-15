@@ -15,6 +15,7 @@ namespace Premonition.Camera.Debug
                 if (target == null)
                 {
                     Label label = new Label();
+                    label.AutowrapMode = TextServer.AutowrapMode.WordSmart;
                     BoxContainer.AddChild(label);
                     label.Name = title;
                     label.Text = $"{title}: {value}";
@@ -26,6 +27,21 @@ namespace Premonition.Camera.Debug
                     BoxContainer.MoveChild(target, order);
                 }
             }
+        }
+
+        public override void _Ready()
+        {
+            base._Ready();
+            
+
+            MarginContainer container = GetNode<MarginContainer>("MarginContainer");
+            Vector2 screenSize = GetViewport().GetWindow().Size;
+            Vector2 targetSize = new Vector2(screenSize.X / 3, container.Size.Y);
+            container.CustomMinimumSize = targetSize;
+            container.AnchorRight = 1.0f;
+            container.AnchorBottom = 1.0f;
+            container.OffsetRight= -targetSize.X;
+            container.OffsetBottom = -targetSize.Y;
         }
 
         public void RemoveProperties()

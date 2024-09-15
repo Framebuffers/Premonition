@@ -5,7 +5,8 @@ namespace Premonition.Objects
 
     public partial class Table2 : Item
     {
-        public override string Storyline0 { get; set; } = "[Not in table]";
+        public override string ItemName => "Table";
+        public override string Storyline0 { get; set; } = "[Have you ever wondered why tables stand up? They hold stuff in little pillars just so they don't fall into the ground. That's a puzzle.]";
 
         public override string Storyline1 { get; set; } = "[Not in table]";
         public override string Storyline2 { get; set; } = "[Not in table]";

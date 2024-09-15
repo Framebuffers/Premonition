@@ -5,8 +5,8 @@ namespace Premonition.Objects
 
     public partial class Toilet : Item
     {
-
-        public override string Storyline0 { get; set; } = "[Not in table]";
+        public override string ItemName => "Toilet";
+        public override string Storyline0 { get; set; } = "[Not today. That sounds worrying, though.]";
 
         public override string Storyline1 { get; set; } = "[Not in table]";
         public override string Storyline2 { get; set; } = "[Not in table]";

@@ -1,16 +1,17 @@
 using Godot;
 using Premonition.Camera.Debug;
 using Premonition.Managers;
+using Premonition.Scenarios.Routes;
 
 namespace Premonition.Nodes.Abstractions
 {
     public abstract partial class Item : StaticBody3D
     {
         [Signal]
-        public delegate void InteractionEventHandler();
+        public delegate void QueueForRandomRemovalEventHandler();
 
         [Signal]
-        public delegate void ObjectHidingEventHandler();
+        public delegate void BroadcastInteractionEventHandler();
 
         public virtual string ItemName { get; } = "[Not in table]";
         private GameDirector _director { get => this.GetGameDirector(); }
@@ -60,7 +61,8 @@ namespace Premonition.Nodes.Abstractions
         protected void OnDialogueOpen(Node3D body)
         {
             _director.ScreenManager.DebugPanel.Visible = true;
-            EmitSignal(SignalName.ObjectHiding);
+            EmitSignal(SignalName.QueueForRandomRemoval);
+            EmitSignal(SignalName.BroadcastInteraction);
             switch (CurrentStoryline)
             {
                 case 0:
@@ -101,7 +103,7 @@ namespace Premonition.Nodes.Abstractions
         }
 
         private void HideObject() => this.Visible = false;
-
+      
         public override void _Ready()
         {
             base._Ready();

@@ -4,7 +4,8 @@ namespace Premonition.Objects
 {
     public partial class DoubleBed : Item
     {
-        public override string Storyline0 { get; set; } = "[Not in table]";
+        public override string ItemName => "Your bed";
+        public override string Storyline0 { get; set; } = "[The window behind you makes you feel like someone's going to jump at your face, like a bug or something. It looks like there's some clouds coming. At you don't have any clothing drying outside.]";
 
         public override string Storyline1 { get; set; } = "[Not in table]";
         public override string Storyline2 { get; set; } = "[Not in table]";

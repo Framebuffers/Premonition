@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://04hpts3djpfn"]
+
+[ext_resource type="ArrayMesh" uid="uid://bsci8ne8lcrvl" path="res://Meshes/House_Complete_R4/L2+L3.obj" id="1_y3ml0"]
+[ext_resource type="ArrayMesh" uid="uid://boybfkqd76s2w" path="res://Meshes/House_Complete_R4/L1+L2.obj" id="2_oa53u"]
+
+[node name="Meshes" type="Node3D"]
+
+[node name="L2+l3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -0.5, 0)
+layers = 2
+extra_cull_margin = 16.85
+ignore_occlusion_culling = true
+mesh = ExtResource("1_y3ml0")
+skeleton = NodePath("../..")
+
+[node name="L1+l2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -0.5, 0)
+extra_cull_margin = 12.0
+ignore_occlusion_culling = true
+visibility_range_end = 110.7
+visibility_range_end_margin = 27.8
+mesh = ExtResource("2_oa53u")
+skeleton = NodePath("../..")

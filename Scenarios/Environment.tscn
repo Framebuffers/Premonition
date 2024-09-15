@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqv5rul7eaad7"]
+[gd_scene load_steps=6 format=3 uid="uid://cqv5rul7eaad7"]
 
-[ext_resource type="ArrayMesh" uid="uid://boybfkqd76s2w" path="res://Meshes/House_Complete_R4/L1+L2.obj" id="1_pm3ir"]
 [ext_resource type="PackedScene" uid="uid://cu2if75jhekdh" path="res://Camera/Lighting/ExteriorLighting.tscn" id="2_1bsah"]
-[ext_resource type="ArrayMesh" uid="uid://bsci8ne8lcrvl" path="res://Meshes/House_Complete_R4/L2+L3.obj" id="2_sjk6k"]
 [ext_resource type="PackedScene" uid="uid://0f724nnrryb" path="res://Scenarios/Transitions.tscn" id="3_0e27w"]
 [ext_resource type="PackedScene" uid="uid://cgah06ym6kcr1" path="res://Camera/Lighting/InteriorLighting.tscn" id="4_em36s"]
+[ext_resource type="PackedScene" uid="uid://04hpts3djpfn" path="res://Objects/Meshes.tscn" id="5_e10q3"]
 [ext_resource type="PackedScene" uid="uid://cve1c3qak208p" path="res://Scenarios/Colissions.tscn" id="5_ldwpq"]
 
 [node name="Environment" type="Node3D"]
@@ -18,21 +17,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.05833, 0, 2.61719)
 
 [node name="Colissions" parent="." instance=ExtResource("5_ldwpq")]
 
-[node name="Meshes" type="Node3D" parent="."]
-
-[node name="L2+l3" type="MeshInstance3D" parent="Meshes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -0.5, 0)
-layers = 2
-extra_cull_margin = 16.85
-ignore_occlusion_culling = true
-mesh = ExtResource("2_sjk6k")
-skeleton = NodePath("../..")
-
-[node name="L1+l2" type="MeshInstance3D" parent="Meshes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -0.5, 0)
-extra_cull_margin = 12.0
-ignore_occlusion_culling = true
-visibility_range_end = 110.7
-visibility_range_end_margin = 27.8
-mesh = ExtResource("1_pm3ir")
-skeleton = NodePath("../..")
+[node name="Meshes" parent="." instance=ExtResource("5_e10q3")]

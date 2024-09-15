@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cqv5rul7eaad7" path="res://Scenarios/Environment.tscn" id="3_ouqoe"]
 [ext_resource type="PackedScene" uid="uid://d1auk8m45rhvq" path="res://Objects/Door.tscn" id="4_6lncx"]
 [ext_resource type="PackedScene" uid="uid://5i8ibmsrn81s" path="res://Objects/DiningRoomTable.tscn" id="5_55iht"]
-[ext_resource type="PackedScene" uid="uid://cyta804qvtxfn" path="res://Objects/BathroomSink.tscn" id="6_8rpbf"]
+[ext_resource type="PackedScene" uid="uid://cyta804qvtxfn" path="res://Objects/Sink.tscn" id="6_8rpbf"]
 [ext_resource type="PackedScene" uid="uid://nrewi5rtgiu8" path="res://Objects/PlantPot.tscn" id="7_ddvvd"]
 [ext_resource type="PackedScene" uid="uid://yacddkq66622" path="res://Objects/Shower.tscn" id="7_hwe2u"]
 [ext_resource type="PackedScene" uid="uid://ce6sv52ql3l3a" path="res://Objects/Fridge.tscn" id="8_dg08w"]
@@ -30,6 +30,7 @@
 
 [node name="Route0" type="Node3D"]
 script = ExtResource("1_sl3wr")
+metadata/_edit_lock_ = true
 
 [node name="Environment" parent="." instance=ExtResource("3_ouqoe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -176,3 +177,13 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.0910673, 0, -6.53
 
 [node name="Baggage" parent="." instance=ExtResource("27_ln4me")]
 transform = Transform3D(-0.387837, 0, -0.921728, 0, 1, 0, 0.921728, 0, -0.387837, -5.36278, 0.0231462, -3.49518)
+
+[connection signal="QueueForRandomRemoval" from="Fridge" to="." method="ListenToObjectRemoval"]
+[connection signal="QueueForRandomRemoval" from="Kitchen TV" to="." method="ListenToObjectRemoval"]
+[connection signal="QueueForRandomRemoval" from="Clothing" to="." method="ListenToObjectRemoval"]
+[connection signal="QueueForRandomRemoval" from="Piano" to="." method="ListenToObjectRemoval"]
+[connection signal="QueueForRandomRemoval" from="TV" to="." method="ListenToObjectRemoval"]
+[connection signal="QueueForRandomRemoval" from="Game Console" to="." method="ListenToObjectRemoval"]
+[connection signal="QueueForRandomRemoval" from="Desk" to="." method="ListenToObjectRemoval"]
+[connection signal="QueueForRandomRemoval" from="A Memory" to="." method="ListenToObjectRemoval"]
+[connection signal="QueueForRandomRemoval" from="Dining Room Table" to="." method="ListenToObjectRemoval"]
