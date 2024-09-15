@@ -9,13 +9,15 @@ namespace Premonition.Scenarios.Routes
     /// </summary>
     public sealed partial class Intro : Scenario
     {
-        private Tween Lights { get; set; }
-        private Tween Hue1 { get; set; }
-        private Color Start1 { get; set; }
-        private Color Start2 { get; set; }
-        private Tween Hue2 { get; set; }
+     
         private Tween Piano { get; set; }
         private Tween Pots { get; set; }
+        private Tween Lights { get; set; }
+        private Tween Hue1 { get; set; }
+
+        private Tween Hue2 { get; set; }
+        private Color Start1 { get; set; }
+        private Color Start2 { get; set; }
         private readonly float CycleDuration = (float)GD.RandRange(10.0, 30.0);
         private readonly float CycleMultiplier = (float)GD.RandRange(1.0, 3.0);
 

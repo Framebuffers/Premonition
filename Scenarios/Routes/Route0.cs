@@ -2,6 +2,7 @@ using Godot;
 using Premonition.Managers;
 using Premonition.Nodes.Abstractions;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace Premonition.Scenarios.Routes
@@ -14,7 +15,7 @@ namespace Premonition.Scenarios.Routes
     {
         [Signal]
         public delegate void StoryProgressTriggeredEventHandler();
-        public static int RouteStoryCounter { get; set; } = 0;
+        public static int RouteStoryCounter { get; set; }
         public int DifficultyLevel { get; set; }
         public List<Node> RemovedItems { get; set; } = [];
         public override void _Ready()
@@ -23,31 +24,56 @@ namespace Premonition.Scenarios.Routes
             DifficultyLevel = GD.RandRange(15, 20);
             $"Difficulty level is: {DifficultyLevel}".ToConsole();
         }
-
-        private void ListenToObjectRemoval()
+        private void RemoveRandomObject()
         {
-            var children = GetChildren().Where(x => x is Item).ToList();
-            foreach (var c in children)
-            {
-                $"Children {c.GetIndex()}: {c.Name}".ToConsole();
-            }
-
             $"Difficulty level is: {DifficultyLevel}".ToConsole();
             double d20 = GD.RandRange(1, 20);
             bool skillCheck = d20 <= DifficultyLevel;
             if (skillCheck) // skill check
             {
+                var children = GetChildren().Where(x => x is Item).ToList();
                 $"Skill check failed with number {d20}".ToConsole();
                 ChangeSkyLighting(Route0.SkyLightingMode.Darker);
-                RemoveChild(children.ElementAtOrDefault(GD.RandRange(1, children.Count)));
+                ;
                 EmitSignal(SignalName.StoryProgressTriggered);
-                RouteStoryCounter++;
+                RouteStoryCounter = GD.RandRange(0, 5); 
+                if (children.ElementAtOrDefault(GD.RandRange(1, children.Count)) != null)
+                {
+                    RemoveChild(children.ElementAtOrDefault(GD.RandRange(1, children.Count)));
+                    Director.ScreenManager.DebugPanel.AddProperty("\n\n", "Something happened. But I have calm on my mind.", 1);
+                }
+                else
+                {
+                    DirectionalLight3D light1 = GetNode<DirectionalLight3D>("Environment/Lighting/DirectionalLight3D");
+                    Hue1 = GetTree().CreateTween();
+                    Hue1.BindNode(light1);
+                    Start1 = light1.LightColor;
+                    Color end1 = new Color(0.0f, 0.0f, 0.0f); // #66400D
+
+                    DirectionalLight3D light2 = GetNode<DirectionalLight3D>("Environment/Lighting/DirectionalLight3D5");
+                    Hue2 = GetTree().CreateTween();
+                    Hue2.BindNode(light2);
+                    Start2 = light2.LightColor;
+                    Color end2 = new Color(0.0f, 0.0f, 0.0f);
+
+                    Hue1.TweenProperty(light1, "light_color", end1, CycleDuration * CycleMultiplier);
+                    Hue1.SetParallel(true);
+                    Hue2.TweenProperty(light2, "light_color", end2, CycleDuration * CycleMultiplier);
+                    Director.ScreenManager.DebugPanel.AddProperty("The calm was on your mind.", "The storm was outside all along.", 0);
+                }
+                  
             }
             else
             {
                 ChangeSkyLighting(Route0.SkyLightingMode.Lighter);
                 $"Skill check passed with number {d20}. Continuing...".ToConsole();
             }
+            
+        }
+
+        private void ListenToObjectRemoval()
+        {
+            CallDeferred(MethodName.RemoveRandomObject);
         }
 
         public static List<Color> StormColors =
@@ -74,19 +100,138 @@ namespace Premonition.Scenarios.Routes
             Lighter
         }
 
-        public void ChangeSkyLighting(SkyLightingMode mode) => this.GetGameDirector()
-            .ScreenManager
-            .ChangeLightingColorAll(
-                mode == SkyLightingMode.Darker
-                    ? StormColors.ElementAtOrDefault(GD.RandRange(0, StormColors.Count))
-                    : CalmColors.ElementAtOrDefault(GD.RandRange(0, CalmColors.Count)),
-                mode == SkyLightingMode.Darker
-                    ? StormColors.ElementAtOrDefault(GD.RandRange(0, StormColors.Count))
-                    : CalmColors.ElementAtOrDefault(GD.RandRange(0, CalmColors.Count)),
-                (float)GD.RandRange(0.0, 5.0f),
-                out _, // old color A
-                out _  // old color B
-            );
+        private Tween Hue1 { get; set; }
+
+        private Tween Hue2 { get; set; }
+        private Color Start1 { get; set; }
+        private Color Start2 { get; set; }
+        private readonly float CycleDuration = (float)GD.RandRange(10.0, 30.0);
+        private readonly float CycleMultiplier = (float)GD.RandRange(1.0, 3.0);
+
+        public void ChangeSkyLighting(SkyLightingMode s)
+        {
+            switch (s)
+            {
+                case SkyLightingMode.Darker:
+                    TweenHue1Dark();
+                    TweenHue2Dark();
+                    break;
+                case SkyLightingMode.Lighter:
+                    DirectionalLight3D light1 = GetNode<DirectionalLight3D>("Environment/Lighting/DirectionalLight3D");
+                    Hue1 = GetTree().CreateTween();
+                    Hue1.BindNode(light1);
+                    Start1 = light1.LightColor;
+                    Color end1 = CalmColors.ElementAtOrDefault(GD.RandRange(0, StormColors.Count)); // #66400D
+
+                    DirectionalLight3D light2 = GetNode<DirectionalLight3D>("Environment/Lighting/DirectionalLight3D5");
+                    Hue2 = GetTree().CreateTween();
+                    Hue2.BindNode(light2);
+                    Start2 = light2.LightColor;
+                    Color end2 = StormColors.ElementAtOrDefault(GD.RandRange(0, StormColors.Count)); // #384359                    
+
+                    Hue1.TweenProperty(light1, "light_color", end1, CycleDuration * CycleMultiplier);
+                    Hue1.SetParallel(true);
+                    Hue2.TweenProperty(light2, "light_color", end2, CycleDuration * CycleMultiplier);
+                    Hue1.Finished += Hue1Light_Finished;
+                    Hue2.Finished += Hue2Light_Finished;
+                    break;
+                default:
+                    TweenHue1Dark();
+                    TweenHue2Dark();
+                    break;
+
+            }
+
+            
+
+            //DirectionalLight3D light1 = GetNode<DirectionalLight3D>("Environment/Lighting/DirectionalLight3D");
+            //Tween Hue1 = GetTree().CreateTween();
+            //Hue1.BindNode(light1);
+            //Start1 = light1.LightColor;
+            //Color end1 = new(0.102f, 0.64f, 0.13f, 1.0f); // #66400D
+            //Hue1.TweenProperty(light1, "light_color", end1, CycleDuration * CycleMultiplier);
+            //Hue1.SetParallel(true);
+            //Hue1.Finished += Hue1_Finished;
+        }
+        private void TweenHue1Dark()
+        {
+            //Hue1 = Director.ScreenManager.ChangeLightingColorA(new Color(0.102f, 0.64f, 0.13f, 1.0f), CycleDuration * CycleMultiplier, out Color startA);
+            //Start1 = startA;
+
+            DirectionalLight3D light1 = GetNode<DirectionalLight3D>("Environment/Lighting/DirectionalLight3D");
+            Hue1 = GetTree().CreateTween();
+            Hue1.BindNode(light1);
+            Start1 = light1.LightColor;
+            Color end1 = StormColors.ElementAtOrDefault(GD.RandRange(0, StormColors.Count)); // #66400D
+            Hue1.TweenProperty(light1, "light_color", end1, CycleDuration * CycleMultiplier);
+            Hue1.SetParallel(true);
+            Hue1.Finished += Hue1_Finished;
+        }
+
+        private void TweenHue2Dark()
+        {
+            //Hue2 = Director.ScreenManager.ChangeLightingColorB(new Color(0.56f, 0.67f, 0.89f, 1.0f), CycleDuration * CycleMultiplier, out Color startB);
+            //Start2 = startB;
+            DirectionalLight3D light2 = GetNode<DirectionalLight3D>("Environment/Lighting/DirectionalLight3D5");
+            Hue2 = GetTree().CreateTween();
+            Hue2.BindNode(light2);
+            Start2 = light2.LightColor;
+            Color end2 = StormColors.ElementAtOrDefault(GD.RandRange(0, StormColors.Count)); // #384359
+            Hue2.TweenProperty(light2, "light_color", end2, CycleDuration * CycleMultiplier);
+            Hue2.Finished += Hue2_Finished;
+        }
+
+        private void Hue1_Finished()
+        {
+            //Hue1 = Director.ScreenManager.ChangeLightingColorA(Start1, CycleDuration * CycleMultiplier, out _);
+            DirectionalLight3D light1 = GetNode<DirectionalLight3D>("Environment/Lighting/DirectionalLight3D");
+            Hue1 = GetTree().CreateTween();
+            Hue1.BindNode(light1);
+            Hue1.TweenProperty(light1, "light_color", StormColors.ElementAtOrDefault(GD.RandRange(0, StormColors.Count)), CycleDuration * CycleMultiplier);
+            Hue1.Finished += TweenHue1Dark;
+        }
+
+        private void Hue2_Finished()
+        {
+            DirectionalLight3D light2 = GetNode<DirectionalLight3D>("Environment/Lighting/DirectionalLight3D5");
+            Hue2 = GetTree().CreateTween();
+            Hue2.BindNode(light2);
+            Hue2.TweenProperty(light2, "light_color", StormColors.ElementAtOrDefault(GD.RandRange(0, StormColors.Count)), CycleDuration * CycleMultiplier);
+            Hue2.Finished += TweenHue2Dark;
+        }
+
+        private void Hue1Light_Finished()
+        {
+            //Hue1 = Director.ScreenManager.ChangeLightingColorA(Start1, CycleDuration * CycleMultiplier, out _);
+            DirectionalLight3D light1 = GetNode<DirectionalLight3D>("Environment/Lighting/DirectionalLight3D");
+            Hue1 = GetTree().CreateTween();
+            Hue1.BindNode(light1);
+            Hue1.TweenProperty(light1, "light_color", CalmColors.ElementAtOrDefault(GD.RandRange(0, StormColors.Count)), CycleDuration * CycleMultiplier);
+            Hue1.Finished += TweenHue1Dark;
+        }
+
+        private void Hue2Light_Finished()
+        {
+            DirectionalLight3D light2 = GetNode<DirectionalLight3D>("Environment/Lighting/DirectionalLight3D5");
+            Hue2 = GetTree().CreateTween();
+            Hue2.BindNode(light2);
+            Hue2.TweenProperty(light2, "light_color", CalmColors.ElementAtOrDefault(GD.RandRange(0, StormColors.Count)), CycleDuration * CycleMultiplier);
+            Hue2.Finished += TweenHue2Dark;
+        }
+
+        //public void ChangeSkyLighting(SkyLightingMode mode) => this.GetGameDirector()
+        //    .ScreenManager
+        //    .ChangeLightingColorAll(
+        //        mode == SkyLightingMode.Darker
+        //            ? StormColors.ElementAtOrDefault(GD.RandRange(0, StormColors.Count))
+        //            : CalmColors.ElementAtOrDefault(GD.RandRange(0, CalmColors.Count)),
+        //        mode == SkyLightingMode.Darker
+        //            ? StormColors.ElementAtOrDefault(GD.RandRange(0, StormColors.Count))
+        //            : CalmColors.ElementAtOrDefault(GD.RandRange(0, CalmColors.Count)),
+        //        (float)GD.RandRange(0.0, 5.0f),
+        //        out _, // old color A
+        //        out _  // old color B
+        //    );
 
         //public void MakeSkyDarker() => this.GetGameDirector()
         //    .ScreenManager

@@ -66,75 +66,69 @@ namespace Premonition.Nodes.Abstractions
         public string MissingElementLine { get; set; } = "I swear there was something here... Where could that be?";
 
         public abstract string GetAlternativeDialogue(int progression);
-        //{
-        //    switch (progression)
-        //    {
-        //        case 0:
-        //            return $"[]";
-        //        case 1:
-        //            return $"[]";
-        //        case 2:
-        //            return $"[]";
-        //        case 3:
-        //            return $"[]";
-        //        case 4:
-        //            return $"[]";
-        //        case 5:
-        //            return $"[]";
-        //        default:
-        //            return $"[]";
-        //    }
-        //}
-
         protected void OnDialogueOpen(Node3D body)
         {
             try
             {
                 _director.ScreenManager.DebugPanel.Visible = true;
-                EmitSignal(SignalName.QueueForRandomRemoval);
-                EmitSignal(SignalName.BroadcastInteraction);
+                
                 switch (Route0.RouteStoryCounter)
                 {
                     case 0:
-                        GetAlternativeDialogue(Route0.RouteStoryCounter);
-                        Route.ChangeSkyLighting(Route0.SkyLightingMode.Darker);
-                        $"Case0: {Storyline0}".ToConsole();
+                        AddDialogue(GetAlternativeDialogue(0), 0);
+                        $"Case0: {GetAlternativeDialogue(0)}".ToConsole();
+                        EmitSignal(SignalName.QueueForRandomRemoval);
+                        EmitSignal(SignalName.BroadcastInteraction);
                         return;
                     case 1:
-                        GetAlternativeDialogue(Route0.RouteStoryCounter);
-                        Route.ChangeSkyLighting(Route0.SkyLightingMode.Darker);
-                        $"Case1: {Storyline1}".ToConsole();
+                        AddDialogue(GetAlternativeDialogue(1), 0);
+
+                        $"Case1: {GetAlternativeDialogue(1)}".ToConsole();
+                        EmitSignal(SignalName.QueueForRandomRemoval);
+                        EmitSignal(SignalName.BroadcastInteraction);
                         break;
                     case 2:
-                        GetAlternativeDialogue(Route0.RouteStoryCounter);
-                        Route.ChangeSkyLighting(Route0.SkyLightingMode.Darker);
-                        $"Case2: {Storyline2}".ToConsole();
+                        AddDialogue(GetAlternativeDialogue(2), 0);
+
+                        $"Case2: {GetAlternativeDialogue(2)}".ToConsole();
+                        EmitSignal(SignalName.QueueForRandomRemoval);
+                        EmitSignal(SignalName.BroadcastInteraction);
                         break;
                     case 3:
-                        GetAlternativeDialogue(Route0.RouteStoryCounter);
-                        Route.ChangeSkyLighting(Route0.SkyLightingMode.Darker);
-                        $"Case3: {Storyline3}".ToConsole();
+                        AddDialogue(GetAlternativeDialogue(3), 0);
+
+                        $"Case3: {GetAlternativeDialogue(3)}".ToConsole();
+                        EmitSignal(SignalName.QueueForRandomRemoval);
+                        EmitSignal(SignalName.BroadcastInteraction);
                         break;
                     case 4:
-                        GetAlternativeDialogue(Route0.RouteStoryCounter);
-                        Route.ChangeSkyLighting(Route0.SkyLightingMode.Darker);
-                        $"Case4: {Storyline4}".ToConsole();
+                        AddDialogue(GetAlternativeDialogue(4), 0);
+
+                        $"Case4: {GetAlternativeDialogue(4)}".ToConsole();
+                        EmitSignal(SignalName.QueueForRandomRemoval);
+                        EmitSignal(SignalName.BroadcastInteraction);
                         break;
                     case 5:
-                        GetAlternativeDialogue(Route0.RouteStoryCounter);
-                        Route.ChangeSkyLighting(Route0.SkyLightingMode.Darker);
-                        $"Case5: {Storyline5}".ToConsole();
+                        AddDialogue(GetAlternativeDialogue(5), 0);
+
+                        $"Case5: {GetAlternativeDialogue(5)}".ToConsole();
+                        EmitSignal(SignalName.QueueForRandomRemoval);
+                        EmitSignal(SignalName.BroadcastInteraction);
                         break;
                     default:
                         GetAlternativeDialogue(Route0.RouteStoryCounter);
-                        Route.ChangeSkyLighting(Route0.SkyLightingMode.Lighter);
                         "Case0".ToConsole();
+                        EmitSignal(SignalName.QueueForRandomRemoval);
+                        EmitSignal(SignalName.BroadcastInteraction);
                         break;
                 }
             }
             catch (NullReferenceException r)
             {
                 AddDialogue(MissingElementLine, 0);
+                Route.ChangeSkyLighting(Route0.SkyLightingMode.Darker);
+                EmitSignal(SignalName.QueueForRandomRemoval);
+                EmitSignal(SignalName.BroadcastInteraction);
                 _ = r; // this is expected.
             }
         }
