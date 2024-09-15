@@ -12,6 +12,19 @@ namespace Premonition.Objects
         public override string Storyline3 { get; set; } = "[Not in table]";
         public override string Storyline4 { get; set; } = "[Not in table]";
         public override string Storyline5 { get; set; } = "[Not in table]";
+        public override string GetAlternativeDialogue(int progression)
+        {
 
-    }
+            return progression switch
+            {
+                0 => $"[Now you're clean, the cleanest you've been.]",
+                1 => $"[To seek nothing is bliss.]",
+                2 => $"[You remember when the last tears were shed on this place.]",
+                3 => $"[You remember the tears shed before on this place.]",
+                4 => $"[Do you grasp what it is in your own hands?]",
+                5 => $"[Do you like what it is starting to show in front of you?]",
+                _ => $"[Not in table.]",
+            };
+
+        }
 }

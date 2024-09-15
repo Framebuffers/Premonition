@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0o8pa2boomuq"]
+[gd_scene load_steps=7 format=3 uid="uid://b0o8pa2boomuq"]
 
 [ext_resource type="Script" path="res://Managers/GameDirector.cs" id="1_lrli1"]
 [ext_resource type="PackedScene" uid="uid://dvlgbp12p68jd" path="res://Managers/SceneManager.tscn" id="2_otekq"]
 [ext_resource type="PackedScene" uid="uid://5btr8tsad2" path="res://Managers/LogManager.tscn" id="4_yduaw"]
 [ext_resource type="Script" path="res://Managers/DataManager.cs" id="5_0y81l"]
 [ext_resource type="PackedScene" uid="uid://c0wnck0sanxe1" path="res://Managers/ScreenManager.tscn" id="5_vggc5"]
+[ext_resource type="PackedScene" uid="uid://dh7y2rspnjoo7" path="res://Managers/AudioManager.tscn" id="6_hhr31"]
 
 [node name="GameDirector" type="Node"]
 script = ExtResource("1_lrli1")
@@ -17,3 +18,5 @@ script = ExtResource("1_lrli1")
 script = ExtResource("5_0y81l")
 
 [node name="ScreenManager" parent="." instance=ExtResource("5_vggc5")]
+
+[node name="AudioManager" parent="." instance=ExtResource("6_hhr31")]

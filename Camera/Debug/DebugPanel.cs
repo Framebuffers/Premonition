@@ -14,7 +14,7 @@ namespace Premonition.Camera.Debug
                 Node target = BoxContainer.FindChild(title, true, false);
                 if (target == null)
                 {
-                    Label label = new Label();
+                    Label label = new();
                     label.AutowrapMode = TextServer.AutowrapMode.WordSmart;
                     BoxContainer.AddChild(label);
                     label.Name = title;
@@ -36,7 +36,7 @@ namespace Premonition.Camera.Debug
 
             MarginContainer container = GetNode<MarginContainer>("MarginContainer");
             Vector2 screenSize = GetViewport().GetWindow().Size;
-            Vector2 targetSize = new Vector2(screenSize.X / 3, container.Size.Y);
+            Vector2 targetSize = new(screenSize.X / 3, container.Size.Y);
             container.CustomMinimumSize = targetSize;
             container.AnchorRight = 1.0f;
             container.AnchorBottom = 1.0f;

@@ -79,7 +79,7 @@ namespace Premonition.Camera
         public float sensitivity = 0.25f;
 
         // Mouse state
-        private Vector2 _mouse_position = new Vector2(0.0f, 0.0f);
+        private Vector2 _mouse_position = new(0.0f, 0.0f);
         private float _total_pitch = 0.0f;
         private void _update_mouselook()
         {
@@ -191,7 +191,7 @@ namespace Premonition.Camera
         private void HandleMovement(double delta, Vector2 inputDir)
         {
             Vector2 direction2D = inputDir.Rotated(-HEAD.Rotation.Y);
-            Vector3 direction = new Vector3(direction2D.X, 0, direction2D.Y);
+            Vector3 direction = new(direction2D.X, 0, direction2D.Y);
             direction = direction.Normalized(); // ?
             MoveAndSlide();
 

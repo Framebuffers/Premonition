@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bn85nfcxw427a"
+path="res://.godot/imported/Premonition_R2_wav 3-Gizmodo_Swapshop.ogg-bd74bdd92080882ca561b99224d1d598.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/Premonition Project/Premonition_R2_wav 3-Gizmodo_Swapshop.ogg"
+dest_files=["res://.godot/imported/Premonition_R2_wav 3-Gizmodo_Swapshop.ogg-bd74bdd92080882ca561b99224d1d598.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

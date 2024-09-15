@@ -11,6 +11,7 @@ namespace Premonition.Managers
         public ScreenManager ScreenManager => GetNode<ScreenManager>(ScreenManagerPath);
         public SceneManager SceneManager => GetNode<SceneManager>(SceneManagerPath);
         public LogManager LogManager => GetNode<LogManager>(LogManagerPath);
+        public AudioManager AudioManager => GetNode<AudioManager>(AudioManagerPath);
         private bool EscapeKeyPressed = false;
 
         public void Quit()
@@ -72,6 +73,7 @@ namespace Premonition.Managers
         public const string SceneManagerPath = "/root/GameDirector/SceneManager";
         public const string ScreenManagerPath = "/root/GameDirector/ScreenManager";
         public const string LogManagerPath = "/root/GameDirector/LogManager";
+        public const string AudioManagerPath = "/root/GameDirector/AudioManager";
 
         // ----------------------------------------------------------------
         // Viewports

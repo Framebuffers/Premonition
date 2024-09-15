@@ -2,6 +2,7 @@ using Godot;
 using Premonition.Camera.Debug;
 using Premonition.Managers;
 using Premonition.Scenarios.Routes;
+using System;
 
 namespace Premonition.Nodes.Abstractions
 {
@@ -13,9 +14,13 @@ namespace Premonition.Nodes.Abstractions
         [Signal]
         public delegate void BroadcastInteractionEventHandler();
 
+        [Signal]
+        public delegate void ItemRemovedEventHandler();
+
         public virtual string ItemName { get; } = "[Not in table]";
         private GameDirector _director { get => this.GetGameDirector(); }
         private uint CurrentStoryline { get => _director.SceneManager.CurrentStoryline; }
+        private Route0 Route { get => GetNode<Route0>($"{GameDirector.Screen3DPath}/Route0"); }
         private DebugPanel DialoguePanel { get => _director.ScreenManager.DebugPanel; }
         private void RemoveDialogue()
         {
@@ -58,41 +63,72 @@ namespace Premonition.Nodes.Abstractions
         public abstract string Storyline3 { get; set; }
         public abstract string Storyline4 { get; set; }
         public abstract string Storyline5 { get; set; }
+        public string MissingElementLine { get; set; } = "I swear there was something here... Where could that be?";
+
+        public abstract string GetAlternativeDialogue(int progression);
+        //{
+        //    switch (progression)
+        //    {
+        //        case 0:
+        //            return $"[]";
+        //        case 1:
+        //            return $"[]";
+        //        case 2:
+        //            return $"[]";
+        //        case 3:
+        //            return $"[]";
+        //        case 4:
+        //            return $"[]";
+        //        case 5:
+        //            return $"[]";
+        //        default:
+        //            return $"[]";
+        //    }
+        //}
+
         protected void OnDialogueOpen(Node3D body)
         {
-            _director.ScreenManager.DebugPanel.Visible = true;
-            EmitSignal(SignalName.QueueForRandomRemoval);
-            EmitSignal(SignalName.BroadcastInteraction);
-            switch (CurrentStoryline)
+            try
             {
-                case 0:
-                    AddDialogue(Storyline0, 0);
-                    $"Case0: {Storyline5}".ToConsole();
-                    break;
-                case 1:
-                    AddDialogue(Storyline1, 0);
-                    $"Case1: {Storyline5}".ToConsole();
-                    break;
-                case 2:
-                    AddDialogue(Storyline2, 0);
-                    $"Case2: {Storyline5}".ToConsole();
-                    break;
-                case 3:
-                    AddDialogue(Storyline3, 0);
-                    $"Case3: {Storyline5}".ToConsole();
-                    break;
-                case 4:
-                    AddDialogue(Storyline4, 0);
-                    $"Case4: {Storyline5}".ToConsole();
-                    break;
-                case 5:
-                    AddDialogue(Storyline5, 0);
-                    $"Case5: {Storyline5}".ToConsole();
-                    break;
-                default:
-                    AddDialogue(DefaultAnswer, 0);
-                    "Case0".ToConsole();
-                    break;
+                _director.ScreenManager.DebugPanel.Visible = true;
+                EmitSignal(SignalName.QueueForRandomRemoval);
+                EmitSignal(SignalName.BroadcastInteraction);
+                switch (CurrentStoryline)
+                {
+                    case 0:
+                        AddDialogue(Storyline0, 0);
+                        $"Case0: {Storyline0}".ToConsole();
+                        return;
+                    case 1:
+                        AddDialogue(Storyline1, 0);
+                        $"Case1: {Storyline1}".ToConsole();
+                        break;
+                    case 2:
+                        AddDialogue(Storyline2, 0);
+                        $"Case2: {Storyline2}".ToConsole();
+                        break;
+                    case 3:
+                        AddDialogue(Storyline3, 0);
+                        $"Case3: {Storyline3}".ToConsole();
+                        break;
+                    case 4:
+                        AddDialogue(Storyline4, 0);
+                        $"Case4: {Storyline4}".ToConsole();
+                        break;
+                    case 5:
+                        AddDialogue(Storyline5, 0);
+                        $"Case5: {Storyline5}".ToConsole();
+                        break;
+                    default:
+                        AddDialogue(DefaultAnswer, 0);
+                        "Case0".ToConsole();
+                        break;
+                }
+            }
+            catch (NullReferenceException r)
+            {
+                AddDialogue(MissingElementLine, 0);
+                _ = r; // this is expected.
             }
         }
 
@@ -103,11 +139,11 @@ namespace Premonition.Nodes.Abstractions
         }
 
         private void HideObject() => this.Visible = false;
-      
+
         public override void _Ready()
         {
             base._Ready();
-            
+
 
         }
     }
