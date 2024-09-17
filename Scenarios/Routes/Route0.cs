@@ -21,6 +21,7 @@ namespace Premonition.Scenarios.Routes
         public override void _Ready()
         {
             base._Ready();
+    
             DifficultyLevel = GD.RandRange(15, 20);
             $"Difficulty level is: {DifficultyLevel}".ToConsole();
         }
@@ -71,9 +72,10 @@ namespace Premonition.Scenarios.Routes
             
         }
 
-        private void ListenToObjectRemoval()
+        public void ListenToObjectRemoval()
         {
-            CallDeferred(MethodName.RemoveRandomObject);
+            Callable c = new Callable(this, MethodName.RemoveRandomObject);
+            c.CallDeferred();
         }
 
         public static List<Color> StormColors =

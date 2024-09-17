@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Scenarios/Staircase.cs" id="1_ds1ce"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_q3amj"]
-size = Vector3(0.776428, 0.483398, 1.01563)
+[sub_resource type="SphereShape3D" id="SphereShape3D_nkg3g"]
+radius = 0.549163
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_uos8l"]
-size = Vector3(0.52005, 0.476387, 0.99118)
+[sub_resource type="SphereShape3D" id="SphereShape3D_lo06j"]
+radius = 0.4348
 
 [node name="Transitions" type="Node3D"]
 
@@ -15,15 +15,15 @@ collision_layer = 16
 script = ExtResource("1_ds1ce")
 
 [node name="StaircasePortal" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5952, 0.246182, -4.97318)
-shape = SubResource("BoxShape3D_q3amj")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7283, 0.113614, -5.20973)
+shape = SubResource("SphereShape3D_nkg3g")
 
 [node name="Area3D2" type="Area3D" parent="."]
 collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6163, 2.65421, -3.96017)
-shape = SubResource("BoxShape3D_uos8l")
+shape = SubResource("SphereShape3D_lo06j")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="OnStaircaseEnterL1"]
 [connection signal="body_entered" from="Area3D2" to="Area3D" method="OnStaircaseExitL2"]

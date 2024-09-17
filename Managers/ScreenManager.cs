@@ -32,11 +32,11 @@ namespace Premonition.Managers
         public override void _Ready()
         {
             base._Ready();
-            GetTree().Root.ContentScaleMode = Window.ContentScaleModeEnum.CanvasItems;
+            // GetTree().Root.ContentScaleMode = Window.ContentScaleModeEnum.CanvasItems;
             GetTree().Root.ContentScaleStretch = Window.ContentScaleStretchEnum.Integer;
             GetTree().Root.GetViewport().Scaling3DScale = 1.0f;
             SubViewportContainer.Size = new Vector2(GetTree().Root.GetWindow().Size.X, GetTree().Root.GetWindow().Size.Y);
-            SubViewportContainer.Stretch = false;
+            // SubViewportContainer.Stretch = false;
             SetViewportSizes();
             // Director.SceneManager.LoadRandomizedScenePath();
 

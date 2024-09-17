@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://qda4dvlu64ak"
+path="res://.godot/imported/Premonition_R2_wav A-Reverb _ Drums Punchy.wav-8178ebd7f2bd0a3cd61243695cf04719.sample"
+
+[deps]
+
+source_file="res://Music/Premonition Project/New folder/Premonition_R2_wav A-Reverb _ Drums Punchy.wav"
+dest_files=["res://.godot/imported/Premonition_R2_wav A-Reverb _ Drums Punchy.wav-8178ebd7f2bd0a3cd61243695cf04719.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

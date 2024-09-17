@@ -111,7 +111,7 @@ size = Vector3(2.04766, 2.45131, 0.267715)
 size = Vector3(0.281403, 2.49353, 1.58777)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k7vih"]
-size = Vector3(0.244629, 2.64105, 4.16089)
+size = Vector3(0.296887, 2.64105, 5.96423)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_48r27"]
 size = Vector3(3.36914, 2.51953, 0.210205)
@@ -126,7 +126,7 @@ size = Vector3(1.27167, 2.4729, 0.207275)
 size = Vector3(0.14801, 6.20245, 2.67749)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kmccs"]
-size = Vector3(0.447266, 1.85184, 3.24023)
+size = Vector3(0.447266, 2.49526, 5.39813)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k0wsi"]
 size = Vector3(3.38232, 5.71008, 0.250732)

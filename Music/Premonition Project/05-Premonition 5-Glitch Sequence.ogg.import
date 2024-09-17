@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://n1eglv18milc"
+path="res://.godot/imported/05-Premonition 5-Glitch Sequence.ogg-2035c4039d9e18f6b83ddccb1db09a74.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/Premonition Project/05-Premonition 5-Glitch Sequence.ogg"
+dest_files=["res://.godot/imported/05-Premonition 5-Glitch Sequence.ogg-2035c4039d9e18f6b83ddccb1db09a74.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

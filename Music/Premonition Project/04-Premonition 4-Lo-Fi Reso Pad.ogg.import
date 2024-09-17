@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d2k4ftvatp7my"
+path="res://.godot/imported/04-Premonition 4-Lo-Fi Reso Pad.ogg-98002dada3addb6b5a386704f907812e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/Premonition Project/04-Premonition 4-Lo-Fi Reso Pad.ogg"
+dest_files=["res://.godot/imported/04-Premonition 4-Lo-Fi Reso Pad.ogg-98002dada3addb6b5a386704f907812e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

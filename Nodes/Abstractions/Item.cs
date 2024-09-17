@@ -76,50 +76,51 @@ namespace Premonition.Nodes.Abstractions
                 {
                     case 0:
                         AddDialogue(GetAlternativeDialogue(0), 0);
+                        Route.ListenToObjectRemoval();
                         $"Case0: {GetAlternativeDialogue(0)}".ToConsole();
-                        EmitSignal(SignalName.QueueForRandomRemoval);
-                        EmitSignal(SignalName.BroadcastInteraction);
+                        //EmitSignal(SignalName.QueueForRandomRemoval);
+                        //EmitSignal(SignalName.BroadcastInteraction);
                         return;
                     case 1:
                         AddDialogue(GetAlternativeDialogue(1), 0);
-
+                        Route.ListenToObjectRemoval();
                         $"Case1: {GetAlternativeDialogue(1)}".ToConsole();
-                        EmitSignal(SignalName.QueueForRandomRemoval);
-                        EmitSignal(SignalName.BroadcastInteraction);
+                        //EmitSignal(SignalName.QueueForRandomRemoval);
+                        //EmitSignal(SignalName.BroadcastInteraction);
                         break;
                     case 2:
                         AddDialogue(GetAlternativeDialogue(2), 0);
-
+                        Route.ListenToObjectRemoval();
                         $"Case2: {GetAlternativeDialogue(2)}".ToConsole();
-                        EmitSignal(SignalName.QueueForRandomRemoval);
-                        EmitSignal(SignalName.BroadcastInteraction);
+                        //EmitSignal(SignalName.QueueForRandomRemoval);
+                        //EmitSignal(SignalName.BroadcastInteraction);
                         break;
                     case 3:
                         AddDialogue(GetAlternativeDialogue(3), 0);
-
+                        Route.ListenToObjectRemoval();
                         $"Case3: {GetAlternativeDialogue(3)}".ToConsole();
-                        EmitSignal(SignalName.QueueForRandomRemoval);
-                        EmitSignal(SignalName.BroadcastInteraction);
+                        //EmitSignal(SignalName.QueueForRandomRemoval);
+                        //EmitSignal(SignalName.BroadcastInteraction);
                         break;
                     case 4:
                         AddDialogue(GetAlternativeDialogue(4), 0);
-
+                        Route.ListenToObjectRemoval();
                         $"Case4: {GetAlternativeDialogue(4)}".ToConsole();
-                        EmitSignal(SignalName.QueueForRandomRemoval);
-                        EmitSignal(SignalName.BroadcastInteraction);
+                        //EmitSignal(SignalName.QueueForRandomRemoval);
+                        //EmitSignal(SignalName.BroadcastInteraction);
                         break;
                     case 5:
                         AddDialogue(GetAlternativeDialogue(5), 0);
-
+                        Route.ListenToObjectRemoval();
                         $"Case5: {GetAlternativeDialogue(5)}".ToConsole();
-                        EmitSignal(SignalName.QueueForRandomRemoval);
-                        EmitSignal(SignalName.BroadcastInteraction);
+                        //EmitSignal(SignalName.QueueForRandomRemoval);
+                        //EmitSignal(SignalName.BroadcastInteraction);
                         break;
                     default:
                         GetAlternativeDialogue(Route0.RouteStoryCounter);
                         "Case0".ToConsole();
-                        EmitSignal(SignalName.QueueForRandomRemoval);
-                        EmitSignal(SignalName.BroadcastInteraction);
+                        //EmitSignal(SignalName.QueueForRandomRemoval);
+                        //EmitSignal(SignalName.BroadcastInteraction);
                         break;
                 }
             }
@@ -144,6 +145,7 @@ namespace Premonition.Nodes.Abstractions
         public override void _Ready()
         {
             base._Ready();
+            
 
 
         }

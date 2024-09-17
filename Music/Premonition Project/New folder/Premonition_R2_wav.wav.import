@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cgo0yd1q8m1cm"
+path="res://.godot/imported/Premonition_R2_wav.wav-2f4f27a542aed3dba90bfa339c177593.sample"
+
+[deps]
+
+source_file="res://Music/Premonition Project/New folder/Premonition_R2_wav.wav"
+dest_files=["res://.godot/imported/Premonition_R2_wav.wav-2f4f27a542aed3dba90bfa339c177593.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

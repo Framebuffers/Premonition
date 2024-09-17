@@ -11,8 +11,13 @@ namespace Premonition.Transitions
             if (body is CharacterBody3D character)
             {
                 Vector3 newPosition = character.GlobalTransform.Origin;
+                
                 newPosition.Y += 2.5f;
-                newPosition.X += 2.5f;
+                newPosition.X += 0.75f;
+
+                //Transform3D t = new Transform3D(character.GlobalBasis, newPosition);
+                //character.GlobalTransform.InterpolateWith(t, (float)GetPhysicsProcessDeltaTime());
+
                 character.GlobalTransform = new Transform3D(character.GlobalBasis, newPosition);
             }
         }
@@ -24,6 +29,9 @@ namespace Premonition.Transitions
                 Vector3 newPosition = character.GlobalTransform.Origin;
                 newPosition.Y -= 2.5f;
                 newPosition.X += 2.5f;
+
+                //Transform3D t = new Transform3D(character.GlobalBasis, newPosition);
+                //character.GlobalTransform.InterpolateWith(t, (float)GetPhysicsProcessDeltaTime());
                 character.GlobalTransform = new Transform3D(character.GlobalBasis, newPosition);
             }
         }

@@ -1,6 +1,7 @@
 ﻿using Godot;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace Premonition.Managers
@@ -33,6 +34,10 @@ namespace Premonition.Managers
         public static void LoadAudioFromPath(this AudioManager a, string path, out AudioStreamPlayer instance)
         {
             path.InstantiatePathAsScene<AudioStreamPlayer>(out AudioStreamPlayer i);
+            Tween tw = i.CreateTween();
+            tw.TweenProperty(i, "volume_db", -20.0f, 1.00f)
+            .SetTrans(Tween.TransitionType.Sine)
+            .SetEase(Tween.EaseType.In);
             a.AddChild(i);
             instance = i;
         }

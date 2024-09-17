@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://jjs4krqxknpn"
+path="res://.godot/imported/Premonition_R2_wav 1-ASMR Cave Texture.wav-9d2d9b43b342630d7f0c39754da3c2c8.sample"
+
+[deps]
+
+source_file="res://Music/Premonition Project/New folder/Premonition_R2_wav 1-ASMR Cave Texture.wav"
+dest_files=["res://.godot/imported/Premonition_R2_wav 1-ASMR Cave Texture.wav-9d2d9b43b342630d7f0c39754da3c2c8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

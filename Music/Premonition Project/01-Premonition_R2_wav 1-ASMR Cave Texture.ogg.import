@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b8gghfp5v6r7p"
+path="res://.godot/imported/01-Premonition_R2_wav 1-ASMR Cave Texture.ogg-1388f226f00797af336889a15c580d7e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/Premonition Project/01-Premonition_R2_wav 1-ASMR Cave Texture.ogg"
+dest_files=["res://.godot/imported/01-Premonition_R2_wav 1-ASMR Cave Texture.ogg-1388f226f00797af336889a15c580d7e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
